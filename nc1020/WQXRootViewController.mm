@@ -22,6 +22,9 @@
     WQXScreenLayout *_layout;
     CGRect _screenBounds;
 }
+
+@property (nonatomic, strong) UIView *safeView;
+
 @end
 
 @implementation WQXRootViewController
@@ -35,14 +38,16 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [WQXToolbox colorWithRGB:0x222222];
-    _screenBounds = [WQXToolbox rectForCurrentOrientation:self.view.bounds];
+    self.safeView = [[UIView alloc] initWithFrame:CGRectMake(20, 20, self.view.frame.size.width - 40, self.view.frame.size.height - 40)];
+    [self.view addSubview:self.safeView];
+    _screenBounds = [WQXToolbox rectForCurrentOrientation:self.safeView.bounds];
 
     WQX *wqx = [WQX sharedInstance];
     
     // Load screen layout.
     NSString *screenLayoutClassName = wqx.defaultLayoutClassName;
     _layout = [[NSClassFromString(screenLayoutClassName) alloc] initWithBounds:_screenBounds andKeyboardViewDelegate:self];
-    [_layout attachToView:self.view];
+    [_layout attachToView:self.safeView];
     
     // Load archive.
     WQXArchive *archive = [wqx defaultArchive];
@@ -75,11 +80,11 @@
 
 - (void)setScreenLayout:(WQXScreenLayout *)layout {
     if (_layout != Nil) {
-        [_layout detachFromView:self.view];
+        [_layout detachFromView:self.safeView];
     }
     _layout = layout;
     [[_layout lcdView] beginUpdate];
-    [_layout attachToView:self.view];
+    [_layout attachToView:self.safeView];
 }
 
 - (void)switchScreenLayout {
@@ -104,7 +109,7 @@
                 break;
             case kWQXCustomKeyCodeSave:
                 wqx::SaveNC1020();
-                [self.view makeToast:@"保存完毕" duration:1.0 position:CSToastPositionBottom];
+                [self.safeView makeToast:@"保存完毕" duration:1.0 position:CSToastPositionBottom];
                 break;
             case kWQXCustomKeyCodeSeppdup:
                 break;
