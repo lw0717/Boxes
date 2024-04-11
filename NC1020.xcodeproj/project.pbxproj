@@ -31,6 +31,7 @@
 		18611CA11B89FB0200BB0AED /* WQXKeyCircleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18611CA01B89FB0200BB0AED /* WQXKeyCircleButton.m */; };
 		18611CA71B8A061100BB0AED /* WQXGridKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18611CA61B8A061100BB0AED /* WQXGridKeyboardView.m */; };
 		18611CAA1B8A06A100BB0AED /* WQXGMUDKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18611CA91B8A06A100BB0AED /* WQXGMUDKeyboardView.m */; };
+		2681E6A82BC78F41005D3FBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2681E6A72BC78F41005D3FBA /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		18611CA61B8A061100BB0AED /* WQXGridKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQXGridKeyboardView.m; sourceTree = "<group>"; };
 		18611CA81B8A06A100BB0AED /* WQXGMUDKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQXGMUDKeyboardView.h; sourceTree = "<group>"; };
 		18611CA91B8A06A100BB0AED /* WQXGMUDKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQXGMUDKeyboardView.m; sourceTree = "<group>"; };
+		2681E6A72BC78F41005D3FBA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +110,7 @@
 		0751922B1B85CFBE00D38120 /* nc1020 */ = {
 			isa = PBXGroup;
 			children = (
-				07D57B7C1B85D58B00960EB4 /* Images.xcassets */,
+				2681E6A62BC78EFE005D3FBA /* SupportingFiles */,
 				07BD82B31B8EC2DB00D19CD2 /* Vendors */,
 				07F88A351B8C4B6600B205DA /* wqx */,
 				18611C801B89E61B00BB0AED /* Layout */,
@@ -209,6 +211,15 @@
 			name = Keyboard;
 			sourceTree = "<group>";
 		};
+		2681E6A62BC78EFE005D3FBA /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				2681E6A72BC78F41005D3FBA /* LaunchScreen.storyboard */,
+				07D57B7C1B85D58B00960EB4 /* Images.xcassets */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -270,6 +281,7 @@
 				07C66DF11BC8B78F0031DA1C /* README in Resources */,
 				07D57B8A1B85DD1100960EB4 /* rom in Resources */,
 				07D57B7D1B85D58B00960EB4 /* Images.xcassets in Resources */,
+				2681E6A82BC78F41005D3FBA /* LaunchScreen.storyboard in Resources */,
 				07BD82B21B8EBA3700D19CD2 /* gmud_arrow_btn_highlighted.png in Resources */,
 				07BD82B11B8EBA3700D19CD2 /* gmud_arrow_btn_normal.png in Resources */,
 			);
