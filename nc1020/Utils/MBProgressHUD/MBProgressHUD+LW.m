@@ -1,13 +1,13 @@
 //
-//  MBProgressHUD+lw.m
+//  MBProgressHUD+LW.m
 //
 //  Created by lw0717 on 2017/3/17.
-//  Copyright © 2017年 Baijia Cloud. All rights reserved.
+//  Copyright © 2017年 lw0717. All rights reserved.
 //
 
-#import "MBProgressHUD+lw.h"
+#import "MBProgressHUD+LW.h"
 
-@implementation MBProgressHUD (lw)
+@implementation MBProgressHUD (LW)
 
 + (void)lw_showMessageThenHide:(NSString *)msg 
                         toView:(UIView *)view {

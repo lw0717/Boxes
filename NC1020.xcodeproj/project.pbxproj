@@ -29,7 +29,10 @@
 		18611CA11B89FB0200BB0AED /* WQXKeyCircleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18611CA01B89FB0200BB0AED /* WQXKeyCircleButton.m */; };
 		18611CA71B8A061100BB0AED /* WQXGridKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18611CA61B8A061100BB0AED /* WQXGridKeyboardView.m */; };
 		18611CAA1B8A06A100BB0AED /* WQXGMUDKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18611CA91B8A06A100BB0AED /* WQXGMUDKeyboardView.m */; };
-		26803BDF2BC9897F00656002 /* MBProgressHUD+lw.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BDD2BC9897E00656002 /* MBProgressHUD+lw.m */; };
+		26803BDF2BC9897F00656002 /* MBProgressHUD+LW.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BDD2BC9897E00656002 /* MBProgressHUD+LW.m */; };
+		26803BE22BC98D9E00656002 /* LWAutolayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BE02BC98D9E00656002 /* LWAutolayout.m */; };
+		26803BE52BC98DCD00656002 /* LWEXTScope.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BE32BC98DCD00656002 /* LWEXTScope.m */; };
+		26803BE92BC98DFB00656002 /* LWM9Dev.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BE82BC98DFA00656002 /* LWM9Dev.m */; };
 		2681E6A82BC78F41005D3FBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2681E6A72BC78F41005D3FBA /* LaunchScreen.storyboard */; };
 		F7123B98F87D16F43649C2A5 /* libPods-NC1020.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 290AB91D4C5A31F7E97A93D7 /* libPods-NC1020.a */; };
 /* End PBXBuildFile section */
@@ -74,8 +77,15 @@
 		18611CA61B8A061100BB0AED /* WQXGridKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQXGridKeyboardView.m; sourceTree = "<group>"; };
 		18611CA81B8A06A100BB0AED /* WQXGMUDKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQXGMUDKeyboardView.h; sourceTree = "<group>"; };
 		18611CA91B8A06A100BB0AED /* WQXGMUDKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQXGMUDKeyboardView.m; sourceTree = "<group>"; };
-		26803BDD2BC9897E00656002 /* MBProgressHUD+lw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+lw.m"; sourceTree = "<group>"; };
-		26803BDE2BC9897F00656002 /* MBProgressHUD+lw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+lw.h"; sourceTree = "<group>"; };
+		26803BDD2BC9897E00656002 /* MBProgressHUD+LW.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+LW.m"; sourceTree = "<group>"; };
+		26803BDE2BC9897F00656002 /* MBProgressHUD+LW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+LW.h"; sourceTree = "<group>"; };
+		26803BE02BC98D9E00656002 /* LWAutolayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAutolayout.m; sourceTree = "<group>"; };
+		26803BE12BC98D9E00656002 /* LWAutolayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAutolayout.h; sourceTree = "<group>"; };
+		26803BE32BC98DCD00656002 /* LWEXTScope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWEXTScope.m; sourceTree = "<group>"; };
+		26803BE42BC98DCD00656002 /* LWEXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWEXTScope.h; sourceTree = "<group>"; };
+		26803BE62BC98DE900656002 /* LWMetamacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMetamacros.h; sourceTree = "<group>"; };
+		26803BE72BC98DFA00656002 /* LWM9Dev.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWM9Dev.h; sourceTree = "<group>"; };
+		26803BE82BC98DFA00656002 /* LWM9Dev.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWM9Dev.m; sourceTree = "<group>"; };
 		2681E6A72BC78F41005D3FBA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		290AB91D4C5A31F7E97A93D7 /* libPods-NC1020.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NC1020.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B8E8CFDA360DB97C0A6E130 /* Pods-NC1020.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NC1020.debug.xcconfig"; path = "Target Support Files/Pods-NC1020/Pods-NC1020.debug.xcconfig"; sourceTree = "<group>"; };
@@ -115,7 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				2681E6A62BC78EFE005D3FBA /* SupportingFiles */,
-				07BD82B31B8EC2DB00D19CD2 /* Vendors */,
+				07BD82B31B8EC2DB00D19CD2 /* Utils */,
 				07F88A351B8C4B6600B205DA /* wqx */,
 				18611C801B89E61B00BB0AED /* Layout */,
 				0751922C1B85CFBE00D38120 /* Supporting Files */,
@@ -154,13 +164,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		07BD82B31B8EC2DB00D19CD2 /* Vendors */ = {
+		07BD82B31B8EC2DB00D19CD2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				26803BDE2BC9897F00656002 /* MBProgressHUD+lw.h */,
-				26803BDD2BC9897E00656002 /* MBProgressHUD+lw.m */,
+				26803BEB2BC9932C00656002 /* MBProgressHUD */,
+				26803BEA2BC98E9D00656002 /* Autolayout */,
 			);
-			path = Vendors;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		07F88A351B8C4B6600B205DA /* wqx */ = {
@@ -211,6 +221,29 @@
 				290AB91D4C5A31F7E97A93D7 /* libPods-NC1020.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		26803BEA2BC98E9D00656002 /* Autolayout */ = {
+			isa = PBXGroup;
+			children = (
+				26803BE12BC98D9E00656002 /* LWAutolayout.h */,
+				26803BE02BC98D9E00656002 /* LWAutolayout.m */,
+				26803BE42BC98DCD00656002 /* LWEXTScope.h */,
+				26803BE32BC98DCD00656002 /* LWEXTScope.m */,
+				26803BE62BC98DE900656002 /* LWMetamacros.h */,
+				26803BE72BC98DFA00656002 /* LWM9Dev.h */,
+				26803BE82BC98DFA00656002 /* LWM9Dev.m */,
+			);
+			path = Autolayout;
+			sourceTree = "<group>";
+		};
+		26803BEB2BC9932C00656002 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				26803BDE2BC9897F00656002 /* MBProgressHUD+LW.h */,
+				26803BDD2BC9897E00656002 /* MBProgressHUD+LW.m */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		2681E6A62BC78EFE005D3FBA /* SupportingFiles */ = {
@@ -338,15 +371,18 @@
 				18611CA11B89FB0200BB0AED /* WQXKeyCircleButton.m in Sources */,
 				18611C8B1B89ED2B00BB0AED /* WQXScreenLayout.mm in Sources */,
 				18611CA71B8A061100BB0AED /* WQXGridKeyboardView.m in Sources */,
+				26803BE52BC98DCD00656002 /* LWEXTScope.m in Sources */,
 				18611C981B89EE1200BB0AED /* WQXDefaultScreenLayout.mm in Sources */,
 				18611C8C1B89ED2B00BB0AED /* WQXRootViewController.mm in Sources */,
 				18611CAA1B8A06A100BB0AED /* WQXGMUDKeyboardView.m in Sources */,
 				18611C8D1B89ED2B00BB0AED /* WQXLCDView.mm in Sources */,
 				07F88A341B8C15A600B205DA /* WQX.mm in Sources */,
-				26803BDF2BC9897F00656002 /* MBProgressHUD+lw.m in Sources */,
+				26803BDF2BC9897F00656002 /* MBProgressHUD+LW.m in Sources */,
 				18611C9B1B89F45D00BB0AED /* WQXGMUDScreenLayout.mm in Sources */,
+				26803BE92BC98DFB00656002 /* LWM9Dev.m in Sources */,
 				18611C8E1B89ED2B00BB0AED /* WQXKeyItem.m in Sources */,
 				18611C8F1B89ED2B00BB0AED /* WQXKeyboardView.m in Sources */,
+				26803BE22BC98D9E00656002 /* LWAutolayout.m in Sources */,
 				18611C901B89ED2B00BB0AED /* WQXToolbox.mm in Sources */,
 				18611C911B89ED2B00BB0AED /* WQXKeyButton.m in Sources */,
 			);
