@@ -14,7 +14,7 @@
 #import "WQXKeyItem.h"
 #import "WQXToolbox.h"
 #import "WQX.hpp"
-#import "UIView+Toast.h"
+#import "MBProgressHUD+lw.h"
 
 @interface WQXRootViewController ()
 {
@@ -109,7 +109,7 @@
                 break;
             case kWQXCustomKeyCodeSave:
                 wqx::SaveNC1020();
-                [self.safeView makeToast:@"保存完毕" duration:1.0 position:CSToastPositionBottom];
+                [MBProgressHUD lw_showMessageThenHide:@"保存完毕" toView:self.safeView];
                 break;
             case kWQXCustomKeyCodeSeppdup:
                 break;
