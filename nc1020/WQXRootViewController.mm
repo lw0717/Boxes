@@ -60,8 +60,8 @@
     
     wqx::WqxRom rom = [WQX wqxRomWithArchive:archive];
     
-    NSLog(@"RAM path %s", rom.norFlashPath.c_str());
-    NSLog(@"ROM path %s", rom.romPath.c_str());
+    NSLog(@"lw0717: RAM path %s", rom.norFlashPath.c_str());
+    NSLog(@"lw0717: ROM path %s", rom.romPath.c_str());
     wqx::Initialize(rom);
     wqx::LoadNC1020();
     
@@ -75,7 +75,7 @@
     if (keyCode < kWQXCustomKeyCodeBegin) {
         wqx::SetKey((uint8_t)keyCode, TRUE);
     }
-    NSLog(@"Did keydown with keycode: %d\n", keyCode);
+    NSLog(@"lw0717: Did keydown with keycode: %zd\n", keyCode);
 }
 
 - (void)setScreenLayout:(WQXScreenLayout *)layout {
@@ -119,7 +119,7 @@
                 break;
         }
     }
-    NSLog(@"Did keyup with keycode: %d\n", keyCode);
+    NSLog(@"lw0717: Did keyup with keycode: %zd\n", keyCode);
 }
 
 - (void)wqxloopThreadCallback {

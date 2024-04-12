@@ -15,7 +15,7 @@
     if ([super init]) {
         self.bounds = bounds;
         self.keyboardViewDelegate = delegate;
-        NSLog(@"Layout Bounds: %f, %f, %f, %f", bounds.origin.x, bounds.origin.y, bounds.size.width, bounds.size.height);
+        NSLog(@"lw0717: Layout Bounds: %f, %f, %f, %f", bounds.origin.x, bounds.origin.y, bounds.size.width, bounds.size.height);
         [self initViews];
         return self;
     } else {

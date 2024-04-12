@@ -123,9 +123,9 @@ static NSArray *_layoutClassNames = Nil;
     
     NSError *error;
     [fileManager copyItemAtPath:srcNorFlashPath toPath:destNorFlashPath error:&error];
-    NSLog(@"%@", error);
+    NSLog(@"lw0717: %@", error);
     [fileManager copyItemAtPath:srcStatesPath toPath:destStatesPath error:&error];
-    NSLog(@"%@", error);
+    NSLog(@"lw0717: %@", error);
     
     return newArchive;
 }
