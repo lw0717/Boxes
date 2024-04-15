@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07BD82B11B8EBA3700D19CD2 /* gmud_arrow_btn_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 07BD82AF1B8EBA3700D19CD2 /* gmud_arrow_btn_normal.png */; };
-		07BD82B21B8EBA3700D19CD2 /* gmud_arrow_btn_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 07BD82B01B8EBA3700D19CD2 /* gmud_arrow_btn_highlighted.png */; };
 		07C66DF11BC8B78F0031DA1C /* README in Resources */ = {isa = PBXBuildFile; fileRef = 07C66DF01BC8B78F0031DA1C /* README */; };
 		07D57B7D1B85D58B00960EB4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07D57B7C1B85D58B00960EB4 /* Images.xcassets */; };
 		07D57B8A1B85DD1100960EB4 /* rom in Resources */ = {isa = PBXBuildFile; fileRef = 07D57B891B85DD1100960EB4 /* rom */; };
@@ -45,8 +43,6 @@
 		0751922E1B85CFBE00D38120 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		075192301B85CFBE00D38120 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		075192311B85CFBE00D38120 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
-		07BD82AF1B8EBA3700D19CD2 /* gmud_arrow_btn_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gmud_arrow_btn_normal.png; sourceTree = "<group>"; };
-		07BD82B01B8EBA3700D19CD2 /* gmud_arrow_btn_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gmud_arrow_btn_highlighted.png; sourceTree = "<group>"; };
 		07C66DF01BC8B78F0031DA1C /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		07D57B7C1B85D58B00960EB4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		07D57B811B85D77F00960EB4 /* WQXRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQXRootViewController.h; sourceTree = "<group>"; };
@@ -151,21 +147,9 @@
 		0751922C1B85CFBE00D38120 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				07BD82AE1B8EBA3700D19CD2 /* Resources */,
 				07D57B891B85DD1100960EB4 /* rom */,
-				0751922D1B85CFBE00D38120 /* Info.plist */,
-				0751922E1B85CFBE00D38120 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		07BD82AE1B8EBA3700D19CD2 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				07BD82AF1B8EBA3700D19CD2 /* gmud_arrow_btn_normal.png */,
-				07BD82B01B8EBA3700D19CD2 /* gmud_arrow_btn_highlighted.png */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		07BD82B31B8EC2DB00D19CD2 /* Utils */ = {
@@ -278,8 +262,10 @@
 		2681E6A62BC78EFE005D3FBA /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				2681E6A72BC78F41005D3FBA /* LaunchScreen.storyboard */,
+				0751922D1B85CFBE00D38120 /* Info.plist */,
+				0751922E1B85CFBE00D38120 /* main.m */,
 				07D57B7C1B85D58B00960EB4 /* Images.xcassets */,
+				2681E6A72BC78F41005D3FBA /* LaunchScreen.storyboard */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -356,8 +342,6 @@
 				07D57B8A1B85DD1100960EB4 /* rom in Resources */,
 				07D57B7D1B85D58B00960EB4 /* Images.xcassets in Resources */,
 				2681E6A82BC78F41005D3FBA /* LaunchScreen.storyboard in Resources */,
-				07BD82B21B8EBA3700D19CD2 /* gmud_arrow_btn_highlighted.png in Resources */,
-				07BD82B11B8EBA3700D19CD2 /* gmud_arrow_btn_normal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,7 +523,7 @@
 				COMPRESS_PNG_FILES = NO;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = nc1020/Info.plist;
+				INFOPLIST_FILE = nc1020/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -569,7 +553,7 @@
 				COMPRESS_PNG_FILES = NO;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = nc1020/Info.plist;
+				INFOPLIST_FILE = nc1020/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
