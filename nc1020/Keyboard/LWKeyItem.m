@@ -6,15 +6,12 @@
 //  Copyright (c) 2015年 rainyx. All rights reserved.
 //
 
-#import "WQXKeyItem.h"
+#import "LWKeyItem.h"
 
-@implementation WQXKeyItem
-@synthesize title = _title, keyCode = _keyCode, buttonStyle = _buttonStyle;
+@implementation LWKeyItem
 
-- (id)initWithTitle:(NSString *)title andKeyCode:(NSInteger)keyCode andButtonStyle:(WQXKeyButtonStyle)style {
-    
+- (instancetype)initWithTitle:(NSString *)title andKeyCode:(NSInteger)keyCode andButtonStyle:(LWKeyButtonStyle)style {
     if ([self init]) {
-        
         self.title = title;
         self.keyCode = keyCode;
         self.buttonStyle = style;

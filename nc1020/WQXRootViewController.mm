@@ -11,10 +11,11 @@
 #import "WQXScreenLayout.h"
 #import "WQXDefaultScreenLayout.h"
 #import "WQXGMUDScreenLayout.h"
-#import "WQXKeyItem.h"
-#import "WQXToolbox.h"
+#import "LWKeyItem.h"
+#import "LWToolbox.h"
 #import "WQX.hpp"
-#import "MBProgressHUD+lw.h"
+#import "MBProgressHUD+LW.h"
+#import "UIColor+LW.h"
 
 @interface WQXRootViewController ()
 {
@@ -37,10 +38,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [WQXToolbox colorWithRGB:0x222222];
+    self.view.backgroundColor = [UIColor colorWithRGB:0x222222];
     self.safeView = [[UIView alloc] initWithFrame:CGRectMake(20, 20, self.view.frame.size.width - 40, self.view.frame.size.height - 40)];
     [self.view addSubview:self.safeView];
-    _screenBounds = [WQXToolbox rectForCurrentOrientation:self.safeView.bounds];
+    _screenBounds = [LWToolbox rectForCurrentOrientation:self.safeView.bounds];
 
     WQX *wqx = [WQX sharedInstance];
     
@@ -71,7 +72,7 @@
     [_wqxLoopThread start];
 }
 
-- (void)keyboardView:(WQXKeyboardView *)view didKeydown:(NSInteger)keyCode {
+- (void)keyboardView:(LWKeyboardView *)view didKeydown:(NSInteger)keyCode {
     if (keyCode < kWQXCustomKeyCodeBegin) {
         wqx::SetKey((uint8_t)keyCode, TRUE);
     }
@@ -95,7 +96,7 @@
     [self setScreenLayout:layout];
 }
 
-- (void)keyboardView:(WQXKeyboardView *)view didKeyup:(NSInteger)keyCode {
+- (void)keyboardView:(LWKeyboardView *)view didKeyup:(NSInteger)keyCode {
     if (keyCode < kWQXCustomKeyCodeBegin) {
         wqx::SetKey((uint8_t)keyCode, FALSE);
     } else {

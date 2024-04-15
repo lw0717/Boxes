@@ -12,14 +12,10 @@
 #define mustOverride() @throw [NSException exceptionWithName:NSInvalidArgumentException reason:[NSString stringWithFormat:@"%s must be overridden in a subclass/category", __PRETTY_FUNCTION__] userInfo:nil]
 #define methodNotImplemented() mustOverride()
 
-@interface WQXToolbox : NSObject
+@interface LWToolbox : NSObject
 
 + (CGRect)rectForCurrentOrientation:(CGRect)rect;
-+ (UIColor *)colorWithRGB:(NSUInteger)rgb;
-+ (UIColor *)colorWithARGB:(NSUInteger)argb;
-+ (UIColor *)colorWithRGBA:(NSUInteger)rgba;
-+ (UIImage *)imageWithColor:(UIColor *)color;
-+ (UIColor *)colorWithRed:(NSInteger)r green:(NSInteger)g blue:(NSInteger)b alpha:(NSInteger)a;
+
 + (NSString *)calcMD5Hash:(NSString *)string;
 
 @end

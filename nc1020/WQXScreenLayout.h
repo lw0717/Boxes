@@ -9,15 +9,15 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "WQXKeyboardView.h"
+#import "LWKeyboardView.h"
 #import "WQXLCDView.h"
 
-@interface WQXScreenLayout : NSObject<WQXKeyboardViewDelegate>
+@interface WQXScreenLayout : NSObject<LWKeyboardViewDelegate>
 
-@property(weak, nonatomic) id<WQXKeyboardViewDelegate> keyboardViewDelegate;
+@property(weak, nonatomic) id<LWKeyboardViewDelegate> keyboardViewDelegate;
 @property(nonatomic) CGRect bounds;
 
-- (id)initWithBounds:(CGRect)bounds andKeyboardViewDelegate:(id<WQXKeyboardViewDelegate>)delegate;
+- (id)initWithBounds:(CGRect)bounds andKeyboardViewDelegate:(id<LWKeyboardViewDelegate>)delegate;
 - (WQXLCDView *)lcdView;
 - (void) attachToView:(UIView *)view;
 - (void) detachFromView:(UIView *)view;

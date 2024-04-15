@@ -7,7 +7,7 @@
 //
 
 #import "WQX.hpp"
-#import "WQXToolbox.h"
+#import "LWToolbox.h"
 
 @interface WQXArchive()
 {
@@ -90,7 +90,7 @@ static NSArray *_layoutClassNames = Nil;
 
 + (WQXArchive *)archiveCopyFrom:(WQXArchive *)archive withNewName:(NSString *)name {
    
-    NSString *newArchiveDirectoryName = [WQXToolbox calcMD5Hash:name];
+    NSString *newArchiveDirectoryName = [LWToolbox calcMD5Hash:name];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *basePath = [WQX archiveDirectoryPath];

@@ -6,13 +6,13 @@
 //  Copyright (c) 2015年 rainyx. All rights reserved.
 //
 
-#import "WQXGridKeyboardView.h"
-#import "WQXKeyItem.h"
-#import "WQXKeyButton.h"
+#import "LWGridKeyboardView.h"
+#import "LWKeyItem.h"
+#import "UIButton+LW.h"
 
-@implementation WQXGridKeyboardView
+@implementation LWGridKeyboardView
 
-- (id)initWithFrame:(CGRect)frame andRows:(NSMutableArray *)rows {
+- (instancetype)initWithFrame:(CGRect)frame andRows:(NSMutableArray *)rows {
     
     if ([super initWithFrame:frame]) {
         
@@ -26,8 +26,9 @@
         CGFloat x, y = 0.0f;
         for (NSMutableArray *cols in rows) {
             x = 0.0f;
-            for (WQXKeyItem *keyItem in cols) {
-                WQXKeyButton *btn = [[WQXKeyButton alloc] initWithFrame:CGRectMake(x, y, itemWidth, itemHeight) andStyle:keyItem.buttonStyle];
+            for (LWKeyItem *keyItem in cols) {
+                UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(x, y, itemWidth, itemHeight)];
+                [btn setupStyle:keyItem.buttonStyle];
                 [btn setTitle:keyItem.title forState:UIControlStateNormal];
                 [btn setTag:keyItem.keyCode];
                 [btn addTarget:self action:@selector(didButtonTouchDown:) forControlEvents:UIControlEventTouchDown];

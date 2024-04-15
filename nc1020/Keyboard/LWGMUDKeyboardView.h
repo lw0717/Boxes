@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 rainyx. All rights reserved.
 //
 
-#import "WQXKeyboardView.h"
+#import "LWKeyboardView.h"
 
-@interface WQXGMUDKeyboardView : WQXKeyboardView
+@interface LWGMUDKeyboardView : LWKeyboardView
 
 @end

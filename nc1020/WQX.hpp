@@ -7,11 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "WQXToolbox.h"
+#import "LWToolbox.h"
 #import "nc1020.h"
+#import "UIColor+LW.h"
 
-//#define kWQXLCDBackgroundColor [WQXToolbox colorWithRGB:0x80B080]
-#define kWQXLCDBackgroundColor [WQXToolbox colorWithRGB:0xC1C1C1]
 #define kWQXROMName @"obj_lu.bin"
 #define kWQXNORFlashName @"nc1020.fls"
 #define kWQXStatesName @"nc1020.sts"

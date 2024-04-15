@@ -7,17 +7,17 @@
 //
 
 #import "WQXDefaultScreenLayout.h"
-#import "WQXKeyItem.h"
-#import "WQXGridKeyboardView.h"
+#import "LWKeyItem.h"
+#import "LWGridKeyboardView.h"
 
-#define ADD_ITEM_TO_ROW(row, keyCode, title, style) [row addObject:[[WQXKeyItem alloc] initWithTitle:title andKeyCode:keyCode andButtonStyle:style]];
+#define ADD_ITEM_TO_ROW(row, keyCode, title, style) [row addObject:[[LWKeyItem alloc] initWithTitle:title andKeyCode:keyCode andButtonStyle:style]];
 
 @interface WQXDefaultScreenLayout ()
 {
     WQXLCDView *_lcdView;
-    WQXKeyboardView *_leftKeyboardView;
-    WQXKeyboardView *_rightKeyboardView;
-    WQXKeyboardView *_mainKeyboardView;
+    LWKeyboardView *_leftKeyboardView;
+    LWKeyboardView *_rightKeyboardView;
+    LWKeyboardView *_mainKeyboardView;
 }
 @end
 
@@ -45,7 +45,7 @@
     CGFloat leftKeyboardY = padding;
     
     CGRect leftKeyboardFrame = CGRectMake(leftKeyboardX, leftKeyboardY, leftKeyboardWidth, leftKeyboardHeight);
-    _leftKeyboardView = [[WQXGridKeyboardView alloc] initWithFrame:leftKeyboardFrame andRows:[self createLeftKeyboardRows]];
+    _leftKeyboardView = [[LWGridKeyboardView alloc] initWithFrame:leftKeyboardFrame andRows:[self createLeftKeyboardRows]];
     _leftKeyboardView.delegate = self;
     
     CGFloat rightKeyboardWidth = leftKeyboardWidth;
@@ -54,7 +54,7 @@
     CGFloat rightKeyboardY = padding;
     
     CGRect rightKeyboardFrame = CGRectMake(rightKeyboardX, rightKeyboardY, rightKeyboardWidth, rightKeyboardHeight);
-    _rightKeyboardView = [[WQXGridKeyboardView alloc] initWithFrame:rightKeyboardFrame andRows:[self createRightKeyboardRows]];
+    _rightKeyboardView = [[LWGridKeyboardView alloc] initWithFrame:rightKeyboardFrame andRows:[self createRightKeyboardRows]];
     _rightKeyboardView.delegate = self;
     
     CGFloat mainKeyboardWidth = self.bounds.size.width - padding * 2;
@@ -63,7 +63,7 @@
     CGFloat mainKeyboardY = lcdHeight + padding * 2;
     
     CGRect mainKeyboardFrame = CGRectMake(mainKeyboardX, mainKeyboardY, mainKeyboardWidth, mainKeyboardHeight);
-    _mainKeyboardView = [[WQXGridKeyboardView alloc] initWithFrame:mainKeyboardFrame andRows:[self createMainKeyboardRows]];
+    _mainKeyboardView = [[LWGridKeyboardView alloc] initWithFrame:mainKeyboardFrame andRows:[self createMainKeyboardRows]];
     _mainKeyboardView.delegate = self;
     
 }

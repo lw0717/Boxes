@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WQXKeyboardView.h"
+#import "LWKeyboardView.h"
 
-@interface WQXRootViewController : UIViewController<WQXKeyboardViewDelegate>
+@interface WQXRootViewController : UIViewController<LWKeyboardViewDelegate>
 
 @end

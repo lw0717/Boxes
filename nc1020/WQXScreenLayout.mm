@@ -7,11 +7,11 @@
 //
 
 #import "WQXScreenLayout.h"
-#import "WQXToolbox.h"
+#import "LWToolbox.h"
 
 @implementation WQXScreenLayout
 
-- (id)initWithBounds:(CGRect)bounds andKeyboardViewDelegate:(id<WQXKeyboardViewDelegate>)delegate {
+- (id)initWithBounds:(CGRect)bounds andKeyboardViewDelegate:(id<LWKeyboardViewDelegate>)delegate {
     if ([super init]) {
         self.bounds = bounds;
         self.keyboardViewDelegate = delegate;
@@ -23,12 +23,12 @@
     }
 }
 
-- (void)keyboardView:(WQXKeyboardView *)view didKeydown:(NSInteger)keyCode {
+- (void)keyboardView:(LWKeyboardView *)view didKeydown:(NSInteger)keyCode {
     if (self.keyboardViewDelegate != Nil && [self.keyboardViewDelegate respondsToSelector:@selector(keyboardView:didKeydown:)]) {
         [self.keyboardViewDelegate keyboardView:view didKeydown:keyCode];
     }
 }
-- (void)keyboardView:(WQXKeyboardView *)view didKeyup:(NSInteger)keyCode {
+- (void)keyboardView:(LWKeyboardView *)view didKeyup:(NSInteger)keyCode {
     if (self.keyboardViewDelegate != Nil && [self.keyboardViewDelegate respondsToSelector:@selector(keyboardView:didKeyup:)]) {
         [self.keyboardViewDelegate keyboardView:view didKeyup:keyCode];
     }

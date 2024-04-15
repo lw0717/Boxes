@@ -10,7 +10,7 @@
 #import "nc1020.h"
 #import <QuartzCore/QuartzCore.h>
 #import "WQX.hpp"
-#import "WQXToolbox.h"
+#import "LWToolbox.h"
 
 #define LCD_WIDTH 160
 #define LCD_HEIGHT 80
@@ -31,7 +31,7 @@
     _wqcLcdBuffer = (uint8_t *)malloc(WQX_LCD_BUFF_SIZE);
     _iosLcdBuffer = (uint8_t *)malloc(IOS_LCD_BUFF_SIZE);
     
-    _backgroundColor = kWQXLCDBackgroundColor;
+    _backgroundColor = [UIColor lcdBackgroundColor];
     _foregroundColor = [UIColor blackColor];
 }
 

@@ -6,10 +6,10 @@
 //  Copyright (c) 2015年 rainyx. All rights reserved.
 //
 
-#import "WQXToolBox.h"
+#import "LWToolbox.h"
 #import <CommonCrypto/CommonDigest.h>
 
-@implementation WQXToolbox
+@implementation LWToolbox
 
 + (NSString *)calcMD5Hash:(NSString *)string {
     // Create pointer to the string as UTF8
@@ -54,33 +54,4 @@
     return ret;
 }
 
-+ (UIColor *)colorWithRGB:(NSUInteger)rgb {
-    return [WQXToolbox colorWithRed:(rgb>>16)&0xFF green:(rgb>>8)&0xFF blue:rgb&0xFF alpha:0xFF];
-}
-
-+ (UIColor *)colorWithARGB:(NSUInteger)argb {
-    return [WQXToolbox colorWithRed:(argb>>16)&0xFF green:(argb>>8)&0xFF blue:argb&0xFF alpha:(argb>>24)&0xFF];
-}
-
-+ (UIColor *)colorWithRGBA:(NSUInteger)rgba {
-    return [WQXToolbox colorWithRed:rgba>>24 green:(rgba>>16)&0xFF blue:(rgba>>8)&0xFF alpha:rgba&0xFF];
-}
-
-+ (UIColor *)colorWithRed:(NSInteger)r green:(NSInteger)g blue:(NSInteger)b alpha:(NSInteger)a {
-    return [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a/255.0f];
-}
-
-+ (UIImage *)imageWithColor:(UIColor *)color {
-    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextFillRect(context, rect);
-    
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return image;
-}
 @end

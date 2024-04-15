@@ -18,21 +18,22 @@
 		18611C8B1B89ED2B00BB0AED /* WQXScreenLayout.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18611C821B89E66800BB0AED /* WQXScreenLayout.mm */; };
 		18611C8C1B89ED2B00BB0AED /* WQXRootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07D57B821B85D77F00960EB4 /* WQXRootViewController.mm */; };
 		18611C8D1B89ED2B00BB0AED /* WQXLCDView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07D57B851B85D83900960EB4 /* WQXLCDView.mm */; };
-		18611C8E1B89ED2B00BB0AED /* WQXKeyItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 184EB4D81B88136C0020CB9B /* WQXKeyItem.m */; };
-		18611C8F1B89ED2B00BB0AED /* WQXKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184EB4DD1B8822B40020CB9B /* WQXKeyboardView.m */; };
-		18611C901B89ED2B00BB0AED /* WQXToolbox.mm in Sources */ = {isa = PBXBuildFile; fileRef = 184EB4E31B883BBF0020CB9B /* WQXToolbox.mm */; };
-		18611C911B89ED2B00BB0AED /* WQXKeyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 184EB4E61B883CC90020CB9B /* WQXKeyButton.m */; };
+		18611C8E1B89ED2B00BB0AED /* LWKeyItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 184EB4D81B88136C0020CB9B /* LWKeyItem.m */; };
+		18611C8F1B89ED2B00BB0AED /* LWKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184EB4DD1B8822B40020CB9B /* LWKeyboardView.m */; };
+		18611C901B89ED2B00BB0AED /* LWToolbox.mm in Sources */ = {isa = PBXBuildFile; fileRef = 184EB4E31B883BBF0020CB9B /* LWToolbox.mm */; };
 		18611C921B89ED3D00BB0AED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0751922E1B85CFBE00D38120 /* main.m */; };
 		18611C981B89EE1200BB0AED /* WQXDefaultScreenLayout.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18611C971B89EE1200BB0AED /* WQXDefaultScreenLayout.mm */; };
 		18611C9B1B89F45D00BB0AED /* WQXGMUDScreenLayout.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18611C9A1B89F45D00BB0AED /* WQXGMUDScreenLayout.mm */; };
 		18611C9D1B89F65A00BB0AED /* WQX.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 18611C9C1B89F65A00BB0AED /* WQX.hpp */; };
-		18611CA11B89FB0200BB0AED /* WQXKeyCircleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18611CA01B89FB0200BB0AED /* WQXKeyCircleButton.m */; };
-		18611CA71B8A061100BB0AED /* WQXGridKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18611CA61B8A061100BB0AED /* WQXGridKeyboardView.m */; };
-		18611CAA1B8A06A100BB0AED /* WQXGMUDKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18611CA91B8A06A100BB0AED /* WQXGMUDKeyboardView.m */; };
+		18611CA71B8A061100BB0AED /* LWGridKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18611CA61B8A061100BB0AED /* LWGridKeyboardView.m */; };
+		18611CAA1B8A06A100BB0AED /* LWGMUDKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18611CA91B8A06A100BB0AED /* LWGMUDKeyboardView.m */; };
 		26803BDF2BC9897F00656002 /* MBProgressHUD+LW.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BDD2BC9897E00656002 /* MBProgressHUD+LW.m */; };
 		26803BE22BC98D9E00656002 /* LWAutolayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BE02BC98D9E00656002 /* LWAutolayout.m */; };
 		26803BE52BC98DCD00656002 /* LWEXTScope.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BE32BC98DCD00656002 /* LWEXTScope.m */; };
 		26803BE92BC98DFB00656002 /* LWM9Dev.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BE82BC98DFA00656002 /* LWM9Dev.m */; };
+		26803BF02BC99F5B00656002 /* UIColor+LW.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BEF2BC99F5B00656002 /* UIColor+LW.m */; };
+		26803BF42BC9A4CD00656002 /* UIImage+LW.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BF32BC9A4CD00656002 /* UIImage+LW.m */; };
+		26803BFA2BCD01DB00656002 /* UIButton+LW.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BF92BCD01DB00656002 /* UIButton+LW.m */; };
 		2681E6A82BC78F41005D3FBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2681E6A72BC78F41005D3FBA /* LaunchScreen.storyboard */; };
 		F7123B98F87D16F43649C2A5 /* libPods-NC1020.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 290AB91D4C5A31F7E97A93D7 /* libPods-NC1020.a */; };
 /* End PBXBuildFile section */
@@ -56,14 +57,12 @@
 		07F88A331B8C15A600B205DA /* WQX.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WQX.mm; sourceTree = "<group>"; };
 		07F88A3A1B8C4BF900B205DA /* nc1020.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nc1020.cpp; sourceTree = "<group>"; };
 		07F88A3B1B8C4BF900B205DA /* nc1020.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nc1020.h; sourceTree = "<group>"; };
-		184EB4D71B88136C0020CB9B /* WQXKeyItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQXKeyItem.h; sourceTree = "<group>"; };
-		184EB4D81B88136C0020CB9B /* WQXKeyItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQXKeyItem.m; sourceTree = "<group>"; };
-		184EB4DC1B8822B40020CB9B /* WQXKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQXKeyboardView.h; sourceTree = "<group>"; };
-		184EB4DD1B8822B40020CB9B /* WQXKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQXKeyboardView.m; sourceTree = "<group>"; };
-		184EB4E21B883BBF0020CB9B /* WQXToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQXToolbox.h; sourceTree = "<group>"; };
-		184EB4E31B883BBF0020CB9B /* WQXToolbox.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WQXToolbox.mm; sourceTree = "<group>"; };
-		184EB4E51B883CC90020CB9B /* WQXKeyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQXKeyButton.h; sourceTree = "<group>"; };
-		184EB4E61B883CC90020CB9B /* WQXKeyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQXKeyButton.m; sourceTree = "<group>"; };
+		184EB4D71B88136C0020CB9B /* LWKeyItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWKeyItem.h; sourceTree = "<group>"; };
+		184EB4D81B88136C0020CB9B /* LWKeyItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWKeyItem.m; sourceTree = "<group>"; };
+		184EB4DC1B8822B40020CB9B /* LWKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWKeyboardView.h; sourceTree = "<group>"; };
+		184EB4DD1B8822B40020CB9B /* LWKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWKeyboardView.m; sourceTree = "<group>"; };
+		184EB4E21B883BBF0020CB9B /* LWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWToolbox.h; sourceTree = "<group>"; };
+		184EB4E31B883BBF0020CB9B /* LWToolbox.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LWToolbox.mm; sourceTree = "<group>"; };
 		18611C811B89E66800BB0AED /* WQXScreenLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQXScreenLayout.h; sourceTree = "<group>"; };
 		18611C821B89E66800BB0AED /* WQXScreenLayout.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WQXScreenLayout.mm; sourceTree = "<group>"; };
 		18611C961B89EE1200BB0AED /* WQXDefaultScreenLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQXDefaultScreenLayout.h; sourceTree = "<group>"; };
@@ -71,12 +70,10 @@
 		18611C991B89F45D00BB0AED /* WQXGMUDScreenLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQXGMUDScreenLayout.h; sourceTree = "<group>"; };
 		18611C9A1B89F45D00BB0AED /* WQXGMUDScreenLayout.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WQXGMUDScreenLayout.mm; sourceTree = "<group>"; };
 		18611C9C1B89F65A00BB0AED /* WQX.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WQX.hpp; sourceTree = "<group>"; };
-		18611C9F1B89FB0200BB0AED /* WQXKeyCircleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQXKeyCircleButton.h; sourceTree = "<group>"; };
-		18611CA01B89FB0200BB0AED /* WQXKeyCircleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQXKeyCircleButton.m; sourceTree = "<group>"; };
-		18611CA51B8A061100BB0AED /* WQXGridKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQXGridKeyboardView.h; sourceTree = "<group>"; };
-		18611CA61B8A061100BB0AED /* WQXGridKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQXGridKeyboardView.m; sourceTree = "<group>"; };
-		18611CA81B8A06A100BB0AED /* WQXGMUDKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQXGMUDKeyboardView.h; sourceTree = "<group>"; };
-		18611CA91B8A06A100BB0AED /* WQXGMUDKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQXGMUDKeyboardView.m; sourceTree = "<group>"; };
+		18611CA51B8A061100BB0AED /* LWGridKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWGridKeyboardView.h; sourceTree = "<group>"; };
+		18611CA61B8A061100BB0AED /* LWGridKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWGridKeyboardView.m; sourceTree = "<group>"; };
+		18611CA81B8A06A100BB0AED /* LWGMUDKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWGMUDKeyboardView.h; sourceTree = "<group>"; };
+		18611CA91B8A06A100BB0AED /* LWGMUDKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWGMUDKeyboardView.m; sourceTree = "<group>"; };
 		26803BDD2BC9897E00656002 /* MBProgressHUD+LW.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+LW.m"; sourceTree = "<group>"; };
 		26803BDE2BC9897F00656002 /* MBProgressHUD+LW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+LW.h"; sourceTree = "<group>"; };
 		26803BE02BC98D9E00656002 /* LWAutolayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAutolayout.m; sourceTree = "<group>"; };
@@ -86,6 +83,12 @@
 		26803BE62BC98DE900656002 /* LWMetamacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMetamacros.h; sourceTree = "<group>"; };
 		26803BE72BC98DFA00656002 /* LWM9Dev.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWM9Dev.h; sourceTree = "<group>"; };
 		26803BE82BC98DFA00656002 /* LWM9Dev.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWM9Dev.m; sourceTree = "<group>"; };
+		26803BEE2BC99F5B00656002 /* UIColor+LW.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+LW.h"; sourceTree = "<group>"; };
+		26803BEF2BC99F5B00656002 /* UIColor+LW.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LW.m"; sourceTree = "<group>"; };
+		26803BF22BC9A4CD00656002 /* UIImage+LW.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+LW.h"; sourceTree = "<group>"; };
+		26803BF32BC9A4CD00656002 /* UIImage+LW.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LW.m"; sourceTree = "<group>"; };
+		26803BF82BCD01DB00656002 /* UIButton+LW.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+LW.h"; sourceTree = "<group>"; };
+		26803BF92BCD01DB00656002 /* UIButton+LW.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LW.m"; sourceTree = "<group>"; };
 		2681E6A72BC78F41005D3FBA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		290AB91D4C5A31F7E97A93D7 /* libPods-NC1020.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NC1020.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B8E8CFDA360DB97C0A6E130 /* Pods-NC1020.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NC1020.debug.xcconfig"; path = "Target Support Files/Pods-NC1020/Pods-NC1020.debug.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +127,7 @@
 		0751922B1B85CFBE00D38120 /* nc1020 */ = {
 			isa = PBXGroup;
 			children = (
+				26803BF62BC9A68600656002 /* Keyboard */,
 				2681E6A62BC78EFE005D3FBA /* SupportingFiles */,
 				07BD82B31B8EC2DB00D19CD2 /* Utils */,
 				07F88A351B8C4B6600B205DA /* wqx */,
@@ -137,8 +141,8 @@
 				07D57B821B85D77F00960EB4 /* WQXRootViewController.mm */,
 				07D57B841B85D83900960EB4 /* WQXLCDView.h */,
 				07D57B851B85D83900960EB4 /* WQXLCDView.mm */,
-				184EB4E21B883BBF0020CB9B /* WQXToolbox.h */,
-				184EB4E31B883BBF0020CB9B /* WQXToolbox.mm */,
+				184EB4E21B883BBF0020CB9B /* LWToolbox.h */,
+				184EB4E31B883BBF0020CB9B /* LWToolbox.mm */,
 				07C66DF01BC8B78F0031DA1C /* README */,
 			);
 			path = nc1020;
@@ -167,8 +171,11 @@
 		07BD82B31B8EC2DB00D19CD2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				26803BEB2BC9932C00656002 /* MBProgressHUD */,
 				26803BEA2BC98E9D00656002 /* Autolayout */,
+				26803BEB2BC9932C00656002 /* MBProgressHUD */,
+				26803BF72BCD01C300656002 /* UIButton */,
+				26803BED2BC99F4700656002 /* UIColor */,
+				26803BF12BC9A4BC00656002 /* UIImage */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -185,7 +192,6 @@
 		18611C801B89E61B00BB0AED /* Layout */ = {
 			isa = PBXGroup;
 			children = (
-				18611C9E1B89F7B700BB0AED /* Keyboard */,
 				18611C811B89E66800BB0AED /* WQXScreenLayout.h */,
 				18611C821B89E66800BB0AED /* WQXScreenLayout.mm */,
 				18611C961B89EE1200BB0AED /* WQXDefaultScreenLayout.h */,
@@ -194,25 +200,6 @@
 				18611C9A1B89F45D00BB0AED /* WQXGMUDScreenLayout.mm */,
 			);
 			name = Layout;
-			sourceTree = "<group>";
-		};
-		18611C9E1B89F7B700BB0AED /* Keyboard */ = {
-			isa = PBXGroup;
-			children = (
-				184EB4E51B883CC90020CB9B /* WQXKeyButton.h */,
-				184EB4E61B883CC90020CB9B /* WQXKeyButton.m */,
-				184EB4D71B88136C0020CB9B /* WQXKeyItem.h */,
-				184EB4D81B88136C0020CB9B /* WQXKeyItem.m */,
-				184EB4DC1B8822B40020CB9B /* WQXKeyboardView.h */,
-				184EB4DD1B8822B40020CB9B /* WQXKeyboardView.m */,
-				18611C9F1B89FB0200BB0AED /* WQXKeyCircleButton.h */,
-				18611CA01B89FB0200BB0AED /* WQXKeyCircleButton.m */,
-				18611CA51B8A061100BB0AED /* WQXGridKeyboardView.h */,
-				18611CA61B8A061100BB0AED /* WQXGridKeyboardView.m */,
-				18611CA81B8A06A100BB0AED /* WQXGMUDKeyboardView.h */,
-				18611CA91B8A06A100BB0AED /* WQXGMUDKeyboardView.m */,
-			);
-			name = Keyboard;
 			sourceTree = "<group>";
 		};
 		219E8B3B70864C79846F6D4A /* Frameworks */ = {
@@ -244,6 +231,48 @@
 				26803BDD2BC9897E00656002 /* MBProgressHUD+LW.m */,
 			);
 			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		26803BED2BC99F4700656002 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				26803BEE2BC99F5B00656002 /* UIColor+LW.h */,
+				26803BEF2BC99F5B00656002 /* UIColor+LW.m */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		26803BF12BC9A4BC00656002 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				26803BF22BC9A4CD00656002 /* UIImage+LW.h */,
+				26803BF32BC9A4CD00656002 /* UIImage+LW.m */,
+			);
+			path = UIImage;
+			sourceTree = "<group>";
+		};
+		26803BF62BC9A68600656002 /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				184EB4D71B88136C0020CB9B /* LWKeyItem.h */,
+				184EB4D81B88136C0020CB9B /* LWKeyItem.m */,
+				184EB4DC1B8822B40020CB9B /* LWKeyboardView.h */,
+				184EB4DD1B8822B40020CB9B /* LWKeyboardView.m */,
+				18611CA51B8A061100BB0AED /* LWGridKeyboardView.h */,
+				18611CA61B8A061100BB0AED /* LWGridKeyboardView.m */,
+				18611CA81B8A06A100BB0AED /* LWGMUDKeyboardView.h */,
+				18611CA91B8A06A100BB0AED /* LWGMUDKeyboardView.m */,
+			);
+			path = Keyboard;
+			sourceTree = "<group>";
+		};
+		26803BF72BCD01C300656002 /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				26803BF82BCD01DB00656002 /* UIButton+LW.h */,
+				26803BF92BCD01DB00656002 /* UIButton+LW.m */,
+			);
+			path = UIButton;
 			sourceTree = "<group>";
 		};
 		2681E6A62BC78EFE005D3FBA /* SupportingFiles */ = {
@@ -293,7 +322,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1530;
-				ORGANIZATIONNAME = rainyx;
+				ORGANIZATIONNAME = lw0717;
 				TargetAttributes = {
 					075192281B85CFBE00D38120 = {
 						CreatedOnToolsVersion = 6.3;
@@ -365,26 +394,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				18611C921B89ED3D00BB0AED /* main.m in Sources */,
+				26803BF42BC9A4CD00656002 /* UIImage+LW.m in Sources */,
 				07F88A3C1B8C4BF900B205DA /* nc1020.cpp in Sources */,
 				18611C891B89ED2B00BB0AED /* AppDelegate.mm in Sources */,
 				18611C9D1B89F65A00BB0AED /* WQX.hpp in Sources */,
-				18611CA11B89FB0200BB0AED /* WQXKeyCircleButton.m in Sources */,
 				18611C8B1B89ED2B00BB0AED /* WQXScreenLayout.mm in Sources */,
-				18611CA71B8A061100BB0AED /* WQXGridKeyboardView.m in Sources */,
+				18611CA71B8A061100BB0AED /* LWGridKeyboardView.m in Sources */,
 				26803BE52BC98DCD00656002 /* LWEXTScope.m in Sources */,
 				18611C981B89EE1200BB0AED /* WQXDefaultScreenLayout.mm in Sources */,
 				18611C8C1B89ED2B00BB0AED /* WQXRootViewController.mm in Sources */,
-				18611CAA1B8A06A100BB0AED /* WQXGMUDKeyboardView.m in Sources */,
+				26803BF02BC99F5B00656002 /* UIColor+LW.m in Sources */,
+				18611CAA1B8A06A100BB0AED /* LWGMUDKeyboardView.m in Sources */,
 				18611C8D1B89ED2B00BB0AED /* WQXLCDView.mm in Sources */,
 				07F88A341B8C15A600B205DA /* WQX.mm in Sources */,
 				26803BDF2BC9897F00656002 /* MBProgressHUD+LW.m in Sources */,
+				26803BFA2BCD01DB00656002 /* UIButton+LW.m in Sources */,
 				18611C9B1B89F45D00BB0AED /* WQXGMUDScreenLayout.mm in Sources */,
 				26803BE92BC98DFB00656002 /* LWM9Dev.m in Sources */,
-				18611C8E1B89ED2B00BB0AED /* WQXKeyItem.m in Sources */,
-				18611C8F1B89ED2B00BB0AED /* WQXKeyboardView.m in Sources */,
+				18611C8E1B89ED2B00BB0AED /* LWKeyItem.m in Sources */,
+				18611C8F1B89ED2B00BB0AED /* LWKeyboardView.m in Sources */,
 				26803BE22BC98D9E00656002 /* LWAutolayout.m in Sources */,
-				18611C901B89ED2B00BB0AED /* WQXToolbox.mm in Sources */,
-				18611C911B89ED2B00BB0AED /* WQXKeyButton.m in Sources */,
+				18611C901B89ED2B00BB0AED /* LWToolbox.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

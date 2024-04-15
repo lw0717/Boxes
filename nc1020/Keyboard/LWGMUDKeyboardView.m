@@ -6,15 +6,15 @@
 //  Copyright (c) 2015年 rainyx. All rights reserved.
 //
 
-#import "WQXGMUDKeyboardView.h"
-#import "WQXKeyCircleButton.h"
-#import "WQXKeyItem.h"
+#import "LWGMUDKeyboardView.h"
+#import "UIButton+LW.h"
+#import "LWKeyItem.h"
 #import <QuartzCore/QuartzCore.h>
-#import "WQXToolbox.h"
+#import "LWToolbox.h"
 
-@implementation WQXGMUDKeyboardView
+@implementation LWGMUDKeyboardView
 
-- (id)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame {
     if ([super initWithFrame:frame]) {
         
         ////////////////////////////////////////////////////////////////////////////////////
@@ -29,11 +29,15 @@
         
         UIView *leftPanel = [[UIView alloc] initWithFrame:CGRectMake(leftPanelMargin, frame.size.height - (leftPanelWidth+leftPanelMargin), leftPanelWidth, leftPanelWidth)];
         
-        WQXKeyCircleButton *upButton = [[WQXKeyCircleButton alloc] initWithOrigin:CGPointMake(leftPanelItemFullWidth, 0) andRadius:leftPanelItemWidth/2];
-        WQXKeyCircleButton *downButton = [[WQXKeyCircleButton alloc] initWithOrigin:CGPointMake(leftPanelItemFullWidth, leftPanelItemFullWidth*2) andRadius:leftPanelItemWidth/2];
-        WQXKeyCircleButton *leftButton = [[WQXKeyCircleButton alloc] initWithOrigin:CGPointMake(0, leftPanelItemFullWidth) andRadius:leftPanelItemWidth/2];
-        WQXKeyCircleButton *rightButton = [[WQXKeyCircleButton alloc] initWithOrigin:CGPointMake(leftPanelItemFullWidth*2, leftPanelItemFullWidth) andRadius:leftPanelItemWidth/2];
-        
+        UIButton *upButton = [[UIButton alloc] initWithFrame:CGRectZero];
+        [upButton setupOrigin:CGPointMake(leftPanelItemFullWidth, 0) andRadius:leftPanelItemWidth/2];
+        UIButton *downButton = [[UIButton alloc] initWithFrame:CGRectZero];
+        [downButton setupOrigin:CGPointMake(leftPanelItemFullWidth, leftPanelItemFullWidth*2) andRadius:leftPanelItemWidth/2];
+        UIButton *leftButton = [[UIButton alloc] initWithFrame:CGRectZero];
+        [leftButton setupOrigin:CGPointMake(0, leftPanelItemFullWidth) andRadius:leftPanelItemWidth/2];
+        UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectZero];
+        [rightButton setupOrigin:CGPointMake(leftPanelItemFullWidth*2, leftPanelItemFullWidth) andRadius:leftPanelItemWidth/2];
+
         [upButton setTitle:@"上" forState:UIControlStateNormal];
         [downButton setTitle:@"下" forState:UIControlStateNormal];
         [leftButton setTitle:@"左" forState:UIControlStateNormal];
@@ -67,14 +71,20 @@
         UIView *rightPanel = [[UIView alloc] initWithFrame:CGRectMake(rightPanelX, rightPanelY, rightPanelWidth, rightPanelHeight)];
         
         // Line 1.
-        WQXKeyCircleButton *backButton = [[WQXKeyCircleButton alloc] initWithOrigin:CGPointMake(rightPanelItemFullWidth+rightPanelLine1Indent, 0) andRadius:rightPanelItemWidth/2];
-        WQXKeyCircleButton *flyButton = [[WQXKeyCircleButton alloc] initWithOrigin:CGPointMake(rightPanelItemFullWidth*2+rightPanelLine1Indent, rightPanelItemMarginTop) andRadius:rightPanelItemWidth/2];
-        WQXKeyCircleButton *switchButton = [[WQXKeyCircleButton alloc] initWithOrigin:CGPointMake(rightPanelItemFullWidth*3+rightPanelLine1Indent, rightPanelItemMarginTop*2) andRadius:rightPanelItemWidth/2];
-        
-        WQXKeyCircleButton *enterButton = [[WQXKeyCircleButton alloc] initWithOrigin:CGPointMake(0, rightPanelItemFullWidth) andRadius:rightPanelItemWidth/2];
-        WQXKeyCircleButton *menuButton = [[WQXKeyCircleButton alloc] initWithOrigin:CGPointMake(rightPanelItemFullWidth, rightPanelItemFullWidth+rightPanelItemMarginTop) andRadius:rightPanelItemWidth/2];
-        WQXKeyCircleButton *saveButton = [[WQXKeyCircleButton alloc] initWithOrigin:CGPointMake(rightPanelItemFullWidth*2, rightPanelItemFullWidth+rightPanelItemMarginTop*2) andRadius:rightPanelItemWidth/2];
-        
+        UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectZero];
+        [backButton setupOrigin:CGPointMake(rightPanelItemFullWidth+rightPanelLine1Indent, 0) andRadius:rightPanelItemWidth/2];
+        UIButton *flyButton = [[UIButton alloc] initWithFrame:CGRectZero];
+        [flyButton setupOrigin:CGPointMake(rightPanelItemFullWidth*2+rightPanelLine1Indent, rightPanelItemMarginTop) andRadius:rightPanelItemWidth/2];
+        UIButton *switchButton = [[UIButton alloc] initWithFrame:CGRectZero];
+        [switchButton setupOrigin:CGPointMake(rightPanelItemFullWidth*3+rightPanelLine1Indent, rightPanelItemMarginTop*2) andRadius:rightPanelItemWidth/2];
+
+        UIButton *enterButton = [[UIButton alloc] initWithFrame:CGRectZero];
+        [enterButton setupOrigin:CGPointMake(0, rightPanelItemFullWidth) andRadius:rightPanelItemWidth/2];
+        UIButton *menuButton = [[UIButton alloc] initWithFrame:CGRectZero];
+        [menuButton setupOrigin:CGPointMake(rightPanelItemFullWidth, rightPanelItemFullWidth+rightPanelItemMarginTop) andRadius:rightPanelItemWidth/2];
+        UIButton *saveButton = [[UIButton alloc] initWithFrame:CGRectZero];
+        [saveButton setupOrigin:CGPointMake(rightPanelItemFullWidth*2, rightPanelItemFullWidth+rightPanelItemMarginTop*2) andRadius:rightPanelItemWidth/2];
+
         [enterButton setTitle:@"确定" forState:UIControlStateNormal];
         [backButton setTitle:@"返回" forState:UIControlStateNormal];
         [menuButton setTitle:@"菜单" forState:UIControlStateNormal];
