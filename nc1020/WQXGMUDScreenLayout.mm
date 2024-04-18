@@ -7,7 +7,7 @@
 //
 
 #import "WQXGMUDScreenLayout.h"
-#import "WQX.hpp"
+#import "WQXArchiveManager.h"
 #import "LWGMUDKeyboardView.h"
 #define isDirectionKeyCode(code) ((code==0x1A||code==0x1B||code==0x3F||code==0x1F))
 

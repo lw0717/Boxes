@@ -16,6 +16,4 @@
 
 + (CGRect)rectForCurrentOrientation:(CGRect)rect;
 
-+ (NSString *)calcMD5Hash:(NSString *)string;
-
 @end
