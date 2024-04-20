@@ -48,7 +48,7 @@
 
 - (void)setupOrigin:(CGPoint)origin andRadius:(CGFloat)radius {
 
-    CGRect rect = CGRectMake(origin.x, origin.y, radius*2, radius*2);
+    CGRect rect = CGRectMake(origin.x, origin.y, radius * 2, radius * 2);
     self.frame = rect;
 
     self.layer.cornerRadius = radius;

@@ -9,42 +9,48 @@
 #import "LWGridKeyboardView.h"
 #import "LWKeyItem.h"
 #import "UIButton+LW.h"
+#import "LWAutolayout.h"
+
+@interface LWGridKeyboardView ()
+
+@property (nonatomic, strong) UIStackView *vStackView;
+
+@end
 
 @implementation LWGridKeyboardView
 
 - (instancetype)initWithFrame:(CGRect)frame andRows:(NSMutableArray *)rows {
-    
-    if ([super initWithFrame:frame]) {
-        
-        NSInteger rowCount = rows.count;
-        NSInteger colCount = [[rows objectAtIndex:0] count];
-        
-        CGFloat itemGap = 3.0f;
-        CGFloat itemWidth = (frame.size.width - colCount * itemGap + itemGap) / colCount;
-        CGFloat itemHeight = (frame.size.height - rowCount * itemGap + itemGap) / rowCount;
-        
-        CGFloat x, y = 0.0f;
+    if (self = [super initWithFrame:frame]) {
+        self.vStackView = [[UIStackView alloc] initWithFrame:CGRectZero];
+        self.vStackView.axis = UILayoutConstraintAxisVertical;
+        self.vStackView.distribution = UIStackViewDistributionFillEqually;
+        self.vStackView.alignment = UIStackViewAlignmentFill;
+        self.vStackView.spacing = 3.0;
+
         for (NSMutableArray *cols in rows) {
-            x = 0.0f;
+            UIStackView *hStackView = [[UIStackView alloc] initWithFrame:CGRectZero];
+            hStackView.axis = UILayoutConstraintAxisHorizontal;
+            hStackView.distribution = UIStackViewDistributionFillEqually;
+            hStackView.alignment = UIStackViewAlignmentFill;
+            hStackView.spacing = 3.0;
             for (LWKeyItem *keyItem in cols) {
-                UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(x, y, itemWidth, itemHeight)];
+                UIButton *btn = [[UIButton alloc] initWithFrame:CGRectZero];
                 [btn setupStyle:keyItem.buttonStyle];
                 [btn setTitle:keyItem.title forState:UIControlStateNormal];
                 [btn setTag:keyItem.keyCode];
                 [btn addTarget:self action:@selector(didButtonTouchDown:) forControlEvents:UIControlEventTouchDown];
                 [btn addTarget:self action:@selector(didButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
                 [btn addTarget:self action:@selector(didButtonTouchUp:) forControlEvents:UIControlEventTouchUpOutside];
-                [self addSubview:btn];
-                x += itemWidth + itemGap;
+                [hStackView addArrangedSubview:btn];
             }
-            y += itemHeight + itemGap;
+            [self.vStackView addArrangedSubview:hStackView];
         }
-        
-        return self;
-    } else {
-        return Nil;
+        [self addSubview:self.vStackView];
+        [self.vStackView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
+            make.top.bottom.left.right.equalTo(self);
+        }];
     }
-    
+    return self;
 }
 
 @end

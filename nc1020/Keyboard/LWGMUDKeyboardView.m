@@ -10,24 +10,25 @@
 #import "UIButton+LW.h"
 #import "LWKeyItem.h"
 #import <QuartzCore/QuartzCore.h>
+#import "LWAutolayout.h"
 
 @implementation LWGMUDKeyboardView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if ([super initWithFrame:frame]) {
-        
+
         ////////////////////////////////////////////////////////////////////////////////////
         // Creates left buttons.
         ////////////////////////////////////////////////////////////////////////////////////
-        
+
         CGFloat leftPanelItemWidth = 55.0f;
         CGFloat leftPanelItemGap = -10.0f;
         CGFloat leftPanelMargin = 10.0f;
         CGFloat leftPanelWidth = (leftPanelItemWidth + leftPanelItemGap) * 3 - leftPanelItemGap;
         CGFloat leftPanelItemFullWidth = leftPanelItemWidth + leftPanelItemGap;
-        
-        UIView *leftPanel = [[UIView alloc] initWithFrame:CGRectMake(leftPanelMargin, frame.size.height - (leftPanelWidth+leftPanelMargin), leftPanelWidth, leftPanelWidth)];
-        
+
+        UIView *leftPanel = [[UIView alloc] initWithFrame:CGRectZero];
+
         UIButton *upButton = [[UIButton alloc] initWithFrame:CGRectZero];
         [upButton setupOrigin:CGPointMake(leftPanelItemFullWidth, 0) andRadius:leftPanelItemWidth/2];
         UIButton *downButton = [[UIButton alloc] initWithFrame:CGRectZero];
@@ -41,17 +42,17 @@
         [downButton setTitle:@"下" forState:UIControlStateNormal];
         [leftButton setTitle:@"左" forState:UIControlStateNormal];
         [rightButton setTitle:@"右" forState:UIControlStateNormal];
-        
+
         upButton.tag = 0x1A;
         downButton.tag = 0x1B;
         leftButton.tag = 0x3F;
         rightButton.tag = 0x1F;
-        
+
         [leftPanel addSubview:upButton];
         [leftPanel addSubview:downButton];
         [leftPanel addSubview:leftButton];
         [leftPanel addSubview:rightButton];
-        
+
         ////////////////////////////////////////////////////////////////////////////////////
         // Creates right buttons.
         ////////////////////////////////////////////////////////////////////////////////////
@@ -59,30 +60,33 @@
         CGFloat rightPanelItemGap = 8.0f;
         CGFloat rightPanelMargin = 10.0f;
         CGFloat rightPanelItemFullWidth = rightPanelItemWidth + rightPanelItemGap;
-        CGFloat rightPanelWidth = rightPanelItemFullWidth * 4 - rightPanelItemGap;
-        CGFloat rightPanelHeight = rightPanelItemFullWidth * 2 - rightPanelItemGap;
+        CGFloat rightPanelWidth = rightPanelItemFullWidth * 3 + rightPanelItemGap * 3;
+        CGFloat rightPanelHeight = rightPanelItemFullWidth * 2 + rightPanelItemGap * 2;
         CGFloat rightPanelLine1Indent = -(rightPanelItemFullWidth/2);
         CGFloat rightPanelItemMarginTop = -10.0f;
-       
-        CGFloat rightPanelX = frame.size.width - (rightPanelWidth + rightPanelLine1Indent + rightPanelMargin);
-        CGFloat rightPanelY = frame.size.height - (rightPanelHeight  + rightPanelMargin);
-        
-        UIView *rightPanel = [[UIView alloc] initWithFrame:CGRectMake(rightPanelX, rightPanelY, rightPanelWidth, rightPanelHeight)];
-        
+
+        UIView *rightPanel = [[UIView alloc] initWithFrame:CGRectZero];
+
         // Line 1.
         UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectZero];
-        [backButton setupOrigin:CGPointMake(rightPanelItemFullWidth+rightPanelLine1Indent, 0) andRadius:rightPanelItemWidth/2];
+        [backButton setupOrigin:CGPointMake(rightPanelItemFullWidth + rightPanelLine1Indent, -rightPanelItemMarginTop * 2)
+                      andRadius:rightPanelItemWidth / 2];
         UIButton *flyButton = [[UIButton alloc] initWithFrame:CGRectZero];
-        [flyButton setupOrigin:CGPointMake(rightPanelItemFullWidth*2+rightPanelLine1Indent, rightPanelItemMarginTop) andRadius:rightPanelItemWidth/2];
+        [flyButton setupOrigin:CGPointMake(rightPanelItemFullWidth * 2 + rightPanelLine1Indent, -rightPanelItemMarginTop)
+                     andRadius:rightPanelItemWidth / 2];
         UIButton *switchButton = [[UIButton alloc] initWithFrame:CGRectZero];
-        [switchButton setupOrigin:CGPointMake(rightPanelItemFullWidth*3+rightPanelLine1Indent, rightPanelItemMarginTop*2) andRadius:rightPanelItemWidth/2];
+        [switchButton setupOrigin:CGPointMake(rightPanelItemFullWidth * 3 + rightPanelLine1Indent, 0)
+                        andRadius:rightPanelItemWidth / 2];
 
         UIButton *enterButton = [[UIButton alloc] initWithFrame:CGRectZero];
-        [enterButton setupOrigin:CGPointMake(0, rightPanelItemFullWidth) andRadius:rightPanelItemWidth/2];
+        [enterButton setupOrigin:CGPointMake(0, rightPanelItemFullWidth - rightPanelItemMarginTop * 2)
+                       andRadius:rightPanelItemWidth / 2];
         UIButton *menuButton = [[UIButton alloc] initWithFrame:CGRectZero];
-        [menuButton setupOrigin:CGPointMake(rightPanelItemFullWidth, rightPanelItemFullWidth+rightPanelItemMarginTop) andRadius:rightPanelItemWidth/2];
+        [menuButton setupOrigin:CGPointMake(rightPanelItemFullWidth, rightPanelItemFullWidth - rightPanelItemMarginTop)
+                      andRadius:rightPanelItemWidth / 2];
         UIButton *saveButton = [[UIButton alloc] initWithFrame:CGRectZero];
-        [saveButton setupOrigin:CGPointMake(rightPanelItemFullWidth*2, rightPanelItemFullWidth+rightPanelItemMarginTop*2) andRadius:rightPanelItemWidth/2];
+        [saveButton setupOrigin:CGPointMake(rightPanelItemFullWidth * 2, rightPanelItemFullWidth)
+                      andRadius:rightPanelItemWidth / 2];
 
         [enterButton setTitle:@"确定" forState:UIControlStateNormal];
         [backButton setTitle:@"返回" forState:UIControlStateNormal];
@@ -90,24 +94,38 @@
         [saveButton setTitle:@"保存" forState:UIControlStateNormal];
         [flyButton setTitle:@"飞行" forState:UIControlStateNormal];
         [switchButton setTitle:@"切换" forState:UIControlStateNormal];
-        
+
         enterButton.tag = 0x1D;
         backButton.tag = 0x3B;
         menuButton.tag = 0x13;
         saveButton.tag = kWQXCustomKeyCodeSave;
         flyButton.tag = 0x10;
         switchButton.tag = kWQXCustomKeyCodeSwitch;
-        
+
         [rightPanel addSubview:enterButton];
         [rightPanel addSubview:backButton];
         [rightPanel addSubview:menuButton];
         [rightPanel addSubview:saveButton];
         [rightPanel addSubview:flyButton];
         [rightPanel addSubview:switchButton];
-        
+
         [self addSubview:leftPanel];
         [self addSubview:rightPanel];
-        
+
+        [leftPanel lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
+            make.width.equalTo(@(leftPanelWidth));
+            make.height.equalTo(@(leftPanelWidth));
+            make.left.equalTo(self).offset(leftPanelMargin);
+            make.bottom.equalTo(self).offset(- leftPanelMargin);
+        }];
+
+        [rightPanel lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
+            make.width.equalTo(@(rightPanelWidth));
+            make.height.equalTo(@(rightPanelHeight));
+            make.right.equalTo(self).offset(rightPanelLine1Indent + rightPanelMargin);
+            make.bottom.equalTo(self).offset(- rightPanelMargin);
+        }];
+
         ////////////////////////////////////////////////////////////////////////////////////
         // Adds button events.
         ////////////////////////////////////////////////////////////////////////////////////
@@ -115,8 +133,10 @@
         UIImage *btnBgHighlighted = [UIImage imageNamed:@"gmud_arrow_btn_highlighted"];
         UIFont *labelFont = [UIFont boldSystemFontOfSize:14.0f];
         NSMutableArray *buttons = [[NSMutableArray alloc] init];
+
         [buttons addObjectsFromArray:leftPanel.subviews];
         [buttons addObjectsFromArray:rightPanel.subviews];
+
         for (UIButton *button in buttons) {
             [button setBackgroundImage:btnBgNroaml forState:UIControlStateNormal];
             [button setBackgroundImage:btnBgHighlighted forState:UIControlStateHighlighted];
@@ -125,7 +145,7 @@
             [button addTarget:self action:@selector(didButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
             [button addTarget:self action:@selector(didButtonTouchUp:) forControlEvents:UIControlEventTouchUpOutside];
         }
-        
+
         return self;
     } else {
         return Nil;

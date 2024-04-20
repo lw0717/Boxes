@@ -15,6 +15,7 @@
 #import "WQXArchiveManager.h"
 #import "MBProgressHUD+LW.h"
 #import "UIColor+LW.h"
+#import "LWAutolayout.h"
 
 @interface LWWQXRootViewController () <LWKeyboardViewDelegate>
 {
@@ -40,9 +41,15 @@
     [super viewDidLoad];
 
     self.view.backgroundColor = [UIColor colorWithRGB:0x222222];
-    self.safeView = [[UIView alloc] initWithFrame:CGRectMake(20, 20, self.view.frame.size.width - 40, self.view.frame.size.height - 40)];
+    self.safeView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:self.safeView];
     _screenBounds = self.safeView.bounds;
+    [self.safeView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
+        make.top.equalTo(self.view.lw_safeAreaLayoutGuide.lw_top ?: self.view.lw_top);
+        make.left.equalTo(self.view.lw_safeAreaLayoutGuide.lw_left ?: self.view.lw_left);
+        make.bottom.equalTo(self.view.lw_safeAreaLayoutGuide ?: self.view);
+        make.right.equalTo(self.view.lw_safeAreaLayoutGuide ?: self.view);
+    }];
 
     WQXArchiveManager *wqx = [WQXArchiveManager sharedInstance];
 
@@ -78,6 +85,9 @@
     _screenView = screenView;
     [[_screenView lcdView] beginUpdate];
     [self.safeView addSubview:_screenView];
+    [_screenView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
+        make.top.bottom.left.right.equalTo(self.safeView);
+    }];
 }
 
 - (void)switchScreenLayout {
@@ -101,9 +111,9 @@
     }
 }
 
-//- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-//    return UIInterfaceOrientationMaskLandscape;
-//}
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskLandscape;
+}
 
 #pragma mark - LWKeyboardViewDelegate
 

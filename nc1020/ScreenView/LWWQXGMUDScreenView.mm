@@ -9,6 +9,8 @@
 #import "LWWQXGMUDScreenView.h"
 #import "WQXArchiveManager.h"
 #import "LWGMUDKeyboardView.h"
+#import "LWAutolayout.h"
+
 #define isDirectionKeyCode(code) ((code==0x1A||code==0x1B||code==0x3F||code==0x1F))
 
 @interface LWWQXGMUDScreenView ()
@@ -24,23 +26,20 @@
 
     self.backgroundColor = [UIColor lcdBackgroundColor];
 
-    CGFloat lcdWidth = self.bounds.size.width;
-    CGFloat lcdHeight = lcdWidth/2;
-    CGFloat lcdX = self.bounds.size.width / 2 - lcdWidth / 2;
-    CGFloat lcdY = self.bounds.size.height / 2 - lcdHeight / 2;
+    _lcdView = [[WQXLCDView alloc] initWithFrame:CGRectZero];
 
-    _lcdView = [[WQXLCDView alloc] initWithFrame:CGRectMake(lcdX, lcdY, lcdWidth, lcdHeight)];
-    
-    CGFloat keyboardViewWidth = self.bounds.size.width;
-    CGFloat keyboardViewHeight = self.bounds.size.height / 2;
-    CGFloat keyboardViewX = 0.0f;
-    CGFloat keyboardViewY = self.bounds.size.height - keyboardViewHeight;
-
-    _keyboardView = [[LWGMUDKeyboardView alloc] initWithFrame:CGRectMake(keyboardViewX, keyboardViewY, keyboardViewWidth, keyboardViewHeight)];
+    _keyboardView = [[LWGMUDKeyboardView alloc] initWithFrame:CGRectZero];
     _keyboardView.delegate = self;
     
     [self addSubview:_lcdView];
     [self addSubview:_keyboardView];
+
+    [self.lcdView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
+        make.top.left.right.bottom.equalTo(self);
+    }];
+    [self.keyboardView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
+        make.top.left.right.bottom.equalTo(self);
+    }];
 }
 
 // Makes speed up for direction buttons.

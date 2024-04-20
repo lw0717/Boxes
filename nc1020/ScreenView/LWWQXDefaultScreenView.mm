@@ -25,56 +25,48 @@
 @implementation LWWQXDefaultScreenView
 
 - (void)initViews {
-    
-    CGFloat padding = 5.0f;
-    
-    CGFloat lcdHeight = self.bounds.size.height / 2;
-    CGFloat lcdWidth = lcdHeight * 2;
-    CGFloat lcdX = self.bounds.size.width / 2 - lcdWidth / 2;
-    CGFloat lcdY = padding;
-    
-    CGRect lcdFrame = CGRectMake(lcdX, lcdY, lcdWidth, lcdHeight);
-    _lcdView = [[WQXLCDView alloc] initWithFrame:lcdFrame];
-    
-    CGFloat leftKeyboardWidth = (self.bounds.size.width - lcdWidth) / 2 - padding * 2;
-    CGFloat leftKeyboardHeight = lcdHeight;
-    CGFloat leftKeyboardX = padding;
-    CGFloat leftKeyboardY = padding;
-    
-    CGRect leftKeyboardFrame = CGRectMake(leftKeyboardX, leftKeyboardY, leftKeyboardWidth, leftKeyboardHeight);
-    _leftKeyboardView = [[LWGridKeyboardView alloc] initWithFrame:leftKeyboardFrame andRows:[self createLeftKeyboardRows]];
-    _leftKeyboardView.delegate = self;
-    
-    CGFloat rightKeyboardWidth = leftKeyboardWidth;
-    CGFloat rightKeyboardHeight = leftKeyboardHeight;
-    CGFloat rightKeyboardX = lcdX + lcdWidth + padding;
-    CGFloat rightKeyboardY = padding;
-    
-    CGRect rightKeyboardFrame = CGRectMake(rightKeyboardX, rightKeyboardY, rightKeyboardWidth, rightKeyboardHeight);
-    _rightKeyboardView = [[LWGridKeyboardView alloc] initWithFrame:rightKeyboardFrame andRows:[self createRightKeyboardRows]];
-    _rightKeyboardView.delegate = self;
-    
-    CGFloat mainKeyboardWidth = self.bounds.size.width - padding * 2;
-    CGFloat mainKeyboardHeight = self.bounds.size.height - lcdHeight - padding * 3;
-    CGFloat mainKeyboardX = padding;
-    CGFloat mainKeyboardY = lcdHeight + padding * 2;
-    
-    CGRect mainKeyboardFrame = CGRectMake(mainKeyboardX, mainKeyboardY, mainKeyboardWidth, mainKeyboardHeight);
-    _mainKeyboardView = [[LWGridKeyboardView alloc] initWithFrame:mainKeyboardFrame andRows:[self createMainKeyboardRows]];
-    _mainKeyboardView.delegate = self;
+    self.lcdView = [[WQXLCDView alloc] initWithFrame:CGRectZero];
 
-    [self addSubview:_lcdView];
-    [self addSubview:_leftKeyboardView];
-    [self addSubview:_rightKeyboardView];
-    [self addSubview:_mainKeyboardView];
+    self.leftKeyboardView = [[LWGridKeyboardView alloc] initWithFrame:CGRectZero andRows:[self createLeftKeyboardRows]];
+    self.leftKeyboardView.delegate = self;
+
+    self.rightKeyboardView = [[LWGridKeyboardView alloc] initWithFrame:CGRectZero andRows:[self createRightKeyboardRows]];
+    self.rightKeyboardView.delegate = self;
+
+    self.mainKeyboardView = [[LWGridKeyboardView alloc] initWithFrame:CGRectZero andRows:[self createMainKeyboardRows]];
+    self.mainKeyboardView.delegate = self;
+
+    [self addSubview:self.lcdView];
+    [self addSubview:self.leftKeyboardView];
+    [self addSubview:self.rightKeyboardView];
+    [self addSubview:self.mainKeyboardView];
+
+    [self.leftKeyboardView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
+        make.left.top.equalTo(self);
+        make.width.equalTo(self.rightKeyboardView);
+        make.height.equalTo(self.lcdView);
+    }];
+    [self.lcdView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
+        make.width.equalTo(self).multipliedBy(0.5);
+        make.height.equalTo(self.lcdView.lw_width).multipliedBy(0.5);
+        make.left.equalTo(self.leftKeyboardView.lw_right).offset(5.0);
+        make.top.equalTo(self);
+    }];
+    [self.rightKeyboardView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
+        make.left.equalTo(self.lcdView.lw_right).offset(5.0);
+        make.top.right.equalTo(self);
+        make.height.equalTo(self.lcdView);
+    }];
+    [self.mainKeyboardView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
+        make.top.equalTo(self.lcdView.lw_bottom).offset(5.0);
+        make.left.right.bottom.equalTo(self);
+    }];
 }
 
-- (NSMutableArray *) createMainKeyboardRows {
+- (NSMutableArray *)createMainKeyboardRows {
     NSMutableArray *row;
     NSMutableArray *rows = [[NSMutableArray alloc] init];
-    
     row = [[NSMutableArray alloc] init];
-    
     ADD_ITEM_TO_ROW(row, 0x20, @"Q", kWQXKeyButtonNormal);
     ADD_ITEM_TO_ROW(row, 0x21, @"W", kWQXKeyButtonNormal);
     ADD_ITEM_TO_ROW(row, 0x22, @"E", kWQXKeyButtonNormal);
@@ -85,10 +77,8 @@
     ADD_ITEM_TO_ROW(row, 0x27, @"I", kWQXKeyButtonNormal);
     ADD_ITEM_TO_ROW(row, 0x18, @"O", kWQXKeyButtonNormal);
     ADD_ITEM_TO_ROW(row, 0x1C, @"P", kWQXKeyButtonNormal);
-    
     [rows addObject:row];
     row = [[NSMutableArray alloc] init];
-    
     ADD_ITEM_TO_ROW(row, 0x28, @"A", kWQXKeyButtonNormal);
     ADD_ITEM_TO_ROW(row, 0x29, @"S", kWQXKeyButtonNormal);
     ADD_ITEM_TO_ROW(row, 0x2A, @"D", kWQXKeyButtonNormal);
@@ -99,10 +89,8 @@
     ADD_ITEM_TO_ROW(row, 0x2F, @"K", kWQXKeyButtonNormal);
     ADD_ITEM_TO_ROW(row, 0x19, @"L", kWQXKeyButtonNormal);
     ADD_ITEM_TO_ROW(row, 0x1D, @"Enter", kWQXKeyButtonPrimary);
-    
     [rows addObject:row];
     row = [[NSMutableArray alloc] init];
-    
     ADD_ITEM_TO_ROW(row, 0x30, @"Z", kWQXKeyButtonNormal);
     ADD_ITEM_TO_ROW(row, 0x31, @"X", kWQXKeyButtonNormal);
     ADD_ITEM_TO_ROW(row, 0x32, @"C", kWQXKeyButtonNormal);
@@ -113,10 +101,8 @@
     ADD_ITEM_TO_ROW(row, 0x37, @"PgUp", kWQXKeyButtonNormal);
     ADD_ITEM_TO_ROW(row, 0x1A, @"↑", kWQXKeyButtonPrimary);
     ADD_ITEM_TO_ROW(row, 0x1E, @"PgDn", kWQXKeyButtonNormal);
-    
     [rows addObject:row];
     row = [[NSMutableArray alloc] init];
-    
     ADD_ITEM_TO_ROW(row, 0x38, @"Help", kWQXKeyButtonNormal);
     ADD_ITEM_TO_ROW(row, 0x39, @"Shift", kWQXKeyButtonNormal);
     ADD_ITEM_TO_ROW(row, 0x3A, @"Caps", kWQXKeyButtonNormal);
@@ -128,12 +114,10 @@
     ADD_ITEM_TO_ROW(row, 0x1B, @"↓", kWQXKeyButtonPrimary);
     ADD_ITEM_TO_ROW(row, 0x1F, @"→", kWQXKeyButtonPrimary);
     [rows addObject:row];
-    
     return rows;
 }
 
-- (NSMutableArray *) createLeftKeyboardRows {
-    
+- (NSMutableArray *)createLeftKeyboardRows {
     NSMutableArray *row;
     NSMutableArray *rows = [[NSMutableArray alloc] init];
     row = [[NSMutableArray alloc] init];
@@ -152,17 +136,13 @@
     ADD_ITEM_TO_ROW(row, 0x08, @"其他", kWQXKeyButtonFunction);
     ADD_ITEM_TO_ROW(row, 0x0E, @"网络", kWQXKeyButtonFunction);
     [rows addObject:row];
-    
     return rows;
 }
 
-- (NSMutableArray *) createRightKeyboardRows {
-    
+- (NSMutableArray *)createRightKeyboardRows {
     NSMutableArray *row;
     NSMutableArray *rows = [[NSMutableArray alloc] init];
-    
     row = [[NSMutableArray alloc] init];
-    
     ADD_ITEM_TO_ROW(row, kWQXCustomKeyCodeSave, @"保存", kWQXKeyButtonSystem);
     //ADD_ITEM_TO_ROW(row, kWQXCustomKeyCodeLoad, @"加载", kWQXKeyButtonSystem);
     ADD_ITEM_TO_ROW(row, kWQXCustomKeyCodeSwitch, @"切换", kWQXKeyButtonSystem);
@@ -179,7 +159,6 @@
     ADD_ITEM_TO_ROW(row, 0x12, @"F3", kWQXKeyButtonNormal);
     ADD_ITEM_TO_ROW(row, 0x13, @"F4", kWQXKeyButtonNormal);
     [rows addObject:row];
-    
     return rows;
 }
 
