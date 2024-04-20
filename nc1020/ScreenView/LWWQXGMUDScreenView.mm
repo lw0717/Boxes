@@ -1,49 +1,48 @@
 //
-//  WQXGMUDScreenLayout.m
+//  LWWQXGMUDScreenView.m
 //  NC1020
 //
 //  Created by rainyx on 15/8/23.
 //  Copyright (c) 2015年 rainyx. All rights reserved.
 //
 
-#import "WQXGMUDScreenLayout.h"
+#import "LWWQXGMUDScreenView.h"
 #import "WQXArchiveManager.h"
 #import "LWGMUDKeyboardView.h"
 #define isDirectionKeyCode(code) ((code==0x1A||code==0x1B||code==0x3F||code==0x1F))
 
-@interface WQXGMUDScreenLayout ()
-{
-    UIView *_rootView;
-    WQXLCDView *_lcdView;
-    LWGMUDKeyboardView *_keyboardView;
-}
+@interface LWWQXGMUDScreenView ()
+
+@property (nonatomic, strong) WQXLCDView *lcdView;
+@property (nonatomic, strong) LWGMUDKeyboardView *keyboardView;
+
 @end
 
-@implementation WQXGMUDScreenLayout
+@implementation LWWQXGMUDScreenView
 
 - (void)initViews {
-    
-    _rootView = [[UIView alloc] initWithFrame:self.bounds];
-    _rootView.backgroundColor = [UIColor lcdBackgroundColor];
-    
-    CGFloat lcdWidth = _rootView.bounds.size.width;
+
+    self.backgroundColor = [UIColor lcdBackgroundColor];
+
+    CGFloat lcdWidth = self.bounds.size.width;
     CGFloat lcdHeight = lcdWidth/2;
-    CGFloat lcdX = _rootView.bounds.size.width / 2 - lcdWidth / 2;
-    CGFloat lcdY = _rootView.bounds.size.height / 2 - lcdHeight / 2;
-    
+    CGFloat lcdX = self.bounds.size.width / 2 - lcdWidth / 2;
+    CGFloat lcdY = self.bounds.size.height / 2 - lcdHeight / 2;
+
     _lcdView = [[WQXLCDView alloc] initWithFrame:CGRectMake(lcdX, lcdY, lcdWidth, lcdHeight)];
     
-    CGFloat keyboardViewWidth = _rootView.bounds.size.width;
-    CGFloat keyboardViewHeight = _rootView.bounds.size.height / 2;
+    CGFloat keyboardViewWidth = self.bounds.size.width;
+    CGFloat keyboardViewHeight = self.bounds.size.height / 2;
     CGFloat keyboardViewX = 0.0f;
-    CGFloat keyboardViewY = _rootView.bounds.size.height - keyboardViewHeight;
-    
+    CGFloat keyboardViewY = self.bounds.size.height - keyboardViewHeight;
+
     _keyboardView = [[LWGMUDKeyboardView alloc] initWithFrame:CGRectMake(keyboardViewX, keyboardViewY, keyboardViewWidth, keyboardViewHeight)];
     _keyboardView.delegate = self;
     
-    [_rootView addSubview:_lcdView];
-    [_rootView addSubview:_keyboardView];
+    [self addSubview:_lcdView];
+    [self addSubview:_keyboardView];
 }
+
 // Makes speed up for direction buttons.
 - (void)keyboardView:(LWKeyboardView *)view didKeydown:(NSInteger)keyCode {
     if (self.keyboardViewDelegate != Nil && [self.keyboardViewDelegate respondsToSelector:@selector(keyboardView:didKeydown:)]) {
@@ -53,6 +52,7 @@
         [self.keyboardViewDelegate keyboardView:view didKeydown:keyCode];
     }
 }
+
 // Resets speed for direction buttons.
 - (void)keyboardView:(LWKeyboardView *)view didKeyup:(NSInteger)keyCode {
     if (self.keyboardViewDelegate != Nil && [self.keyboardViewDelegate respondsToSelector:@selector(keyboardView:didKeyup:)]) {
@@ -61,18 +61,6 @@
         }
         [self.keyboardViewDelegate keyboardView:view didKeyup:keyCode];
     }
-}
-
-- (WQXLCDView *)lcdView {
-    return _lcdView;
-}
-
-- (void)attachToView:(UIView *)view {
-    [view addSubview:_rootView];
-}
-
-- (void) detachFromView:(UIView *)view {
-    [_rootView removeFromSuperview];
 }
 
 @end

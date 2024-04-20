@@ -10,7 +10,6 @@
 #import "nc1020.h"
 #import <QuartzCore/QuartzCore.h>
 #import "WQXArchiveManager.h"
-#import "LWToolbox.h"
 
 #define LCD_WIDTH 160
 #define LCD_HEIGHT 80

@@ -1,31 +1,28 @@
 //
-//  WQXScreenLayout.m
+//  LWWQXDefaultScreenView.m
 //  nc1020
 //
 //  Created by rainyx on 15/8/22.
 //  Copyright (c) 2015年 rainyx. All rights reserved.
 //
 
-#import "WQXDefaultScreenLayout.h"
+#import "LWWQXDefaultScreenView.h"
 #import "LWKeyItem.h"
 #import "LWGridKeyboardView.h"
+#import "LWAutolayout.h"
 
 #define ADD_ITEM_TO_ROW(row, keyCode, title, style) [row addObject:[[LWKeyItem alloc] initWithTitle:title andKeyCode:keyCode andButtonStyle:style]];
 
-@interface WQXDefaultScreenLayout ()
-{
-    WQXLCDView *_lcdView;
-    LWKeyboardView *_leftKeyboardView;
-    LWKeyboardView *_rightKeyboardView;
-    LWKeyboardView *_mainKeyboardView;
-}
+@interface LWWQXDefaultScreenView ()
+
+@property (nonatomic, strong) WQXLCDView *lcdView;
+@property (nonatomic, strong) LWKeyboardView *leftKeyboardView;
+@property (nonatomic, strong) LWKeyboardView *rightKeyboardView;
+@property (nonatomic, strong) LWKeyboardView *mainKeyboardView;
+
 @end
 
-@implementation WQXDefaultScreenLayout
-
-- (WQXLCDView *)lcdView {
-    return _lcdView;
-}
+@implementation LWWQXDefaultScreenView
 
 - (void)initViews {
     
@@ -65,21 +62,11 @@
     CGRect mainKeyboardFrame = CGRectMake(mainKeyboardX, mainKeyboardY, mainKeyboardWidth, mainKeyboardHeight);
     _mainKeyboardView = [[LWGridKeyboardView alloc] initWithFrame:mainKeyboardFrame andRows:[self createMainKeyboardRows]];
     _mainKeyboardView.delegate = self;
-    
-}
 
-- (void) attachToView:(UIView *)view {
-    [view addSubview:_lcdView];
-    [view addSubview:_leftKeyboardView];
-    [view addSubview:_rightKeyboardView];
-    [view addSubview:_mainKeyboardView];
-}
-
-- (void) detachFromView:(UIView *)view {
-    [_lcdView removeFromSuperview];
-    [_leftKeyboardView removeFromSuperview];
-    [_rightKeyboardView removeFromSuperview];
-    [_mainKeyboardView removeFromSuperview];
+    [self addSubview:_lcdView];
+    [self addSubview:_leftKeyboardView];
+    [self addSubview:_rightKeyboardView];
+    [self addSubview:_mainKeyboardView];
 }
 
 - (NSMutableArray *) createMainKeyboardRows {

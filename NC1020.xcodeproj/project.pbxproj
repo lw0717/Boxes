@@ -7,20 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07C66DF11BC8B78F0031DA1C /* README in Resources */ = {isa = PBXBuildFile; fileRef = 07C66DF01BC8B78F0031DA1C /* README */; };
 		07D57B7D1B85D58B00960EB4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07D57B7C1B85D58B00960EB4 /* Images.xcassets */; };
 		07F88A341B8C15A600B205DA /* WQXArchiveManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F88A331B8C15A600B205DA /* WQXArchiveManager.mm */; };
 		07F88A3C1B8C4BF900B205DA /* nc1020.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07F88A3A1B8C4BF900B205DA /* nc1020.cpp */; };
 		18611C891B89ED2B00BB0AED /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 075192311B85CFBE00D38120 /* AppDelegate.mm */; };
-		18611C8B1B89ED2B00BB0AED /* WQXScreenLayout.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18611C821B89E66800BB0AED /* WQXScreenLayout.mm */; };
+		18611C8B1B89ED2B00BB0AED /* LWWQXScreenView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18611C821B89E66800BB0AED /* LWWQXScreenView.mm */; };
 		18611C8C1B89ED2B00BB0AED /* LWWQXRootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07D57B821B85D77F00960EB4 /* LWWQXRootViewController.mm */; };
 		18611C8D1B89ED2B00BB0AED /* WQXLCDView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07D57B851B85D83900960EB4 /* WQXLCDView.mm */; };
 		18611C8E1B89ED2B00BB0AED /* LWKeyItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 184EB4D81B88136C0020CB9B /* LWKeyItem.m */; };
 		18611C8F1B89ED2B00BB0AED /* LWKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184EB4DD1B8822B40020CB9B /* LWKeyboardView.m */; };
-		18611C901B89ED2B00BB0AED /* LWToolbox.mm in Sources */ = {isa = PBXBuildFile; fileRef = 184EB4E31B883BBF0020CB9B /* LWToolbox.mm */; };
 		18611C921B89ED3D00BB0AED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0751922E1B85CFBE00D38120 /* main.m */; };
-		18611C981B89EE1200BB0AED /* WQXDefaultScreenLayout.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18611C971B89EE1200BB0AED /* WQXDefaultScreenLayout.mm */; };
-		18611C9B1B89F45D00BB0AED /* WQXGMUDScreenLayout.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18611C9A1B89F45D00BB0AED /* WQXGMUDScreenLayout.mm */; };
+		18611C981B89EE1200BB0AED /* LWWQXDefaultScreenView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18611C971B89EE1200BB0AED /* LWWQXDefaultScreenView.mm */; };
+		18611C9B1B89F45D00BB0AED /* LWWQXGMUDScreenView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18611C9A1B89F45D00BB0AED /* LWWQXGMUDScreenView.mm */; };
 		18611C9D1B89F65A00BB0AED /* WQXArchiveManager.h in Sources */ = {isa = PBXBuildFile; fileRef = 18611C9C1B89F65A00BB0AED /* WQXArchiveManager.h */; };
 		18611CA71B8A061100BB0AED /* LWGridKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18611CA61B8A061100BB0AED /* LWGridKeyboardView.m */; };
 		18611CAA1B8A06A100BB0AED /* LWGMUDKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18611CA91B8A06A100BB0AED /* LWGMUDKeyboardView.m */; };
@@ -33,9 +31,9 @@
 		26803BFA2BCD01DB00656002 /* UIButton+LW.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BF92BCD01DB00656002 /* UIButton+LW.m */; };
 		26803BFE2BCE502200656002 /* WQXArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BFD2BCE502200656002 /* WQXArchive.m */; };
 		26803C042BCE6C7200656002 /* LWWQXArchiveManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803C032BCE6C7200656002 /* LWWQXArchiveManagerViewController.m */; };
-		26803C072BCE755400656002 /* LWAddWQXArchiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803C062BCE755400656002 /* LWAddWQXArchiveViewController.m */; };
 		26803C0D2BCEB68900656002 /* LWFileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803C0C2BCEB68900656002 /* LWFileTools.m */; };
 		26803C102BD110CD00656002 /* LWTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803C0F2BD110CD00656002 /* LWTableView.m */; };
+		26803C132BD3B74500656002 /* LWSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803C122BD3B74500656002 /* LWSettingViewController.m */; };
 		2681E6A82BC78F41005D3FBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2681E6A72BC78F41005D3FBA /* LaunchScreen.storyboard */; };
 		F7123B98F87D16F43649C2A5 /* libPods-NC1020.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 290AB91D4C5A31F7E97A93D7 /* libPods-NC1020.a */; };
 /* End PBXBuildFile section */
@@ -47,7 +45,6 @@
 		0751922E1B85CFBE00D38120 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		075192301B85CFBE00D38120 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		075192311B85CFBE00D38120 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
-		07C66DF01BC8B78F0031DA1C /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		07D57B7C1B85D58B00960EB4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		07D57B811B85D77F00960EB4 /* LWWQXRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWWQXRootViewController.h; sourceTree = "<group>"; };
 		07D57B821B85D77F00960EB4 /* LWWQXRootViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LWWQXRootViewController.mm; sourceTree = "<group>"; };
@@ -60,14 +57,12 @@
 		184EB4D81B88136C0020CB9B /* LWKeyItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWKeyItem.m; sourceTree = "<group>"; };
 		184EB4DC1B8822B40020CB9B /* LWKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWKeyboardView.h; sourceTree = "<group>"; };
 		184EB4DD1B8822B40020CB9B /* LWKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWKeyboardView.m; sourceTree = "<group>"; };
-		184EB4E21B883BBF0020CB9B /* LWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWToolbox.h; sourceTree = "<group>"; };
-		184EB4E31B883BBF0020CB9B /* LWToolbox.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LWToolbox.mm; sourceTree = "<group>"; };
-		18611C811B89E66800BB0AED /* WQXScreenLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQXScreenLayout.h; sourceTree = "<group>"; };
-		18611C821B89E66800BB0AED /* WQXScreenLayout.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WQXScreenLayout.mm; sourceTree = "<group>"; };
-		18611C961B89EE1200BB0AED /* WQXDefaultScreenLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQXDefaultScreenLayout.h; sourceTree = "<group>"; };
-		18611C971B89EE1200BB0AED /* WQXDefaultScreenLayout.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WQXDefaultScreenLayout.mm; sourceTree = "<group>"; };
-		18611C991B89F45D00BB0AED /* WQXGMUDScreenLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQXGMUDScreenLayout.h; sourceTree = "<group>"; };
-		18611C9A1B89F45D00BB0AED /* WQXGMUDScreenLayout.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WQXGMUDScreenLayout.mm; sourceTree = "<group>"; };
+		18611C811B89E66800BB0AED /* LWWQXScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWWQXScreenView.h; sourceTree = "<group>"; };
+		18611C821B89E66800BB0AED /* LWWQXScreenView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LWWQXScreenView.mm; sourceTree = "<group>"; };
+		18611C961B89EE1200BB0AED /* LWWQXDefaultScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWWQXDefaultScreenView.h; sourceTree = "<group>"; };
+		18611C971B89EE1200BB0AED /* LWWQXDefaultScreenView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LWWQXDefaultScreenView.mm; sourceTree = "<group>"; };
+		18611C991B89F45D00BB0AED /* LWWQXGMUDScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWWQXGMUDScreenView.h; sourceTree = "<group>"; };
+		18611C9A1B89F45D00BB0AED /* LWWQXGMUDScreenView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LWWQXGMUDScreenView.mm; sourceTree = "<group>"; };
 		18611C9C1B89F65A00BB0AED /* WQXArchiveManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQXArchiveManager.h; sourceTree = "<group>"; };
 		18611CA51B8A061100BB0AED /* LWGridKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWGridKeyboardView.h; sourceTree = "<group>"; };
 		18611CA61B8A061100BB0AED /* LWGridKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWGridKeyboardView.m; sourceTree = "<group>"; };
@@ -92,12 +87,12 @@
 		26803BFD2BCE502200656002 /* WQXArchive.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WQXArchive.m; sourceTree = "<group>"; };
 		26803C022BCE6C7200656002 /* LWWQXArchiveManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWWQXArchiveManagerViewController.h; sourceTree = "<group>"; };
 		26803C032BCE6C7200656002 /* LWWQXArchiveManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWWQXArchiveManagerViewController.m; sourceTree = "<group>"; };
-		26803C052BCE755400656002 /* LWAddWQXArchiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWAddWQXArchiveViewController.h; sourceTree = "<group>"; };
-		26803C062BCE755400656002 /* LWAddWQXArchiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWAddWQXArchiveViewController.m; sourceTree = "<group>"; };
 		26803C0B2BCEB68900656002 /* LWFileTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWFileTools.h; sourceTree = "<group>"; };
 		26803C0C2BCEB68900656002 /* LWFileTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWFileTools.m; sourceTree = "<group>"; };
 		26803C0E2BD110CD00656002 /* LWTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWTableView.h; sourceTree = "<group>"; };
 		26803C0F2BD110CD00656002 /* LWTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWTableView.m; sourceTree = "<group>"; };
+		26803C112BD3B74500656002 /* LWSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWSettingViewController.h; sourceTree = "<group>"; };
+		26803C122BD3B74500656002 /* LWSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWSettingViewController.m; sourceTree = "<group>"; };
 		2681E6A72BC78F41005D3FBA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		290AB91D4C5A31F7E97A93D7 /* libPods-NC1020.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NC1020.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B8E8CFDA360DB97C0A6E130 /* Pods-NC1020.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NC1020.debug.xcconfig"; path = "Target Support Files/Pods-NC1020/Pods-NC1020.debug.xcconfig"; sourceTree = "<group>"; };
@@ -136,19 +131,15 @@
 		0751922B1B85CFBE00D38120 /* nc1020 */ = {
 			isa = PBXGroup;
 			children = (
-				26803C092BCEB0AA00656002 /* View */,
+				26803C142BD3C23000656002 /* AppDelegate */,
 				26803C082BCEAEE300656002 /* Controller */,
+				26803C092BCEB0AA00656002 /* View */,
+				26803C152BD3D63700656002 /* ScreenView */,
 				26803BF62BC9A68600656002 /* Keyboard */,
-				2681E6A62BC78EFE005D3FBA /* SupportingFiles */,
 				07BD82B31B8EC2DB00D19CD2 /* Utils */,
 				07F88A351B8C4B6600B205DA /* NC1020 */,
 				26803BFB2BCE4FF300656002 /* WQX */,
-				18611C801B89E61B00BB0AED /* Layout */,
-				075192301B85CFBE00D38120 /* AppDelegate.h */,
-				075192311B85CFBE00D38120 /* AppDelegate.mm */,
-				184EB4E21B883BBF0020CB9B /* LWToolbox.h */,
-				184EB4E31B883BBF0020CB9B /* LWToolbox.mm */,
-				07C66DF01BC8B78F0031DA1C /* README */,
+				2681E6A62BC78EFE005D3FBA /* SupportingFiles */,
 			);
 			path = nc1020;
 			sourceTree = "<group>";
@@ -173,19 +164,6 @@
 				07F88A3B1B8C4BF900B205DA /* nc1020.h */,
 			);
 			path = NC1020;
-			sourceTree = "<group>";
-		};
-		18611C801B89E61B00BB0AED /* Layout */ = {
-			isa = PBXGroup;
-			children = (
-				18611C811B89E66800BB0AED /* WQXScreenLayout.h */,
-				18611C821B89E66800BB0AED /* WQXScreenLayout.mm */,
-				18611C961B89EE1200BB0AED /* WQXDefaultScreenLayout.h */,
-				18611C971B89EE1200BB0AED /* WQXDefaultScreenLayout.mm */,
-				18611C991B89F45D00BB0AED /* WQXGMUDScreenLayout.h */,
-				18611C9A1B89F45D00BB0AED /* WQXGMUDScreenLayout.mm */,
-			);
-			name = Layout;
 			sourceTree = "<group>";
 		};
 		219E8B3B70864C79846F6D4A /* Frameworks */ = {
@@ -277,8 +255,8 @@
 			children = (
 				26803C022BCE6C7200656002 /* LWWQXArchiveManagerViewController.h */,
 				26803C032BCE6C7200656002 /* LWWQXArchiveManagerViewController.m */,
-				26803C052BCE755400656002 /* LWAddWQXArchiveViewController.h */,
-				26803C062BCE755400656002 /* LWAddWQXArchiveViewController.m */,
+				26803C112BD3B74500656002 /* LWSettingViewController.h */,
+				26803C122BD3B74500656002 /* LWSettingViewController.m */,
 				07D57B811B85D77F00960EB4 /* LWWQXRootViewController.h */,
 				07D57B821B85D77F00960EB4 /* LWWQXRootViewController.mm */,
 			);
@@ -303,6 +281,28 @@
 				26803C0C2BCEB68900656002 /* LWFileTools.m */,
 			);
 			path = FileTools;
+			sourceTree = "<group>";
+		};
+		26803C142BD3C23000656002 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				075192301B85CFBE00D38120 /* AppDelegate.h */,
+				075192311B85CFBE00D38120 /* AppDelegate.mm */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		26803C152BD3D63700656002 /* ScreenView */ = {
+			isa = PBXGroup;
+			children = (
+				18611C811B89E66800BB0AED /* LWWQXScreenView.h */,
+				18611C821B89E66800BB0AED /* LWWQXScreenView.mm */,
+				18611C961B89EE1200BB0AED /* LWWQXDefaultScreenView.h */,
+				18611C971B89EE1200BB0AED /* LWWQXDefaultScreenView.mm */,
+				18611C991B89F45D00BB0AED /* LWWQXGMUDScreenView.h */,
+				18611C9A1B89F45D00BB0AED /* LWWQXGMUDScreenView.mm */,
+			);
+			path = ScreenView;
 			sourceTree = "<group>";
 		};
 		2681E6A62BC78EFE005D3FBA /* SupportingFiles */ = {
@@ -384,7 +384,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07C66DF11BC8B78F0031DA1C /* README in Resources */,
 				07D57B7D1B85D58B00960EB4 /* Images.xcassets in Resources */,
 				2681E6A82BC78F41005D3FBA /* LaunchScreen.storyboard in Resources */,
 			);
@@ -423,14 +422,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				18611C921B89ED3D00BB0AED /* main.m in Sources */,
+				26803C132BD3B74500656002 /* LWSettingViewController.m in Sources */,
 				26803BF42BC9A4CD00656002 /* UIImage+LW.m in Sources */,
 				07F88A3C1B8C4BF900B205DA /* nc1020.cpp in Sources */,
 				18611C891B89ED2B00BB0AED /* AppDelegate.mm in Sources */,
 				18611C9D1B89F65A00BB0AED /* WQXArchiveManager.h in Sources */,
-				18611C8B1B89ED2B00BB0AED /* WQXScreenLayout.mm in Sources */,
+				18611C8B1B89ED2B00BB0AED /* LWWQXScreenView.mm in Sources */,
 				18611CA71B8A061100BB0AED /* LWGridKeyboardView.m in Sources */,
 				26803BE52BC98DCD00656002 /* LWEXTScope.m in Sources */,
-				18611C981B89EE1200BB0AED /* WQXDefaultScreenLayout.mm in Sources */,
+				18611C981B89EE1200BB0AED /* LWWQXDefaultScreenView.mm in Sources */,
 				18611C8C1B89ED2B00BB0AED /* LWWQXRootViewController.mm in Sources */,
 				26803BF02BC99F5B00656002 /* UIColor+LW.m in Sources */,
 				18611CAA1B8A06A100BB0AED /* LWGMUDKeyboardView.m in Sources */,
@@ -440,14 +440,12 @@
 				26803BDF2BC9897F00656002 /* MBProgressHUD+LW.m in Sources */,
 				26803C0D2BCEB68900656002 /* LWFileTools.m in Sources */,
 				26803BFA2BCD01DB00656002 /* UIButton+LW.m in Sources */,
-				18611C9B1B89F45D00BB0AED /* WQXGMUDScreenLayout.mm in Sources */,
+				18611C9B1B89F45D00BB0AED /* LWWQXGMUDScreenView.mm in Sources */,
 				26803BE92BC98DFB00656002 /* LWM9Dev.m in Sources */,
 				18611C8E1B89ED2B00BB0AED /* LWKeyItem.m in Sources */,
 				18611C8F1B89ED2B00BB0AED /* LWKeyboardView.m in Sources */,
 				26803C042BCE6C7200656002 /* LWWQXArchiveManagerViewController.m in Sources */,
 				26803BE22BC98D9E00656002 /* LWAutolayout.m in Sources */,
-				26803C072BCE755400656002 /* LWAddWQXArchiveViewController.m in Sources */,
-				18611C901B89ED2B00BB0AED /* LWToolbox.mm in Sources */,
 				26803C102BD110CD00656002 /* LWTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

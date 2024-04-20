@@ -8,30 +8,25 @@
 
 #import "nc1020.h"
 #import "LWWQXRootViewController.h"
-#import "WQXScreenLayout.h"
-#import "WQXDefaultScreenLayout.h"
-#import "WQXGMUDScreenLayout.h"
+#import "LWWQXScreenView.h"
+#import "LWWQXDefaultScreenView.h"
+#import "LWWQXGMUDScreenView.h"
 #import "LWKeyItem.h"
-#import "LWToolbox.h"
 #import "WQXArchiveManager.h"
 #import "MBProgressHUD+LW.h"
 #import "UIColor+LW.h"
 
-static NSArray *_layoutClassNames = Nil;
-
-@interface LWWQXRootViewController ()
+@interface LWWQXRootViewController () <LWKeyboardViewDelegate>
 {
     NSThread *_wqxLoopThread;
-    WQXScreenLayout *_layout;
     CGRect _screenBounds;
 }
 
 @property (nonatomic, strong) UIView *safeView;
 
-@property (nonatomic, assign) NSInteger defaultLayoutClassIndex;
+@property (nonatomic, strong) LWWQXScreenView *screenView;
 
-- (NSString *)defaultLayoutClassName;
-- (NSString *)switchLayout;
+@property (nonatomic, assign) BOOL defaultScreenView;
 
 @end
 
@@ -43,22 +38,17 @@ static NSArray *_layoutClassNames = Nil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-
-    _layoutClassNames = [[NSArray alloc] initWithObjects:@"WQXDefaultScreenLayout", @"WQXGMUDScreenLayout", nil];
 
     self.view.backgroundColor = [UIColor colorWithRGB:0x222222];
     self.safeView = [[UIView alloc] initWithFrame:CGRectMake(20, 20, self.view.frame.size.width - 40, self.view.frame.size.height - 40)];
     [self.view addSubview:self.safeView];
-    _screenBounds = [LWToolbox rectForCurrentOrientation:self.safeView.bounds];
+    _screenBounds = self.safeView.bounds;
 
     WQXArchiveManager *wqx = [WQXArchiveManager sharedInstance];
 
-    // Load screen layout.
-    NSString *screenLayoutClassName = self.defaultLayoutClassName;
-    _layout = [[NSClassFromString(screenLayoutClassName) alloc] initWithBounds:_screenBounds andKeyboardViewDelegate:self];
-    [_layout attachToView:self.safeView];
-    
+    self.defaultScreenView = YES;
+    self.screenView = [[LWWQXDefaultScreenView alloc] initWithFrame:_screenBounds andKeyboardViewDelegate:self];
+
     // Load archive.
     WQXArchive *archive = [wqx defaultArchive];
     if (archive == Nil) {
@@ -67,45 +57,65 @@ static NSArray *_layoutClassNames = Nil;
         [wqx setDefaultArchive:archive];
         [wqx save];
     }
-    
+
     wqx::WqxRom rom = [WQXArchiveManager wqxRomWithArchive:archive];
 
     NSLog(@"lw0717: RAM path %s", rom.norFlashPath.c_str());
     NSLog(@"lw0717: ROM path %s", rom.romPath.c_str());
     wqx::Initialize(rom);
     wqx::LoadNC1020();
-    
-    [[_layout lcdView] beginUpdate];
+
+    [[self.screenView lcdView] beginUpdate];
     _wqxLoopThread = [[NSThread alloc] initWithTarget:self selector:@selector(wqxloopThreadCallback) object:nil];
-    
+
     [_wqxLoopThread start];
 }
 
-- (void)keyboardView:(LWKeyboardView *)view didKeydown:(NSInteger)keyCode {
-    if (keyCode < kWQXCustomKeyCodeBegin) {
-        wqx::SetKey((uint8_t)keyCode, TRUE);
+- (void)setScreenView:(LWWQXScreenView *)screenView {
+    if (_screenView != nil) {
+        [_screenView removeFromSuperview];
     }
-    NSLog(@"lw0717: Did keydown with keycode: %zd\n", keyCode);
-}
-
-- (void)setScreenLayout:(WQXScreenLayout *)layout {
-    if (_layout != Nil) {
-        [_layout detachFromView:self.safeView];
-    }
-    _layout = layout;
-    [[_layout lcdView] beginUpdate];
-    [_layout attachToView:self.safeView];
+    _screenView = screenView;
+    [[_screenView lcdView] beginUpdate];
+    [self.safeView addSubview:_screenView];
 }
 
 - (void)switchScreenLayout {
     WQXArchiveManager *wqx = [WQXArchiveManager sharedInstance];
-    NSString *className = [self switchLayout];
     [wqx save];
-    WQXScreenLayout *layout = [[NSClassFromString(className) alloc] initWithBounds:_screenBounds andKeyboardViewDelegate:self];
-    [self setScreenLayout:layout];
+    self.defaultScreenView = !self.defaultScreenView;
+    if (self.defaultScreenView) {
+        self.screenView = [[LWWQXDefaultScreenView alloc] initWithFrame:_screenBounds andKeyboardViewDelegate:self];
+    } else {
+        self.screenView = [[LWWQXGMUDScreenView alloc] initWithFrame:_screenBounds andKeyboardViewDelegate:self];
+    }
+}
+
+- (void)wqxloopThreadCallback {
+    while (true) {
+        wqx::RunTimeSlice(20, false);
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [[self.screenView lcdView] setNeedsDisplay];
+        });
+        [NSThread sleepForTimeInterval:0.02];
+    }
+}
+
+//- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+//    return UIInterfaceOrientationMaskLandscape;
+//}
+
+#pragma mark - LWKeyboardViewDelegate
+
+- (void)keyboardView:(LWKeyboardView *)view didKeydown:(NSInteger)keyCode {
+    NSLog(@"lw0717: Did keydown with keycode: %zd\n", keyCode);
+    if (keyCode < kWQXCustomKeyCodeBegin) {
+        wqx::SetKey((uint8_t)keyCode, TRUE);
+    }
 }
 
 - (void)keyboardView:(LWKeyboardView *)view didKeyup:(NSInteger)keyCode {
+    NSLog(@"lw0717: Did keyup with keycode: %zd\n", keyCode);
     if (keyCode < kWQXCustomKeyCodeBegin) {
         wqx::SetKey((uint8_t)keyCode, FALSE);
     } else {
@@ -129,30 +139,6 @@ static NSArray *_layoutClassNames = Nil;
                 break;
         }
     }
-    NSLog(@"lw0717: Did keyup with keycode: %zd\n", keyCode);
-}
-
-- (void)wqxloopThreadCallback {
-    while (true) {
-        wqx::RunTimeSlice(20, false);
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            [[_layout lcdView] setNeedsDisplay];
-        });
-        [NSThread sleepForTimeInterval:0.02];
-    }
-}
-
-- (NSString *)defaultLayoutClassName {
-    return [_layoutClassNames objectAtIndex:_defaultLayoutClassIndex];
-}
-
-- (NSString *)switchLayout {
-    _defaultLayoutClassIndex = (_defaultLayoutClassIndex + 1) % _layoutClassNames.count;
-    return [self defaultLayoutClassName];
-}
-
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskLandscape;
 }
 
 @end

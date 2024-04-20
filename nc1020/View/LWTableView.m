@@ -46,12 +46,10 @@
     if (isEmpty) {
         [self addSubview:self.placeholderView];
         [self.placeholderView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
-            make.width.equalTo(@300);
-            make.height.equalTo(@300);
+            make.width.equalTo(self);
+            make.height.equalTo(self);
             make.centerX.equalTo(self);
-            make.centerY.equalTo(self);
-//            make.left.right.equalTo(self);
-//            make.top.bottom.equalTo(self);
+            make.centerY.equalTo(self).offset(-32.0);
         }];
     }
 }

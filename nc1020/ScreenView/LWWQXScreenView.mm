@@ -1,26 +1,26 @@
 //
-//  WQXScreenLayout.m
+//  LWWQXScreenView.m
 //  NC1020
 //
 //  Created by rainyx on 15/8/23.
 //  Copyright (c) 2015年 rainyx. All rights reserved.
 //
 
-#import "WQXScreenLayout.h"
-#import "LWToolbox.h"
+#import "LWWQXScreenView.h"
 
-@implementation WQXScreenLayout
+#define mustOverride() @throw [NSException exceptionWithName:NSInvalidArgumentException reason:[NSString stringWithFormat:@"%s must be overridden in a subclass/category", __PRETTY_FUNCTION__] userInfo:nil]
+#define methodNotImplemented() mustOverride()
 
-- (id)initWithBounds:(CGRect)bounds andKeyboardViewDelegate:(id<LWKeyboardViewDelegate>)delegate {
-    if ([super init]) {
+@implementation LWWQXScreenView
+
+- (instancetype)initWithFrame:(CGRect)bounds andKeyboardViewDelegate:(id<LWKeyboardViewDelegate>)delegate {
+    if (self = [super initWithFrame:bounds]) {
         self.bounds = bounds;
         self.keyboardViewDelegate = delegate;
         NSLog(@"lw0717: Layout Bounds: %f, %f, %f, %f", bounds.origin.x, bounds.origin.y, bounds.size.width, bounds.size.height);
         [self initViews];
-        return self;
-    } else {
-        return Nil;
     }
+    return self;
 }
 
 - (void)keyboardView:(LWKeyboardView *)view didKeydown:(NSInteger)keyCode {
@@ -42,12 +42,5 @@
     mustOverride();
 }
 
-- (void) attachToView:(UIView *)view {
-    mustOverride();
-}
-
-- (void) detachFromView:(UIView *)view {
-    mustOverride();
-}
-
 @end
+

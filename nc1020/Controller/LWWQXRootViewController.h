@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "LWKeyboardView.h"
 
-@interface LWWQXRootViewController : UIViewController<LWKeyboardViewDelegate>
+@interface LWWQXRootViewController : UIViewController
 
 @end

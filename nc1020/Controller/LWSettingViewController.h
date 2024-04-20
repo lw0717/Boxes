@@ -1,8 +1,8 @@
 //
-//  LWAddWQXArchiveViewController.h
+//  LWSettingViewController.h
 //  NC1020
 //
-//  Created by lw0717 on 2024/4/16.
+//  Created by lw0717 on 2024/4/20.
 //  Copyright © 2024 lw0717. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LWAddWQXArchiveViewController : UIViewController
+@interface LWSettingViewController : UIViewController
 
 @end
 
