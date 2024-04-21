@@ -29,6 +29,7 @@
     [self.navigationController.navigationBar setHidden:NO];
     self.title = @"Roms";
     self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
 
     [self setupUI];
 }
@@ -40,7 +41,7 @@
 }
 
 - (void)setupUI {
-    self.tableview = [[LWTableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.tableview = [[LWTableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     if (@available(iOS 11.0, *)) {
         self.tableview.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     } else {
@@ -80,10 +81,14 @@
 
 - (void)settingItemOnClick:(UIBarButtonItem *)item {
     LWSettingViewController *settingVc = [[LWSettingViewController alloc] init];
-    [self presentViewController:settingVc animated:YES completion:nil];
+    [self.navigationController pushViewController:settingVc animated:YES];
 }
 
 #pragma mark -
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [WQXArchiveManager sharedInstance].archives.count;
 }

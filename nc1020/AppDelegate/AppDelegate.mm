@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "LWWQXRootViewController.h"
 #import "LWWQXArchiveManagerViewController.h"
 
 @interface AppDelegate ()
@@ -20,10 +19,9 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 
-//    UIViewController *rootViewController = [[LWWQXRootViewController alloc] init];
-
     LWWQXArchiveManagerViewController *vc = [[LWWQXArchiveManagerViewController alloc] init];
     UINavigationController *rootViewController = [[UINavigationController alloc] initWithRootViewController:vc];
+    rootViewController.navigationBar.tintColor = [UIColor blackColor];
 
     [self.window setBackgroundColor:[UIColor whiteColor]];
     [self.window setRootViewController:rootViewController];

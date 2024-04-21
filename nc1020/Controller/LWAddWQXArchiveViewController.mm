@@ -27,6 +27,9 @@
 
 @property (nonatomic, assign) BOOL chooseRom;
 
+@property (nonatomic, assign) BOOL addRom;
+@property (nonatomic, assign) BOOL addFls;
+
 @end
 
 @implementation LWAddWQXArchiveViewController
@@ -35,8 +38,12 @@
     [super viewDidLoad];
     self.title = @"添加 Rom";
     self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.archive = [[WQXArchive alloc] init];
     self.archive.directory = [NSUUID UUID].UUIDString;
+    self.chooseRom = NO;
+    self.addRom = NO;
+    self.addFls = NO;
     BOOL isDirectory = NO;
     NSString *documentPath = [LWFileTools documentDirectoryPath];
     NSString *directoryPath = [documentPath stringByAppendingPathComponent:self.archive.directory];
@@ -49,7 +56,7 @@
 }
 
 - (void)setupUI {
-    self.tableview = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.tableview = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     if (@available(iOS 11.0, *)) {
         self.tableview.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     } else {
@@ -57,7 +64,6 @@
     }
     self.tableview.delegate = self;
     self.tableview.dataSource = self;
-    [self.tableview registerClass:UITableViewCell.self forCellReuseIdentifier:AddCellReuseIdentifier];
     [self.view addSubview:self.tableview];
     [self.tableview lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
         make.left.right.equalTo(self.view.lw_safeAreaLayoutGuide ?: self.view);
@@ -108,6 +114,8 @@
     if (_documentPickerVC == nil) {
         self.documentPickerVC = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[@"public.data"]
                                                                                        inMode:UIDocumentPickerModeOpen];
+        _documentPickerVC.navigationController.navigationBar.tintColor = [UIColor blackColor];
+        _documentPickerVC.tabBarController.tabBar.tintColor = [UIColor blackColor];
         _documentPickerVC.delegate = self;
         _documentPickerVC.modalPresentationStyle = UIModalPresentationFormSheet;
     }
@@ -115,8 +123,17 @@
 }
 
 #pragma mark -
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    if (section == 0) {
+        return 1;
+    } else if (section == 1) {
+        return 2;
+    }
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -124,11 +141,8 @@
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:AddCellReuseIdentifier forIndexPath:indexPath];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:AddCellReuseIdentifier];
-    }
-    if (indexPath.row == 0) {
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:AddCellReuseIdentifier];
+    if (indexPath.section == 0) {
         cell.textLabel.text = @"名字";
         if (self.textField == nil) {
             self.textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 300, 44)];
@@ -136,30 +150,26 @@
             self.textField.textAlignment = NSTextAlignmentRight;
         }
         cell.accessoryView = self.textField;
-    } else if (indexPath.row == 1) {
-        cell.textLabel.text = @"bin 文件 (*.bin)";
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 100, 24)];
-        label.text = @"选择";
-        label.textAlignment = NSTextAlignmentRight;
-        cell.accessoryView = label;
-    } else if (indexPath.row == 2) {
-        cell.textLabel.text = @"fls 文件 (*.fls)";
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 100, 24)];
-        label.text = @"选择";
-        label.textAlignment = NSTextAlignmentRight;
-        cell.accessoryView = label;
+    } else if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            cell.textLabel.text = @"bin 文件 (*.bin)";
+            cell.detailTextLabel.text = self.addRom ? @"已选择" : @"选择";
+        } else if (indexPath.row == 1) {
+            cell.textLabel.text = @"fls 文件 (*.fls)";
+            cell.detailTextLabel.text = self.addFls ? @"已选择" : @"选择";
+        }
     }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row == 0) {
+    if (indexPath.section == 0) {
         [self.textField becomeFirstResponder];
-    } else if (indexPath.row == 1 || indexPath.row == 2) {
+    } else if (indexPath.section == 1) {
         [self.textField resignFirstResponder];
         if (self.textField.text.length > 0) {
-            if (indexPath.row == 1) {
+            if (indexPath.row == 0) {
                 self.chooseRom = YES;
             } else {
                 self.chooseRom = NO;
@@ -207,6 +217,12 @@
                 }
                 if (isSucceed) {
                     NSLog(@"lw0717: get file name: %@, of url: %@", fileName, filePath);
+                    if (self.chooseRom) {
+                        self.addRom = YES;
+                    } else {
+                        self.addFls = YES;
+                    }
+                    [self.tableview reloadData];
                     [MBProgressHUD lw_showMessageThenHide:@"导入文件成功" toView:self.view];
                 } else {
                     [MBProgressHUD lw_showMessageThenHide:@"获取文件失败" toView:self.view];
