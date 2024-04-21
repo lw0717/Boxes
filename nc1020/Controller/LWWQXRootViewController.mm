@@ -29,6 +29,8 @@
 
 @property (nonatomic, assign) BOOL defaultScreenView;
 
+@property (nonatomic, assign) BOOL run;
+
 @end
 
 @implementation LWWQXRootViewController
@@ -39,7 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [self.navigationController.navigationBar setHidden:YES];
     self.view.backgroundColor = [UIColor colorWithRGB:0x222222];
     self.safeView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:self.safeView];
@@ -54,19 +56,10 @@
     WQXArchiveManager *wqx = [WQXArchiveManager sharedInstance];
 
     self.defaultScreenView = YES;
+    self.run = YES;
     self.screenView = [[LWWQXDefaultScreenView alloc] initWithFrame:_screenBounds andKeyboardViewDelegate:self];
 
-    // Load archive.
-    WQXArchive *archive = [wqx defaultArchive];
-    if (archive == Nil) {
-        archive = [WQXArchiveManager archiveWithName:@"default"];
-        [wqx addArchive:archive];
-        [wqx setDefaultArchive:archive];
-        [wqx save];
-    }
-
-    wqx::WqxRom rom = [WQXArchiveManager wqxRomWithArchive:archive];
-
+    wqx::WqxRom rom = [wqx wqxRomWithArchive:self.archive];
     NSLog(@"lw0717: RAM path %s", rom.norFlashPath.c_str());
     NSLog(@"lw0717: ROM path %s", rom.romPath.c_str());
     wqx::Initialize(rom);
@@ -76,6 +69,11 @@
     _wqxLoopThread = [[NSThread alloc] initWithTarget:self selector:@selector(wqxloopThreadCallback) object:nil];
 
     [_wqxLoopThread start];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setHidden:YES];
 }
 
 - (void)setScreenView:(LWWQXScreenView *)screenView {
@@ -91,8 +89,6 @@
 }
 
 - (void)switchScreenLayout {
-    WQXArchiveManager *wqx = [WQXArchiveManager sharedInstance];
-    [wqx save];
     self.defaultScreenView = !self.defaultScreenView;
     if (self.defaultScreenView) {
         self.screenView = [[LWWQXDefaultScreenView alloc] initWithFrame:_screenBounds andKeyboardViewDelegate:self];
@@ -102,7 +98,7 @@
 }
 
 - (void)wqxloopThreadCallback {
-    while (true) {
+    while (self.run) {
         wqx::RunTimeSlice(20, false);
         dispatch_sync(dispatch_get_main_queue(), ^{
             [[self.screenView lcdView] setNeedsDisplay];
@@ -128,6 +124,13 @@
     NSLog(@"lw0717: Did keyup with keycode: %zd\n", keyCode);
     if (keyCode < kWQXCustomKeyCodeBegin) {
         wqx::SetKey((uint8_t)keyCode, FALSE);
+        if (keyCode == 0x0F) {
+            NSLog(@"lw0717: 电源");
+            self.screenView = nil;
+            self.run = NO;
+            _wqxLoopThread = nil;
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     } else {
         // Handle custom keys.
         switch (keyCode) {

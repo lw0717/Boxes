@@ -12,7 +12,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LWFileTools : NSObject
 
-+ (instancetype)sharedInstance;
++ (NSString *)documentDirectoryPath;
+
++ (BOOL)createDirectoryAtPath:(NSString *)path error:(NSError **)error;
+
++ (BOOL)removeItemAtPath:(NSString *)path error:(NSError **)error;
+
++ (BOOL)fileExistsAtPath:(NSString *)path isDirectory:(nullable BOOL *)isDirectory;
+
++ (BOOL)copyItemAtPath:(NSString *)srcPath toPath:(NSString *)dstPath error:(NSError **)error;
+
++ (nullable NSArray<NSString *> *)contentsOfDirectoryAtPath:(NSString *)path error:(NSError **)error;
 
 @end
 

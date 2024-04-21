@@ -17,16 +17,14 @@
 
 + (instancetype)sharedInstance;
 
-+ (WQXArchive *)archiveWithName:(NSString *)name;
-+ (WQXArchive *)archiveCopyFrom:(WQXArchive *)archive withNewName:(NSString *)name;
-+ (NSString *)archiveDirectoryPath;
-+ (wqx::WqxRom)wqxRomWithArchive:(WQXArchive *)archive;
+- (WQXArchive *)archiveWithName:(NSString *)name;
+- (WQXArchive *)archiveCopyFrom:(WQXArchive *)archive withNewName:(NSString *)name;
+
+- (wqx::WqxRom)wqxRomWithArchive:(WQXArchive *)archive;
 
 - (void)addArchive:(WQXArchive *)archive;
 - (void)removeArchiveWithName:(NSString *)name;
 - (void)removeAllArchives;
-- (void)setDefaultArchive:(WQXArchive *)archive;
-- (WQXArchive *)defaultArchive;
 
 - (BOOL)save;
 

@@ -30,10 +30,11 @@
 		26803BF42BC9A4CD00656002 /* UIImage+LW.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BF32BC9A4CD00656002 /* UIImage+LW.m */; };
 		26803BFA2BCD01DB00656002 /* UIButton+LW.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BF92BCD01DB00656002 /* UIButton+LW.m */; };
 		26803BFE2BCE502200656002 /* WQXArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BFD2BCE502200656002 /* WQXArchive.m */; };
-		26803C042BCE6C7200656002 /* LWWQXArchiveManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803C032BCE6C7200656002 /* LWWQXArchiveManagerViewController.m */; };
+		26803C042BCE6C7200656002 /* LWWQXArchiveManagerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 26803C032BCE6C7200656002 /* LWWQXArchiveManagerViewController.mm */; };
 		26803C0D2BCEB68900656002 /* LWFileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803C0C2BCEB68900656002 /* LWFileTools.m */; };
 		26803C102BD110CD00656002 /* LWTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803C0F2BD110CD00656002 /* LWTableView.m */; };
 		26803C132BD3B74500656002 /* LWSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803C122BD3B74500656002 /* LWSettingViewController.m */; };
+		26803C182BD42CA900656002 /* LWAddWQXArchiveViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 26803C172BD42CA900656002 /* LWAddWQXArchiveViewController.mm */; };
 		2681E6A82BC78F41005D3FBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2681E6A72BC78F41005D3FBA /* LaunchScreen.storyboard */; };
 		F7123B98F87D16F43649C2A5 /* libPods-NC1020.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 290AB91D4C5A31F7E97A93D7 /* libPods-NC1020.a */; };
 /* End PBXBuildFile section */
@@ -86,13 +87,15 @@
 		26803BFC2BCE502200656002 /* WQXArchive.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WQXArchive.h; sourceTree = "<group>"; };
 		26803BFD2BCE502200656002 /* WQXArchive.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WQXArchive.m; sourceTree = "<group>"; };
 		26803C022BCE6C7200656002 /* LWWQXArchiveManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWWQXArchiveManagerViewController.h; sourceTree = "<group>"; };
-		26803C032BCE6C7200656002 /* LWWQXArchiveManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWWQXArchiveManagerViewController.m; sourceTree = "<group>"; };
+		26803C032BCE6C7200656002 /* LWWQXArchiveManagerViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LWWQXArchiveManagerViewController.mm; sourceTree = "<group>"; };
 		26803C0B2BCEB68900656002 /* LWFileTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWFileTools.h; sourceTree = "<group>"; };
 		26803C0C2BCEB68900656002 /* LWFileTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWFileTools.m; sourceTree = "<group>"; };
 		26803C0E2BD110CD00656002 /* LWTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWTableView.h; sourceTree = "<group>"; };
 		26803C0F2BD110CD00656002 /* LWTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWTableView.m; sourceTree = "<group>"; };
 		26803C112BD3B74500656002 /* LWSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWSettingViewController.h; sourceTree = "<group>"; };
 		26803C122BD3B74500656002 /* LWSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWSettingViewController.m; sourceTree = "<group>"; };
+		26803C162BD42CA900656002 /* LWAddWQXArchiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWAddWQXArchiveViewController.h; sourceTree = "<group>"; };
+		26803C172BD42CA900656002 /* LWAddWQXArchiveViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LWAddWQXArchiveViewController.mm; sourceTree = "<group>"; };
 		2681E6A72BC78F41005D3FBA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		290AB91D4C5A31F7E97A93D7 /* libPods-NC1020.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NC1020.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B8E8CFDA360DB97C0A6E130 /* Pods-NC1020.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NC1020.debug.xcconfig"; path = "Target Support Files/Pods-NC1020/Pods-NC1020.debug.xcconfig"; sourceTree = "<group>"; };
@@ -254,7 +257,9 @@
 			isa = PBXGroup;
 			children = (
 				26803C022BCE6C7200656002 /* LWWQXArchiveManagerViewController.h */,
-				26803C032BCE6C7200656002 /* LWWQXArchiveManagerViewController.m */,
+				26803C032BCE6C7200656002 /* LWWQXArchiveManagerViewController.mm */,
+				26803C162BD42CA900656002 /* LWAddWQXArchiveViewController.h */,
+				26803C172BD42CA900656002 /* LWAddWQXArchiveViewController.mm */,
 				26803C112BD3B74500656002 /* LWSettingViewController.h */,
 				26803C122BD3B74500656002 /* LWSettingViewController.m */,
 				07D57B811B85D77F00960EB4 /* LWWQXRootViewController.h */,
@@ -441,10 +446,11 @@
 				26803C0D2BCEB68900656002 /* LWFileTools.m in Sources */,
 				26803BFA2BCD01DB00656002 /* UIButton+LW.m in Sources */,
 				18611C9B1B89F45D00BB0AED /* LWWQXGMUDScreenView.mm in Sources */,
+				26803C182BD42CA900656002 /* LWAddWQXArchiveViewController.mm in Sources */,
 				26803BE92BC98DFB00656002 /* LWM9Dev.m in Sources */,
 				18611C8E1B89ED2B00BB0AED /* LWKeyItem.m in Sources */,
 				18611C8F1B89ED2B00BB0AED /* LWKeyboardView.m in Sources */,
-				26803C042BCE6C7200656002 /* LWWQXArchiveManagerViewController.m in Sources */,
+				26803C042BCE6C7200656002 /* LWWQXArchiveManagerViewController.mm in Sources */,
 				26803BE22BC98D9E00656002 /* LWAutolayout.m in Sources */,
 				26803C102BD110CD00656002 /* LWTableView.m in Sources */,
 			);

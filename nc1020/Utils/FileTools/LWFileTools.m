@@ -8,39 +8,36 @@
 
 #import "LWFileTools.h"
 
-static LWFileTools *_instance;
-static dispatch_once_t _file_once_token;
-
-@interface LWFileTools ()
-
-@end
-
 @implementation LWFileTools
 
-+ (instancetype)sharedInstance {
-    dispatch_once(&_file_once_token, ^{
-        _instance = [[LWFileTools alloc] init];
-    });
-    return _instance;
++ (NSString *)documentDirectoryPath {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    return paths.firstObject;
 }
 
-- (instancetype)init {
-    if (self = [super init]) {
-        //
-    }
-    return self;
++ (BOOL)createDirectoryAtPath:(NSString *)path error:(NSError **)error {
+    NSFileManager *manager = [NSFileManager defaultManager];
+    return [manager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:error];
 }
 
-- (void)copyFile {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
++ (BOOL)removeItemAtPath:(NSString *)path error:(NSError **)error {
+    NSFileManager *manager = [NSFileManager defaultManager];
+    return [manager removeItemAtPath:path error:error];
 }
 
++ (BOOL)fileExistsAtPath:(NSString *)path isDirectory:(nullable BOOL *)isDirectory {
+    NSFileManager *manager = [NSFileManager defaultManager];
+    return [manager fileExistsAtPath:path isDirectory:isDirectory];
+}
 
-+ (void)copyFileAtPath:(NSString *)srcPath toPath:(NSString *)dstPath {
-    NSFileManager* manager = [NSFileManager defaultManager];
-    NSError *error;
-    [manager copyItemAtPath:srcPath toPath:dstPath error:&error];
-    //
++ (BOOL)copyItemAtPath:(NSString *)srcPath toPath:(NSString *)dstPath error:(NSError **)error {
+    NSFileManager *manager = [NSFileManager defaultManager];
+    return [manager copyItemAtPath:srcPath toPath:dstPath error:error];
+}
+
++ (nullable NSArray<NSString *> *)contentsOfDirectoryAtPath:(NSString *)path error:(NSError **)error {
+    NSFileManager *manager = [NSFileManager defaultManager];
+    return [manager contentsOfDirectoryAtPath:path error:error];
 }
 
 @end

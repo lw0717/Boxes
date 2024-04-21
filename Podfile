@@ -6,7 +6,6 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'NC1020' do
 
   pod 'MBProgressHUD', :inhibit_warnings => true
-  pod 'ZipArchive'
 
 end
 

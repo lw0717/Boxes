@@ -14,6 +14,46 @@
 
 @implementation WQXArchive
 
+- (instancetype)init {
+    if (self = [super init]) {
+        self.romName = @"obj_lu.bin";
+        self.flsName = @"obj_nc1020.fls";
+        self.norFlashName = @"archive_nc1020.fls";
+        self.statesName = @"archive_nc1020.sts";
+    }
+    return self;
+}
+
+- (instancetype)initWithDictionary:(NSDictionary *)dict {
+    if (self = [super init]) {
+        NSString *name = dict[@"name"];
+        if (name) {
+            self.name = name;
+        }
+        NSString *directory = dict[@"directory"];
+        if (directory) {
+            self.directory = directory;
+        }
+        NSString *romName = dict[@"obj_rom"];
+        if (romName) {
+            self.romName = romName;
+        }
+        NSString *flsName = dict[@"obj_fls"];
+        if (flsName) {
+            self.flsName = flsName;
+        }
+        NSString *fls = dict[@"archive_fls"];
+        if (fls) {
+            self.norFlashName = fls;
+        }
+        NSString *sts = dict[@"archive_sts"];
+        if (sts) {
+            self.statesName = sts;
+        }
+    }
+    return self;
+}
+
 - (instancetype)initWithName:(NSString *)name directory:(NSString *)directory {
     if (self = [super init]) {
         self.name = name;
@@ -51,33 +91,6 @@
     [dict setValue:self.norFlashName ?: @"archive_nc1020.fls" forKey:@"archive_fls"];
     [dict setValue:self.statesName ?: @"archive_nc1020.sts" forKey:@"archive_sts"];
     return [dict copy];
-}
-
-- (void)fromDictionary:(NSDictionary *)dict {
-    NSString *name = dict[@"name"];
-    if (name) {
-        self.name = name;
-    }
-    NSString *directory = dict[@"directory"];
-    if (directory) {
-        self.directory = directory;
-    }
-    NSString *romName = dict[@"obj_rom"];
-    if (romName) {
-        self.romName = romName;
-    }
-    NSString *flsName = dict[@"obj_fls"];
-    if (flsName) {
-        self.flsName = flsName;
-    }
-    NSString *fls = dict[@"archive_fls"];
-    if (fls) {
-        self.norFlashName = fls;
-    }
-    NSString *sts = dict[@"archive_sts"];
-    if (sts) {
-        self.statesName = sts;
-    }
 }
 
 @end

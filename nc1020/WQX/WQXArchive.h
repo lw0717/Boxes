@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *statesName;
 
 - (instancetype)initWithName:(NSString *)name directory:(NSString *)directory;
+- (instancetype)initWithDictionary:(NSDictionary *)dict;
 
 - (NSString *)romPath;
 - (NSString *)flsPath;
@@ -32,7 +33,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)statesPath;
 
 - (NSDictionary *)toDictionary;
-- (void)fromDictionary:(NSDictionary *)dict;
 
 @end
 

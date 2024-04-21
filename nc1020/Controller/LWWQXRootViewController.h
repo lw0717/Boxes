@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "LWKeyboardView.h"
+#import "WQXArchiveManager.h"
 
 @interface LWWQXRootViewController : UIViewController
+
+@property (nonatomic, strong) WQXArchive *archive;
 
 @end
