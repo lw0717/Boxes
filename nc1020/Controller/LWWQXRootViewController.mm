@@ -23,6 +23,8 @@
     CGRect _screenBounds;
 }
 
+@property (nonatomic, strong) WQXArchive *archive;
+
 @property (nonatomic, strong) UIView *safeView;
 
 @property (nonatomic, strong) LWWQXScreenView *screenView;
@@ -34,6 +36,13 @@
 @end
 
 @implementation LWWQXRootViewController
+
+- (instancetype)initWithArchive:(WQXArchive *)archive {
+    if (self = [super init]) {
+        self.archive = archive;
+    }
+    return self;
+}
 
 - (BOOL)prefersStatusBarHidden {
     return YES;

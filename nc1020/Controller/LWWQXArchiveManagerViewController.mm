@@ -98,9 +98,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSString *name = [WQXArchiveManager sharedInstance].archives.allKeys[indexPath.row];
-    LWWQXRootViewController * vc = [[LWWQXRootViewController alloc] init];
     WQXArchive *archive = [[WQXArchiveManager sharedInstance] archiveWithName:name];
-    vc.archive = archive;
+    LWWQXRootViewController * vc = [[LWWQXRootViewController alloc] initWithArchive:archive];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -12,6 +12,8 @@
 
 @interface LWWQXRootViewController : UIViewController
 
-@property (nonatomic, strong) WQXArchive *archive;
+- (instancetype)init NS_UNAVAILABLE;
+
+- (instancetype)initWithArchive:(WQXArchive *)archive;
 
 @end
