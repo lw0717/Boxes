@@ -12,7 +12,7 @@
 #import "LWWQXDefaultScreenView.h"
 #import "LWWQXGMUDScreenView.h"
 #import "LWKeyItem.h"
-#import "WQXArchiveManager.h"
+#import "LWWQXArchiveManager.h"
 #import "MBProgressHUD+LW.h"
 #import "UIColor+LW.h"
 #import "LWAutolayout.h"
@@ -23,7 +23,7 @@
     CGRect _screenBounds;
 }
 
-@property (nonatomic, strong) WQXArchive *archive;
+@property (nonatomic, strong) LWWQXArchive *archive;
 
 @property (nonatomic, strong) UIView *safeView;
 
@@ -37,7 +37,7 @@
 
 @implementation LWWQXRootViewController
 
-- (instancetype)initWithArchive:(WQXArchive *)archive {
+- (instancetype)initWithArchive:(LWWQXArchive *)archive {
     if (self = [super init]) {
         self.archive = archive;
     }
@@ -62,7 +62,7 @@
         make.right.equalTo(self.view.lw_safeAreaLayoutGuide ?: self.view);
     }];
 
-    WQXArchiveManager *wqx = [WQXArchiveManager sharedInstance];
+    LWWQXArchiveManager *wqx = [LWWQXArchiveManager sharedInstance];
 
     self.defaultScreenView = YES;
     self.run = YES;

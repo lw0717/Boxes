@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "LWKeyboardView.h"
-#import "WQXArchiveManager.h"
+#import "LWWQXArchiveManager.h"
 
 @interface LWWQXRootViewController : UIViewController
 
 - (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype)initWithArchive:(WQXArchive *)archive;
+- (instancetype)initWithArchive:(LWWQXArchive *)archive;
 
 @end

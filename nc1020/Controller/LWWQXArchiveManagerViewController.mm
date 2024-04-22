@@ -13,7 +13,7 @@
 #import "LWAutolayout.h"
 #import "LWTableView.h"
 #import "LWFileTools.h"
-#import "WQXArchiveManager.h"
+#import "LWWQXArchiveManager.h"
 #import "LWWQXRootViewController.h"
 
 @interface LWWQXArchiveManagerViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -90,20 +90,20 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [WQXArchiveManager sharedInstance].archives.count;
+    return [LWWQXArchiveManager sharedInstance].archives.count;
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc] init];
-    NSString *name = [WQXArchiveManager sharedInstance].archives.allKeys[indexPath.row];
+    NSString *name = [LWWQXArchiveManager sharedInstance].archives.allKeys[indexPath.row];
     cell.textLabel.text = name;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSString *name = [WQXArchiveManager sharedInstance].archives.allKeys[indexPath.row];
-    WQXArchive *archive = [[WQXArchiveManager sharedInstance] archiveWithName:name];
+    NSString *name = [LWWQXArchiveManager sharedInstance].archives.allKeys[indexPath.row];
+    LWWQXArchive *archive = [[LWWQXArchiveManager sharedInstance] archiveWithName:name];
     LWWQXRootViewController * vc = [[LWWQXRootViewController alloc] initWithArchive:archive];
     [self.navigationController pushViewController:vc animated:YES];
 }

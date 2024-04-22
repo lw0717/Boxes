@@ -1,5 +1,5 @@
 //
-//  WQXArchive.h
+//  LWWQXArchive.h
 //  NC1020
 //
 //  Created by lw0717 on 2024/4/16.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface WQXArchive : NSObject
+@interface LWWQXArchive : NSObject
 
 @property (nonatomic, copy) NSString *name;
 

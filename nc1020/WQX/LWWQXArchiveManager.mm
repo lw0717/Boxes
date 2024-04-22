@@ -1,28 +1,28 @@
 //
-//  WQXArchiveManager.m
+//  LWWQXArchiveManager.m
 //  NC1020
 //
 //  Created by eric on 15/8/25.
 //  Copyright (c) 2015年 rainyx. All rights reserved.
 //
 
-#import "WQXArchiveManager.h"
+#import "LWWQXArchiveManager.h"
 #import "LWFileTools.h"
 
-@interface WQXArchiveManager ()
+@interface LWWQXArchiveManager ()
 
 @property (nonatomic, strong, readwrite) NSMutableDictionary *archives;
 
 @end
 
-static WQXArchiveManager *_instance;
+static LWWQXArchiveManager *_instance;
 static dispatch_once_t _wqx_once_token;
 
-@implementation WQXArchiveManager
+@implementation LWWQXArchiveManager
 
 + (instancetype)sharedInstance {
     dispatch_once(&_wqx_once_token, ^{
-        _instance = [[WQXArchiveManager alloc] init];
+        _instance = [[LWWQXArchiveManager alloc] init];
     });
     return _instance;
 }
@@ -35,11 +35,11 @@ static dispatch_once_t _wqx_once_token;
     return self;
 }
 
-- (WQXArchive *)archiveWithName:(NSString *)name {
+- (LWWQXArchive *)archiveWithName:(NSString *)name {
     return self.archives[name];
 }
 
-- (WQXArchive *)archiveCopyFrom:(WQXArchive *)archive withNewName:(NSString *)name {
+- (LWWQXArchive *)archiveCopyFrom:(LWWQXArchive *)archive withNewName:(NSString *)name {
 
     NSString *documentPath = [LWFileTools documentDirectoryPath];
     NSString *newArchiveDirectoryPath = [documentPath stringByAppendingPathComponent:@"nc1020"];
@@ -48,7 +48,7 @@ static dispatch_once_t _wqx_once_token;
         [LWFileTools createDirectoryAtPath:newArchiveDirectoryPath error:Nil];
     }
 
-    WQXArchive *newArchive = [[WQXArchive alloc] initWithName:name directory:@"nc1020"];
+    LWWQXArchive *newArchive = [[LWWQXArchive alloc] initWithName:name directory:@"nc1020"];
 
     NSString *srcRomPath;
     NSString *srcNorFlashPath;
@@ -96,7 +96,7 @@ static dispatch_once_t _wqx_once_token;
     return newArchive;
 }
 
-- (wqx::WqxRom)wqxRomWithArchive:(WQXArchive *)archive {
+- (wqx::WqxRom)wqxRomWithArchive:(LWWQXArchive *)archive {
     wqx::WqxRom rom;
     NSString *basePath = [LWFileTools documentDirectoryPath];
     rom.romPath = [basePath stringByAppendingPathComponent:archive.romPath].UTF8String;
@@ -109,7 +109,7 @@ static dispatch_once_t _wqx_once_token;
     [_archives removeAllObjects];
 }
 
-- (void)addArchive:(WQXArchive *)archive {
+- (void)addArchive:(LWWQXArchive *)archive {
     if ([_archives objectForKey:archive.name] == Nil) {
         [_archives setObject:archive forKey:archive.name];
     }
@@ -123,7 +123,7 @@ static dispatch_once_t _wqx_once_token;
 - (BOOL)save {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     for (NSString *name in self.archives.allKeys) {
-        WQXArchive *archive = self.archives[name];
+        LWWQXArchive *archive = self.archives[name];
         [dict setValue:archive.toDictionary forKey:name];
     }
     NSData *resultData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
@@ -139,7 +139,7 @@ static dispatch_once_t _wqx_once_token;
     }
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
     for (NSString *name in dict.allKeys) {
-        WQXArchive *archive = [[WQXArchive alloc] initWithDictionary:dict[name]];
+        LWWQXArchive *archive = [[LWWQXArchive alloc] initWithDictionary:dict[name]];
         [self.archives setValue:archive forKey:name];
     }
 }

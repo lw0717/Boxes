@@ -7,7 +7,7 @@
 //
 
 #import "LWWQXGMUDScreenView.h"
-#import "WQXArchiveManager.h"
+#import "LWWQXArchiveManager.h"
 #import "LWGMUDKeyboardView.h"
 #import "LWAutolayout.h"
 
@@ -15,7 +15,7 @@
 
 @interface LWWQXGMUDScreenView ()
 
-@property (nonatomic, strong) WQXLCDView *lcdView;
+@property (nonatomic, strong) LWWQXLCDView *lcdView;
 @property (nonatomic, strong) LWGMUDKeyboardView *keyboardView;
 
 @end
@@ -26,7 +26,7 @@
 
     self.backgroundColor = [UIColor lcdBackgroundColor];
 
-    _lcdView = [[WQXLCDView alloc] initWithFrame:CGRectZero];
+    _lcdView = [[LWWQXLCDView alloc] initWithFrame:CGRectZero];
 
     _keyboardView = [[LWGMUDKeyboardView alloc] initWithFrame:CGRectZero];
     _keyboardView.delegate = self;

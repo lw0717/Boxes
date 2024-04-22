@@ -1,5 +1,5 @@
 //
-//  WQXArchiveManager.m
+//  LWWQXArchiveManager.m
 //  NC1020
 //
 //  Created by rainyx on 15/8/23.
@@ -9,20 +9,20 @@
 #import <Foundation/Foundation.h>
 #import "nc1020.h"
 #import "UIColor+LW.h"
-#import "WQXArchive.h"
+#import "LWWQXArchive.h"
 
-@interface WQXArchiveManager : NSObject
+@interface LWWQXArchiveManager : NSObject
 
 @property (nonatomic, readonly) NSDictionary *archives;
 
 + (instancetype)sharedInstance;
 
-- (WQXArchive *)archiveWithName:(NSString *)name;
-- (WQXArchive *)archiveCopyFrom:(WQXArchive *)archive withNewName:(NSString *)name;
+- (LWWQXArchive *)archiveWithName:(NSString *)name;
+- (LWWQXArchive *)archiveCopyFrom:(LWWQXArchive *)archive withNewName:(NSString *)name;
 
-- (wqx::WqxRom)wqxRomWithArchive:(WQXArchive *)archive;
+- (wqx::WqxRom)wqxRomWithArchive:(LWWQXArchive *)archive;
 
-- (void)addArchive:(WQXArchive *)archive;
+- (void)addArchive:(LWWQXArchive *)archive;
 - (void)removeArchiveWithName:(NSString *)name;
 - (void)removeAllArchives;
 

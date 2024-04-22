@@ -1,18 +1,18 @@
 //
-//  WQXArchive.m
+//  LWWQXArchive.m
 //  NC1020
 //
 //  Created by lw0717 on 2024/4/16.
 //  Copyright © 2024 lw0717. All rights reserved.
 //
 
-#import "WQXArchive.h"
+#import "LWWQXArchive.h"
 
-@interface WQXArchive ()
+@interface LWWQXArchive ()
 
 @end
 
-@implementation WQXArchive
+@implementation LWWQXArchive
 
 - (instancetype)init {
     if (self = [super init]) {

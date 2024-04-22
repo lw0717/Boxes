@@ -10,8 +10,8 @@
 #import "MBProgressHUD+LW.h"
 #import "LWFileTools.h"
 #import "LWAutolayout.h"
-#import "WQXArchive.h"
-#import "WQXArchiveManager.h"
+#import "LWWQXArchive.h"
+#import "LWWQXArchiveManager.h"
 
 #define AddCellReuseIdentifier @"AddCellReuseIdentifier"
 
@@ -23,7 +23,7 @@
 
 @property (nonatomic, strong) UITextField *textField;
 
-@property (nonatomic, strong) WQXArchive *archive;
+@property (nonatomic, strong) LWWQXArchive *archive;
 
 @property (nonatomic, assign) BOOL chooseRom;
 
@@ -39,7 +39,7 @@
     self.title = @"添加 Rom";
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-    self.archive = [[WQXArchive alloc] init];
+    self.archive = [[LWWQXArchive alloc] init];
     self.archive.directory = [NSUUID UUID].UUIDString;
     self.chooseRom = NO;
     self.addRom = NO;
@@ -98,7 +98,7 @@
         [MBProgressHUD lw_showMessageThenHide:@"请先选择 fls 文件" toView:self.view];
         return;
     }
-    [[WQXArchiveManager sharedInstance] addArchive:self.archive];
+    [[LWWQXArchiveManager sharedInstance] addArchive:self.archive];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

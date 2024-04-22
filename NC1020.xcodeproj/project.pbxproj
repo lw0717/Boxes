@@ -8,18 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		07D57B7D1B85D58B00960EB4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07D57B7C1B85D58B00960EB4 /* Images.xcassets */; };
-		07F88A341B8C15A600B205DA /* WQXArchiveManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F88A331B8C15A600B205DA /* WQXArchiveManager.mm */; };
+		07F88A341B8C15A600B205DA /* LWWQXArchiveManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F88A331B8C15A600B205DA /* LWWQXArchiveManager.mm */; };
 		07F88A3C1B8C4BF900B205DA /* nc1020.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07F88A3A1B8C4BF900B205DA /* nc1020.cpp */; };
 		18611C891B89ED2B00BB0AED /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 075192311B85CFBE00D38120 /* AppDelegate.mm */; };
 		18611C8B1B89ED2B00BB0AED /* LWWQXScreenView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18611C821B89E66800BB0AED /* LWWQXScreenView.mm */; };
 		18611C8C1B89ED2B00BB0AED /* LWWQXRootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07D57B821B85D77F00960EB4 /* LWWQXRootViewController.mm */; };
-		18611C8D1B89ED2B00BB0AED /* WQXLCDView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07D57B851B85D83900960EB4 /* WQXLCDView.mm */; };
+		18611C8D1B89ED2B00BB0AED /* LWWQXLCDView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07D57B851B85D83900960EB4 /* LWWQXLCDView.mm */; };
 		18611C8E1B89ED2B00BB0AED /* LWKeyItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 184EB4D81B88136C0020CB9B /* LWKeyItem.m */; };
 		18611C8F1B89ED2B00BB0AED /* LWKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184EB4DD1B8822B40020CB9B /* LWKeyboardView.m */; };
 		18611C921B89ED3D00BB0AED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0751922E1B85CFBE00D38120 /* main.m */; };
 		18611C981B89EE1200BB0AED /* LWWQXDefaultScreenView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18611C971B89EE1200BB0AED /* LWWQXDefaultScreenView.mm */; };
 		18611C9B1B89F45D00BB0AED /* LWWQXGMUDScreenView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18611C9A1B89F45D00BB0AED /* LWWQXGMUDScreenView.mm */; };
-		18611C9D1B89F65A00BB0AED /* WQXArchiveManager.h in Sources */ = {isa = PBXBuildFile; fileRef = 18611C9C1B89F65A00BB0AED /* WQXArchiveManager.h */; };
+		18611C9D1B89F65A00BB0AED /* LWWQXArchiveManager.h in Sources */ = {isa = PBXBuildFile; fileRef = 18611C9C1B89F65A00BB0AED /* LWWQXArchiveManager.h */; };
 		18611CA71B8A061100BB0AED /* LWGridKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18611CA61B8A061100BB0AED /* LWGridKeyboardView.m */; };
 		18611CAA1B8A06A100BB0AED /* LWGMUDKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18611CA91B8A06A100BB0AED /* LWGMUDKeyboardView.m */; };
 		26803BDF2BC9897F00656002 /* MBProgressHUD+LW.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BDD2BC9897E00656002 /* MBProgressHUD+LW.m */; };
@@ -29,7 +29,7 @@
 		26803BF02BC99F5B00656002 /* UIColor+LW.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BEF2BC99F5B00656002 /* UIColor+LW.m */; };
 		26803BF42BC9A4CD00656002 /* UIImage+LW.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BF32BC9A4CD00656002 /* UIImage+LW.m */; };
 		26803BFA2BCD01DB00656002 /* UIButton+LW.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BF92BCD01DB00656002 /* UIButton+LW.m */; };
-		26803BFE2BCE502200656002 /* WQXArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BFD2BCE502200656002 /* WQXArchive.m */; };
+		26803BFE2BCE502200656002 /* LWWQXArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BFD2BCE502200656002 /* LWWQXArchive.m */; };
 		26803C042BCE6C7200656002 /* LWWQXArchiveManagerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 26803C032BCE6C7200656002 /* LWWQXArchiveManagerViewController.mm */; };
 		26803C0D2BCEB68900656002 /* LWFileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803C0C2BCEB68900656002 /* LWFileTools.m */; };
 		26803C102BD110CD00656002 /* LWTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803C0F2BD110CD00656002 /* LWTableView.m */; };
@@ -49,9 +49,9 @@
 		07D57B7C1B85D58B00960EB4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		07D57B811B85D77F00960EB4 /* LWWQXRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWWQXRootViewController.h; sourceTree = "<group>"; };
 		07D57B821B85D77F00960EB4 /* LWWQXRootViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LWWQXRootViewController.mm; sourceTree = "<group>"; };
-		07D57B841B85D83900960EB4 /* WQXLCDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQXLCDView.h; sourceTree = "<group>"; };
-		07D57B851B85D83900960EB4 /* WQXLCDView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WQXLCDView.mm; sourceTree = "<group>"; };
-		07F88A331B8C15A600B205DA /* WQXArchiveManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WQXArchiveManager.mm; sourceTree = "<group>"; };
+		07D57B841B85D83900960EB4 /* LWWQXLCDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWWQXLCDView.h; sourceTree = "<group>"; };
+		07D57B851B85D83900960EB4 /* LWWQXLCDView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LWWQXLCDView.mm; sourceTree = "<group>"; };
+		07F88A331B8C15A600B205DA /* LWWQXArchiveManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LWWQXArchiveManager.mm; sourceTree = "<group>"; };
 		07F88A3A1B8C4BF900B205DA /* nc1020.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nc1020.cpp; sourceTree = "<group>"; };
 		07F88A3B1B8C4BF900B205DA /* nc1020.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nc1020.h; sourceTree = "<group>"; };
 		184EB4D71B88136C0020CB9B /* LWKeyItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWKeyItem.h; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 		18611C971B89EE1200BB0AED /* LWWQXDefaultScreenView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LWWQXDefaultScreenView.mm; sourceTree = "<group>"; };
 		18611C991B89F45D00BB0AED /* LWWQXGMUDScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWWQXGMUDScreenView.h; sourceTree = "<group>"; };
 		18611C9A1B89F45D00BB0AED /* LWWQXGMUDScreenView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LWWQXGMUDScreenView.mm; sourceTree = "<group>"; };
-		18611C9C1B89F65A00BB0AED /* WQXArchiveManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQXArchiveManager.h; sourceTree = "<group>"; };
+		18611C9C1B89F65A00BB0AED /* LWWQXArchiveManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWWQXArchiveManager.h; sourceTree = "<group>"; };
 		18611CA51B8A061100BB0AED /* LWGridKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWGridKeyboardView.h; sourceTree = "<group>"; };
 		18611CA61B8A061100BB0AED /* LWGridKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWGridKeyboardView.m; sourceTree = "<group>"; };
 		18611CA81B8A06A100BB0AED /* LWGMUDKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWGMUDKeyboardView.h; sourceTree = "<group>"; };
@@ -84,8 +84,8 @@
 		26803BF32BC9A4CD00656002 /* UIImage+LW.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LW.m"; sourceTree = "<group>"; };
 		26803BF82BCD01DB00656002 /* UIButton+LW.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+LW.h"; sourceTree = "<group>"; };
 		26803BF92BCD01DB00656002 /* UIButton+LW.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LW.m"; sourceTree = "<group>"; };
-		26803BFC2BCE502200656002 /* WQXArchive.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WQXArchive.h; sourceTree = "<group>"; };
-		26803BFD2BCE502200656002 /* WQXArchive.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WQXArchive.m; sourceTree = "<group>"; };
+		26803BFC2BCE502200656002 /* LWWQXArchive.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWWQXArchive.h; sourceTree = "<group>"; };
+		26803BFD2BCE502200656002 /* LWWQXArchive.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWWQXArchive.m; sourceTree = "<group>"; };
 		26803C022BCE6C7200656002 /* LWWQXArchiveManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWWQXArchiveManagerViewController.h; sourceTree = "<group>"; };
 		26803C032BCE6C7200656002 /* LWWQXArchiveManagerViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LWWQXArchiveManagerViewController.mm; sourceTree = "<group>"; };
 		26803C0B2BCEB68900656002 /* LWFileTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWFileTools.h; sourceTree = "<group>"; };
@@ -245,10 +245,10 @@
 		26803BFB2BCE4FF300656002 /* WQX */ = {
 			isa = PBXGroup;
 			children = (
-				26803BFC2BCE502200656002 /* WQXArchive.h */,
-				26803BFD2BCE502200656002 /* WQXArchive.m */,
-				18611C9C1B89F65A00BB0AED /* WQXArchiveManager.h */,
-				07F88A331B8C15A600B205DA /* WQXArchiveManager.mm */,
+				26803BFC2BCE502200656002 /* LWWQXArchive.h */,
+				26803BFD2BCE502200656002 /* LWWQXArchive.m */,
+				18611C9C1B89F65A00BB0AED /* LWWQXArchiveManager.h */,
+				07F88A331B8C15A600B205DA /* LWWQXArchiveManager.mm */,
 			);
 			path = WQX;
 			sourceTree = "<group>";
@@ -271,8 +271,8 @@
 		26803C092BCEB0AA00656002 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				07D57B841B85D83900960EB4 /* WQXLCDView.h */,
-				07D57B851B85D83900960EB4 /* WQXLCDView.mm */,
+				07D57B841B85D83900960EB4 /* LWWQXLCDView.h */,
+				07D57B851B85D83900960EB4 /* LWWQXLCDView.mm */,
 				26803C0E2BD110CD00656002 /* LWTableView.h */,
 				26803C0F2BD110CD00656002 /* LWTableView.m */,
 			);
@@ -431,7 +431,7 @@
 				26803BF42BC9A4CD00656002 /* UIImage+LW.m in Sources */,
 				07F88A3C1B8C4BF900B205DA /* nc1020.cpp in Sources */,
 				18611C891B89ED2B00BB0AED /* AppDelegate.mm in Sources */,
-				18611C9D1B89F65A00BB0AED /* WQXArchiveManager.h in Sources */,
+				18611C9D1B89F65A00BB0AED /* LWWQXArchiveManager.h in Sources */,
 				18611C8B1B89ED2B00BB0AED /* LWWQXScreenView.mm in Sources */,
 				18611CA71B8A061100BB0AED /* LWGridKeyboardView.m in Sources */,
 				26803BE52BC98DCD00656002 /* LWEXTScope.m in Sources */,
@@ -439,9 +439,9 @@
 				18611C8C1B89ED2B00BB0AED /* LWWQXRootViewController.mm in Sources */,
 				26803BF02BC99F5B00656002 /* UIColor+LW.m in Sources */,
 				18611CAA1B8A06A100BB0AED /* LWGMUDKeyboardView.m in Sources */,
-				26803BFE2BCE502200656002 /* WQXArchive.m in Sources */,
-				18611C8D1B89ED2B00BB0AED /* WQXLCDView.mm in Sources */,
-				07F88A341B8C15A600B205DA /* WQXArchiveManager.mm in Sources */,
+				26803BFE2BCE502200656002 /* LWWQXArchive.m in Sources */,
+				18611C8D1B89ED2B00BB0AED /* LWWQXLCDView.mm in Sources */,
+				07F88A341B8C15A600B205DA /* LWWQXArchiveManager.mm in Sources */,
 				26803BDF2BC9897F00656002 /* MBProgressHUD+LW.m in Sources */,
 				26803C0D2BCEB68900656002 /* LWFileTools.m in Sources */,
 				26803BFA2BCD01DB00656002 /* UIButton+LW.m in Sources */,

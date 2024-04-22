@@ -34,7 +34,7 @@
     }
 }
 
-- (WQXLCDView *)lcdView {
+- (LWWQXLCDView *)lcdView {
     mustOverride();
 }
 

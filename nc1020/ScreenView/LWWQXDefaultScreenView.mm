@@ -15,7 +15,7 @@
 
 @interface LWWQXDefaultScreenView ()
 
-@property (nonatomic, strong) WQXLCDView *lcdView;
+@property (nonatomic, strong) LWWQXLCDView *lcdView;
 @property (nonatomic, strong) LWKeyboardView *leftKeyboardView;
 @property (nonatomic, strong) LWKeyboardView *rightKeyboardView;
 @property (nonatomic, strong) LWKeyboardView *mainKeyboardView;
@@ -25,7 +25,7 @@
 @implementation LWWQXDefaultScreenView
 
 - (void)initViews {
-    self.lcdView = [[WQXLCDView alloc] initWithFrame:CGRectZero];
+    self.lcdView = [[LWWQXLCDView alloc] initWithFrame:CGRectZero];
 
     self.leftKeyboardView = [[LWGridKeyboardView alloc] initWithFrame:CGRectZero andRows:[self createLeftKeyboardRows]];
     self.leftKeyboardView.delegate = self;

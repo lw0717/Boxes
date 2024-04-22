@@ -1,5 +1,5 @@
 //
-//  WQXLCDView.h
+//  LWWQXLCDView.h
 //  nc1020
 //
 //  Created by eric on 15/8/20.
@@ -9,6 +9,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WQXLCDView : UIView
-- (void) beginUpdate;
+@interface LWWQXLCDView : UIView
+
+- (void)beginUpdate;
+
 @end

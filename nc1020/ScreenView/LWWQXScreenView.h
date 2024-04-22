@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "LWKeyboardView.h"
-#import "WQXLCDView.h"
+#import "LWWQXLCDView.h"
 
 @interface LWWQXScreenView : UIView <LWKeyboardViewDelegate>
 
 @property (weak, nonatomic) id<LWKeyboardViewDelegate> keyboardViewDelegate;
 
 - (instancetype)initWithFrame:(CGRect)bounds andKeyboardViewDelegate:(id<LWKeyboardViewDelegate>)delegate;
-- (WQXLCDView *)lcdView;
+- (LWWQXLCDView *)lcdView;
 
 - (void)initViews;
 
