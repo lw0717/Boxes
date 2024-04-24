@@ -20,7 +20,6 @@
 @interface LWWQXRootViewController () <LWKeyboardViewDelegate>
 {
     NSThread *_wqxLoopThread;
-    CGRect _screenBounds;
 }
 
 @property (nonatomic, strong) LWWQXArchive *archive;
@@ -54,7 +53,6 @@
     self.view.backgroundColor = [UIColor colorWithRGB:0x222222];
     self.safeView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:self.safeView];
-    _screenBounds = self.safeView.bounds;
     [self.safeView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
         make.top.equalTo(self.view.lw_safeAreaLayoutGuide.lw_top ?: self.view.lw_top);
         make.left.equalTo(self.view.lw_safeAreaLayoutGuide.lw_left ?: self.view.lw_left);
@@ -66,7 +64,7 @@
 
     self.defaultScreenView = YES;
     self.run = YES;
-    self.screenView = [[LWWQXDefaultScreenView alloc] initWithFrame:_screenBounds andKeyboardViewDelegate:self];
+    self.screenView = [[LWWQXDefaultScreenView alloc] initWithFrame:CGRectZero style:[self getScreenStyle] delegate:self];
 
     wqx::WqxRom rom = [wqx wqxRomWithArchive:self.archive];
     NSLog(@"lw0717: RAM path %s", rom.norFlashPath.c_str());
@@ -85,6 +83,19 @@
     [self.navigationController.navigationBar setHidden:YES];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(orientChange:)
+                                                 name:UIApplicationDidChangeStatusBarOrientationNotification
+                                               object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIApplicationDidChangeStatusBarOrientationNotification
+                                                  object:nil];
+}
+
 - (void)setScreenView:(LWWQXScreenView *)screenView {
     if (_screenView != nil) {
         [_screenView removeFromSuperview];
@@ -100,9 +111,9 @@
 - (void)switchScreenLayout {
     self.defaultScreenView = !self.defaultScreenView;
     if (self.defaultScreenView) {
-        self.screenView = [[LWWQXDefaultScreenView alloc] initWithFrame:_screenBounds andKeyboardViewDelegate:self];
+        self.screenView = [[LWWQXDefaultScreenView alloc] initWithFrame:CGRectZero style:[self getScreenStyle] delegate:self];
     } else {
-        self.screenView = [[LWWQXGMUDScreenView alloc] initWithFrame:_screenBounds andKeyboardViewDelegate:self];
+        self.screenView = [[LWWQXGMUDScreenView alloc] initWithFrame:CGRectZero style:[self getScreenStyle] delegate:self];
     }
 }
 
@@ -118,6 +129,20 @@
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskLandscape;
+}
+
+#pragma mark - Private
+- (LWScreenStyle)getScreenStyle {
+    UIInterfaceOrientation orientation;
+    orientation = [UIApplication sharedApplication].statusBarOrientation;
+    if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
+        return LWScreenStylePortrait;
+    }
+    return LWScreenStyleLandscape;
+}
+
+- (void)orientChange:(NSNotification *)notification {
+    [self.screenView setStyle:[self getScreenStyle]];
 }
 
 #pragma mark - LWKeyboardViewDelegate

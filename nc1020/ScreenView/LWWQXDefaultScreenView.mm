@@ -15,52 +15,99 @@
 
 @interface LWWQXDefaultScreenView ()
 
+@property (nonatomic, assign) LWScreenStyle style;
+
 @property (nonatomic, strong) LWWQXLCDView *lcdView;
 @property (nonatomic, strong) LWKeyboardView *leftKeyboardView;
 @property (nonatomic, strong) LWKeyboardView *rightKeyboardView;
 @property (nonatomic, strong) LWKeyboardView *mainKeyboardView;
+@property (nonatomic, strong) LWKeyboardView *upKeyboardView;
 
 @end
 
 @implementation LWWQXDefaultScreenView
 
-- (void)initViews {
-    self.lcdView = [[LWWQXLCDView alloc] initWithFrame:CGRectZero];
-
+- (void)setupViewWithStyle:(LWScreenStyle)style {
     self.leftKeyboardView = [[LWGridKeyboardView alloc] initWithFrame:CGRectZero andRows:[self createLeftKeyboardRows]];
     self.leftKeyboardView.delegate = self;
+    [self addSubview:self.leftKeyboardView];
 
     self.rightKeyboardView = [[LWGridKeyboardView alloc] initWithFrame:CGRectZero andRows:[self createRightKeyboardRows]];
     self.rightKeyboardView.delegate = self;
+    [self addSubview:self.rightKeyboardView];
+
+    self.upKeyboardView = [[LWGridKeyboardView alloc] initWithFrame:CGRectZero andRows:[self createUpKeyboardRows]];
+    self.upKeyboardView.delegate = self;
+    [self addSubview:self.upKeyboardView];
 
     self.mainKeyboardView = [[LWGridKeyboardView alloc] initWithFrame:CGRectZero andRows:[self createMainKeyboardRows]];
     self.mainKeyboardView.delegate = self;
-
-    [self addSubview:self.lcdView];
-    [self addSubview:self.leftKeyboardView];
-    [self addSubview:self.rightKeyboardView];
     [self addSubview:self.mainKeyboardView];
 
-    [self.leftKeyboardView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
-        make.left.top.equalTo(self);
-        make.width.equalTo(self.rightKeyboardView);
-        make.height.equalTo(self.lcdView);
-    }];
-    [self.lcdView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
-        make.width.equalTo(self).multipliedBy(0.5);
-        make.height.equalTo(self.lcdView.lw_width).multipliedBy(0.5);
-        make.left.equalTo(self.leftKeyboardView.lw_right).offset(5.0);
-        make.top.equalTo(self);
-    }];
-    [self.rightKeyboardView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
-        make.left.equalTo(self.lcdView.lw_right).offset(5.0);
-        make.top.right.equalTo(self);
-        make.height.equalTo(self.lcdView);
-    }];
-    [self.mainKeyboardView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
-        make.top.equalTo(self.lcdView.lw_bottom).offset(5.0);
-        make.left.right.bottom.equalTo(self);
-    }];
+    self.lcdView = [[LWWQXLCDView alloc] initWithFrame:CGRectZero];
+    [self addSubview:self.lcdView];
+}
+
+- (void)setStyle:(LWScreenStyle)style {
+    _style = style;
+    if (style == LWScreenStylePortrait) {
+        [self.leftKeyboardView removeFromSuperview];
+        [self.rightKeyboardView removeFromSuperview];
+        [self.upKeyboardView removeFromSuperview];
+        [self.mainKeyboardView removeFromSuperview];
+        [self.lcdView removeFromSuperview];
+        [self addSubview:self.upKeyboardView];
+        [self addSubview:self.mainKeyboardView];
+        [self addSubview:self.lcdView];
+
+        [self.lcdView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
+            make.width.equalTo(self);
+            make.height.equalTo(self.lcdView.lw_width).multipliedBy(0.5);
+            make.left.equalTo(self);
+            make.top.equalTo(self);
+        }];
+        [self.upKeyboardView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
+            make.width.equalTo(self);
+            make.height.equalTo(self.mainKeyboardView).multipliedBy(0.5);
+            make.left.equalTo(self);
+            make.top.equalTo(self.lcdView.lw_bottom).offset(5.0);
+        }];
+        [self.mainKeyboardView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
+            make.top.equalTo(self.upKeyboardView.lw_bottom).offset(5.0);
+            make.left.right.bottom.equalTo(self);
+        }];
+    } else {
+        [self.leftKeyboardView removeFromSuperview];
+        [self.rightKeyboardView removeFromSuperview];
+        [self.upKeyboardView removeFromSuperview];
+        [self.mainKeyboardView removeFromSuperview];
+        [self.lcdView removeFromSuperview];
+        [self addSubview:self.leftKeyboardView];
+        [self addSubview:self.rightKeyboardView];
+        [self addSubview:self.mainKeyboardView];
+        [self addSubview:self.lcdView];
+
+        [self.leftKeyboardView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
+            make.left.top.equalTo(self);
+            make.width.equalTo(self.rightKeyboardView);
+            make.height.equalTo(self.lcdView);
+        }];
+        [self.lcdView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
+            make.width.equalTo(self).multipliedBy(0.5);
+            make.height.equalTo(self.lcdView.lw_width).multipliedBy(0.5);
+            make.left.equalTo(self.leftKeyboardView.lw_right).offset(5.0);
+            make.top.equalTo(self);
+        }];
+        [self.rightKeyboardView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
+            make.left.equalTo(self.lcdView.lw_right).offset(5.0);
+            make.top.right.equalTo(self);
+            make.height.equalTo(self.lcdView);
+        }];
+        [self.mainKeyboardView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
+            make.top.equalTo(self.lcdView.lw_bottom).offset(5.0);
+            make.left.right.bottom.equalTo(self);
+        }];
+    }
 }
 
 - (NSMutableArray *)createMainKeyboardRows {
@@ -156,6 +203,33 @@
     ADD_ITEM_TO_ROW(row, 0x11, @"F2", kWQXKeyButtonNormal);
     [rows addObject:row];
     row = [[NSMutableArray alloc] init];
+    ADD_ITEM_TO_ROW(row, 0x12, @"F3", kWQXKeyButtonNormal);
+    ADD_ITEM_TO_ROW(row, 0x13, @"F4", kWQXKeyButtonNormal);
+    [rows addObject:row];
+    return rows;
+}
+
+- (NSMutableArray *)createUpKeyboardRows {
+    NSMutableArray *rows = [[NSMutableArray alloc] init];
+    NSMutableArray *row;
+    row = [[NSMutableArray alloc] init];
+    ADD_ITEM_TO_ROW(row, 0x0F, @"电源", kWQXKeyButtonSystem);
+    ADD_ITEM_TO_ROW(row, 0x0B, @"英汉", kWQXKeyButtonFunction);
+    ADD_ITEM_TO_ROW(row, 0x0C, @"名片", kWQXKeyButtonFunction);
+    ADD_ITEM_TO_ROW(row, 0x0D, @"计算", kWQXKeyButtonFunction);
+    ADD_ITEM_TO_ROW(row, 0x0A, @"行程", kWQXKeyButtonFunction);
+    ADD_ITEM_TO_ROW(row, 0x09, @"测验", kWQXKeyButtonFunction);
+    ADD_ITEM_TO_ROW(row, 0x08, @"其他", kWQXKeyButtonFunction);
+    ADD_ITEM_TO_ROW(row, 0x0E, @"网络", kWQXKeyButtonFunction);
+    [rows addObject:row];
+    row = [[NSMutableArray alloc] init];
+    ADD_ITEM_TO_ROW(row, kWQXCustomKeyCodeSave, @"保存", kWQXKeyButtonSystem);
+    //ADD_ITEM_TO_ROW(row, kWQXCustomKeyCodeLoad, @"加载", kWQXKeyButtonSystem);
+    ADD_ITEM_TO_ROW(row, kWQXCustomKeyCodeSwitch, @"切换", kWQXKeyButtonSystem);
+    ADD_ITEM_TO_ROW(row, kWQXCustomKeyCodeSeppdup, @"加速", kWQXKeyButtonSystem);
+    ADD_ITEM_TO_ROW(row, kWQXCustomKeyCodeSpeedReset, @"还原", kWQXKeyButtonSystem);
+    ADD_ITEM_TO_ROW(row, 0x10, @"F1", kWQXKeyButtonNormal);
+    ADD_ITEM_TO_ROW(row, 0x11, @"F2", kWQXKeyButtonNormal);
     ADD_ITEM_TO_ROW(row, 0x12, @"F3", kWQXKeyButtonNormal);
     ADD_ITEM_TO_ROW(row, 0x13, @"F4", kWQXKeyButtonNormal);
     [rows addObject:row];

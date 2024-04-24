@@ -15,6 +15,8 @@
 
 @interface LWWQXGMUDScreenView ()
 
+@property (nonatomic, assign) LWScreenStyle style;
+
 @property (nonatomic, strong) LWWQXLCDView *lcdView;
 @property (nonatomic, strong) LWGMUDKeyboardView *keyboardView;
 
@@ -22,17 +24,16 @@
 
 @implementation LWWQXGMUDScreenView
 
-- (void)initViews {
+- (void)setupViewWithStyle:(LWScreenStyle)style {
 
     self.backgroundColor = [UIColor lcdBackgroundColor];
 
-    _lcdView = [[LWWQXLCDView alloc] initWithFrame:CGRectZero];
+    self.lcdView = [[LWWQXLCDView alloc] initWithFrame:CGRectZero];
+    [self addSubview:self.lcdView];
 
-    _keyboardView = [[LWGMUDKeyboardView alloc] initWithFrame:CGRectZero];
-    _keyboardView.delegate = self;
-    
-    [self addSubview:_lcdView];
-    [self addSubview:_keyboardView];
+    self.keyboardView = [[LWGMUDKeyboardView alloc] initWithFrame:CGRectZero];
+    self.keyboardView.delegate = self;
+    [self addSubview:self.keyboardView];
 
     [self.lcdView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
         make.top.left.right.bottom.equalTo(self);
@@ -42,23 +43,40 @@
     }];
 }
 
+- (void)setStyle:(LWScreenStyle)style {
+    _style = style;
+    if (style == LWScreenStylePortrait) {
+        [self.lcdView lw_removeAllConstraints];
+        [self.lcdView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
+            make.left.right.equalTo(self);
+            make.centerY.equalTo(self);
+            make.height.equalTo(self.lcdView.lw_width).multipliedBy(0.5);
+        }];
+    } else {
+        [self.lcdView lw_removeAllConstraints];
+        [self.lcdView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
+            make.top.left.right.bottom.equalTo(self);
+        }];
+    }
+}
+
 // Makes speed up for direction buttons.
 - (void)keyboardView:(LWKeyboardView *)view didKeydown:(NSInteger)keyCode {
-    if (self.keyboardViewDelegate != Nil && [self.keyboardViewDelegate respondsToSelector:@selector(keyboardView:didKeydown:)]) {
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(keyboardView:didKeydown:)]) {
         if (isDirectionKeyCode(keyCode)) {
-            [self.keyboardViewDelegate keyboardView:view didKeydown:0x30];
+            [self.delegate keyboardView:view didKeydown:0x30];
         }
-        [self.keyboardViewDelegate keyboardView:view didKeydown:keyCode];
+        [self.delegate keyboardView:view didKeydown:keyCode];
     }
 }
 
 // Resets speed for direction buttons.
 - (void)keyboardView:(LWKeyboardView *)view didKeyup:(NSInteger)keyCode {
-    if (self.keyboardViewDelegate != Nil && [self.keyboardViewDelegate respondsToSelector:@selector(keyboardView:didKeyup:)]) {
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(keyboardView:didKeyup:)]) {
         if (isDirectionKeyCode(keyCode)) {
-            [self.keyboardViewDelegate keyboardView:view didKeyup:0x30];
+            [self.delegate keyboardView:view didKeyup:0x30];
         }
-        [self.keyboardViewDelegate keyboardView:view didKeyup:keyCode];
+        [self.delegate keyboardView:view didKeyup:keyCode];
     }
 }
 

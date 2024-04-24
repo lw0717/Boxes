@@ -13,24 +13,27 @@
 
 @implementation LWWQXScreenView
 
-- (instancetype)initWithFrame:(CGRect)bounds andKeyboardViewDelegate:(id<LWKeyboardViewDelegate>)delegate {
-    if (self = [super initWithFrame:bounds]) {
-        self.bounds = bounds;
-        self.keyboardViewDelegate = delegate;
-        NSLog(@"lw0717: Layout Bounds: %f, %f, %f, %f", bounds.origin.x, bounds.origin.y, bounds.size.width, bounds.size.height);
-        [self initViews];
+- (instancetype)initWithFrame:(CGRect)frame delegate:(id<LWKeyboardViewDelegate>)delegate {
+    return [self initWithFrame:frame style:LWScreenStyleLandscape delegate:delegate];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame style:(LWScreenStyle)style delegate:(id<LWKeyboardViewDelegate>)delegate {
+    if (self = [super initWithFrame:frame]) {
+        self.delegate = delegate;
+        [self setupViewWithStyle:style];
+        self.style = style;
     }
     return self;
 }
 
 - (void)keyboardView:(LWKeyboardView *)view didKeydown:(NSInteger)keyCode {
-    if (self.keyboardViewDelegate != Nil && [self.keyboardViewDelegate respondsToSelector:@selector(keyboardView:didKeydown:)]) {
-        [self.keyboardViewDelegate keyboardView:view didKeydown:keyCode];
+    if (self.delegate != Nil && [self.delegate respondsToSelector:@selector(keyboardView:didKeydown:)]) {
+        [self.delegate keyboardView:view didKeydown:keyCode];
     }
 }
 - (void)keyboardView:(LWKeyboardView *)view didKeyup:(NSInteger)keyCode {
-    if (self.keyboardViewDelegate != Nil && [self.keyboardViewDelegate respondsToSelector:@selector(keyboardView:didKeyup:)]) {
-        [self.keyboardViewDelegate keyboardView:view didKeyup:keyCode];
+    if (self.delegate != Nil && [self.delegate respondsToSelector:@selector(keyboardView:didKeyup:)]) {
+        [self.delegate keyboardView:view didKeyup:keyCode];
     }
 }
 
@@ -38,7 +41,11 @@
     mustOverride();
 }
 
-- (void) initViews {
+- (void)setupViewWithStyle:(LWScreenStyle)style {
+    mustOverride();
+}
+
+- (void)setStyle:(LWScreenStyle)style {
     mustOverride();
 }
 
