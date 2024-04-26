@@ -133,6 +133,10 @@
 
 #pragma mark - Private
 - (LWScreenStyle)getScreenStyle {
+    NSString *deviceType = [UIDevice currentDevice].model;
+    if ([deviceType isEqualToString:@"iPad"]) {
+        return LWScreenStylePortrait;
+    }
     UIInterfaceOrientation orientation;
     orientation = [UIApplication sharedApplication].statusBarOrientation;
     if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
