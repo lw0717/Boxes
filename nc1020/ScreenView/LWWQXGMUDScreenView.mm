@@ -36,7 +36,9 @@
     [self addSubview:self.keyboardView];
 
     [self.lcdView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
-        make.top.left.right.bottom.equalTo(self);
+        make.left.right.equalTo(self);
+        make.centerY.equalTo(self);
+        make.height.equalTo(self.lcdView.lw_width).multipliedBy(0.5);
     }];
     [self.keyboardView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
         make.top.left.right.bottom.equalTo(self);
@@ -45,19 +47,6 @@
 
 - (void)setStyle:(LWScreenStyle)style {
     _style = style;
-    if (style == LWScreenStylePortrait) {
-        [self.lcdView lw_removeAllConstraints];
-        [self.lcdView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
-            make.left.right.equalTo(self);
-            make.centerY.equalTo(self);
-            make.height.equalTo(self.lcdView.lw_width).multipliedBy(0.5);
-        }];
-    } else {
-        [self.lcdView lw_removeAllConstraints];
-        [self.lcdView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
-            make.top.left.right.bottom.equalTo(self);
-        }];
-    }
 }
 
 // Makes speed up for direction buttons.
