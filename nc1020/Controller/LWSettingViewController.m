@@ -54,24 +54,23 @@
         @[
             @"项目简介:",
             @"隐私策略:",
-        ],
-        @[
+        ], @[
             @"开源地址:",
-//            @"捐赠项目:",
-        ],
-        @[
-            @"联系我:",
-        ],
-        @[
+            @"在线反馈:",
+            // @"捐赠项目:",
+        ], @[
+            @"联系我们:",
+        ], @[
             @"版本号:",
         ],
     ];
     self.values = @{
-        @"项目简介:" : @"https://nc1020.lw0717.com",
-        @"隐私策略:" : @"https://nc1020.lw0717.com/privacy.html",
-        @"捐赠项目:" : @"https://afdian.net/a/lw0717",
-        @"开源地址:" : @"https://github.com/lw0717/NC1020",
-        @"联系我:": @"nc1020app@outlook.com",
+        @"项目简介:": @"https://nc1020.lw0717.com",
+        @"隐私策略:": @"https://nc1020.lw0717.com/privacy.html",
+        @"捐赠项目:": @"https://afdian.net/a/lw0717",
+        @"开源地址:": @"https://github.com/lw0717/NC1020",
+        @"联系我们:": @"nc1020app@outlook.com",
+        @"在线反馈:": @"https://txc.qq.com/products/647515",
         @"版本号:" : [NSString stringWithFormat:@"%@ (%@)", [[[NSBundle mainBundle]infoDictionary] objectForKey:@"CFBundleShortVersionString"], [[[NSBundle mainBundle]infoDictionary] objectForKey:@"CFBundleVersion"]],
     };
 }
