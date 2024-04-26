@@ -30,25 +30,44 @@
 - (void)setupViewWithStyle:(LWScreenStyle)style {
     self.leftKeyboardView = [[LWGridKeyboardView alloc] initWithFrame:CGRectZero andRows:[self createLeftKeyboardRows]];
     self.leftKeyboardView.delegate = self;
-    [self addSubview:self.leftKeyboardView];
 
     self.rightKeyboardView = [[LWGridKeyboardView alloc] initWithFrame:CGRectZero andRows:[self createRightKeyboardRows]];
     self.rightKeyboardView.delegate = self;
-    [self addSubview:self.rightKeyboardView];
 
     self.upKeyboardView = [[LWGridKeyboardView alloc] initWithFrame:CGRectZero andRows:[self createUpKeyboardRows]];
     self.upKeyboardView.delegate = self;
-    [self addSubview:self.upKeyboardView];
 
     self.mainKeyboardView = [[LWGridKeyboardView alloc] initWithFrame:CGRectZero andRows:[self createMainKeyboardRows]];
     self.mainKeyboardView.delegate = self;
-    [self addSubview:self.mainKeyboardView];
 
     self.lcdView = [[LWWQXLCDView alloc] initWithFrame:CGRectZero];
+
+    [self addSubview:self.upKeyboardView];
+    [self addSubview:self.mainKeyboardView];
     [self addSubview:self.lcdView];
+
+    [self.lcdView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
+        make.width.equalTo(self);
+        make.height.equalTo(self.lcdView.lw_width).multipliedBy(0.5);
+        make.left.equalTo(self);
+        make.top.equalTo(self);
+    }];
+    [self.upKeyboardView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
+        make.width.equalTo(self);
+        make.height.equalTo(self.mainKeyboardView).multipliedBy(0.5);
+        make.left.equalTo(self);
+        make.top.equalTo(self.lcdView.lw_bottom).offset(5.0);
+    }];
+    [self.mainKeyboardView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
+        make.top.equalTo(self.upKeyboardView.lw_bottom).offset(5.0);
+        make.left.right.bottom.equalTo(self);
+    }];
 }
 
 - (void)setStyle:(LWScreenStyle)style {
+    if (_style == style) {
+        return;
+    }
     _style = style;
     if (style == LWScreenStylePortrait) {
         [self.leftKeyboardView removeFromSuperview];
