@@ -54,6 +54,7 @@
         @[
             @"项目简介",
             @"隐私策略",
+            @"演示视频",
         ], @[
             @"开源地址",
             @"在线反馈",
@@ -67,6 +68,7 @@
     self.values = @{
         @"项目简介": @"https://nc1020.lw0717.com",
         @"隐私策略": @"https://nc1020.lw0717.com/privacy.html",
+        @"演示视频": @"https://www.bilibili.com/video/BV1kt421w7Pb/",
         @"捐赠项目": @"https://afdian.net/a/lw0717",
         @"开源地址": @"https://github.com/lw0717/NC1020",
         @"联系我们": @"nc1020app@outlook.com",
