@@ -1,5 +1,5 @@
 //
-//  LWSettingViewController.h
+//  LWAboutViewController.h
 //  NC1020
 //
 //  Created by lw0717 on 2024/4/20.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LWSettingViewController : UIViewController
+@interface LWAboutViewController : UIViewController
 
 @end
 

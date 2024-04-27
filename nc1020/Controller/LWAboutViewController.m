@@ -1,18 +1,18 @@
 //
-//  LWSettingViewController.m
+//  LWAboutViewController.m
 //  NC1020
 //
 //  Created by lw0717 on 2024/4/20.
 //  Copyright © 2024 lw0717. All rights reserved.
 //
 
-#import "LWSettingViewController.h"
+#import "LWAboutViewController.h"
 #import "LWAutolayout.h"
 #import <SafariServices/SafariServices.h>
 
 #define SettingCellReuseIdentifier @"SettingCellReuseIdentifier"
 
-@interface LWSettingViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface LWAboutViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableview;
 
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation LWSettingViewController
+@implementation LWAboutViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -52,26 +52,26 @@
 - (void)setupData {
     self.titles = @[
         @[
-            @"项目简介:",
-            @"隐私策略:",
+            @"项目简介",
+            @"隐私策略",
         ], @[
-            @"开源地址:",
-            @"在线反馈:",
-            // @"捐赠项目:",
+            @"开源地址",
+            @"在线反馈",
+            // @"捐赠项目",
         ], @[
-            @"联系我们:",
+            @"联系我们",
         ], @[
-            @"版本号:",
+            @"版本号",
         ],
     ];
     self.values = @{
-        @"项目简介:": @"https://nc1020.lw0717.com",
-        @"隐私策略:": @"https://nc1020.lw0717.com/privacy.html",
-        @"捐赠项目:": @"https://afdian.net/a/lw0717",
-        @"开源地址:": @"https://github.com/lw0717/NC1020",
-        @"联系我们:": @"nc1020app@outlook.com",
-        @"在线反馈:": @"https://txc.qq.com/products/647515",
-        @"版本号:" : [NSString stringWithFormat:@"%@ (%@)", [[[NSBundle mainBundle]infoDictionary] objectForKey:@"CFBundleShortVersionString"], [[[NSBundle mainBundle]infoDictionary] objectForKey:@"CFBundleVersion"]],
+        @"项目简介": @"https://nc1020.lw0717.com",
+        @"隐私策略": @"https://nc1020.lw0717.com/privacy.html",
+        @"捐赠项目": @"https://afdian.net/a/lw0717",
+        @"开源地址": @"https://github.com/lw0717/NC1020",
+        @"联系我们": @"nc1020app@outlook.com",
+        @"在线反馈": @"https://txc.qq.com/products/647515",
+        @"版本号" : [NSString stringWithFormat:@"%@", [[[NSBundle mainBundle]infoDictionary] objectForKey:@"CFBundleShortVersionString"]],
     };
 }
 

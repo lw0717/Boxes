@@ -8,7 +8,7 @@
 
 #import "LWWQXArchiveManagerViewController.h"
 #import "LWAddWQXArchiveViewController.h"
-#import "LWSettingViewController.h"
+#import "LWAboutViewController.h"
 #import "MBProgressHUD+LW.h"
 #import "LWAutolayout.h"
 #import "LWTableView.h"
@@ -80,7 +80,7 @@
 }
 
 - (void)settingItemOnClick:(UIBarButtonItem *)item {
-    LWSettingViewController *settingVc = [[LWSettingViewController alloc] init];
+    LWAboutViewController *settingVc = [[LWAboutViewController alloc] init];
     [self.navigationController pushViewController:settingVc animated:YES];
 }
 
