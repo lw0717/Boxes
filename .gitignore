@@ -1,3 +1,9 @@
 _site/
 _draft/
 .jekyll-cache/
+
+Gemfile.lock
+nc1020/
+NC1020.xcodeproj/
+NC1020.xcworkspace/
+Pods/

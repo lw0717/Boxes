@@ -1,16 +1,16 @@
 # Configurations
-title:            Jekyll Gitbook
-longtitle:        Jekyll Gitbook
-author:           HE Tao
-email:            sighingnow@gmail.com
+title:            NC1020 App
+longtitle:        ""
+author:           lw0717
+email:            nc1020app@outlook.com
 description: >
-  Build Jekyll site with the GitBook style.
+  NC1020.
 
 version:          1.0
 gitbook_version:  3.2.3
 
-url:              'https://sighingnow.github.io'
-baseurl:          '/jekyll-gitbook'
+url:              'https://nc1020.lw0717.com'
+baseurl:          ''
 rss:              RSS
 
 # bootstrap: use the remote theme for the site itself
@@ -20,9 +20,6 @@ toc:
   enabled: true
   h_min: 1
   h_max: 3
-
-# customize the link favicon in header, will be {{site.baseurl}}/{{site.favicon_path}}
-favicon_path:     /assets/gitbook/images/favicon.ico
 
 # markdown render engine.
 markdown:         kramdown
