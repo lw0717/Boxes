@@ -575,7 +575,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMPRESS_PNG_FILES = NO;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = nc1020/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -583,7 +583,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 2.0.5;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lw.NC1020;
 				PRODUCT_NAME = NC1020;
@@ -605,7 +605,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMPRESS_PNG_FILES = NO;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = nc1020/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -613,7 +613,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 2.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lw.NC1020;
 				PRODUCT_NAME = NC1020;
 				PROVISIONING_PROFILE_SPECIFIER = "";
