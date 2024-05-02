@@ -1,7 +1,7 @@
 Intro
 -------------
 
-NC1020 Simulator for iOS
+NC1020 Simulator for iOS, forked from: <https://github.com/rainyx/NC1020>
 
 
 Screen Captures
