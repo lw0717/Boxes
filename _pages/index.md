@@ -18,4 +18,4 @@ Boxes 模拟器，一款模拟电子词典运行的 App，导入相关程序即�
 你可通过以下方式与我们联系：
 
 - 兔小巢： <https://txc.qq.com/products/647515>
-- 邮箱：<nc1020app@outlook.com>
+- 邮箱：<boxes.app@outlook.com>
