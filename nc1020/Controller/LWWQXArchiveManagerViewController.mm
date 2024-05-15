@@ -97,6 +97,7 @@
     UITableViewCell *cell = [[UITableViewCell alloc] init];
     NSString *name = [LWWQXArchiveManager sharedInstance].archives.allKeys[indexPath.row];
     cell.textLabel.text = name;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 

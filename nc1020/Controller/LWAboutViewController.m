@@ -73,7 +73,7 @@
         @"开源地址": @"https://github.com/lw0717/NC1020",
         @"联系我们": @"nc1020app@outlook.com",
         @"在线反馈": @"https://txc.qq.com/products/647515",
-        @"版本号" : [NSString stringWithFormat:@"%@", [[[NSBundle mainBundle]infoDictionary] objectForKey:@"CFBundleShortVersionString"]],
+        @"版本号" : [NSString stringWithFormat:@"%@", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]],
     };
 }
 
