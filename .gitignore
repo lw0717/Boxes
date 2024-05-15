@@ -6,4 +6,6 @@ Gemfile.lock
 nc1020/
 NC1020.xcodeproj/
 NC1020.xcworkspace/
+Boxes.xcodeproj/
+Boxes.xcworkspace/
 Pods/
