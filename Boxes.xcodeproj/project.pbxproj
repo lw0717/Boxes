@@ -40,7 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		075192291B85CFBE00D38120 /* Boxes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boxes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		075192291B85CFBE00D38120 /* 电子盒子.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "电子盒子.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0751922D1B85CFBE00D38120 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0751922E1B85CFBE00D38120 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		075192301B85CFBE00D38120 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 		0751922A1B85CFBE00D38120 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				075192291B85CFBE00D38120 /* Boxes.app */,
+				075192291B85CFBE00D38120 /* 电子盒子.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -348,7 +348,7 @@
 			);
 			name = Boxes;
 			productName = nc1020;
-			productReference = 075192291B85CFBE00D38120 /* Boxes.app */;
+			productReference = 075192291B85CFBE00D38120 /* 电子盒子.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -578,6 +578,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = nc1020/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "电子盒子";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -586,7 +587,7 @@
 				MARKETING_VERSION = 3.1.7;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lw.NC1020;
-				PRODUCT_NAME = Boxes;
+				PRODUCT_NAME = "电子盒子";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -608,6 +609,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = nc1020/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "电子盒子";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -615,7 +617,7 @@
 				);
 				MARKETING_VERSION = 3.1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lw.NC1020;
-				PRODUCT_NAME = Boxes;
+				PRODUCT_NAME = "电子盒子";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
