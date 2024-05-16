@@ -15,6 +15,22 @@ permalink: /index.html
 
 - NC1020
 
+## App Store
+
+<https://apps.apple.com/cn/app/id1402955344>
+
+## 爱发电
+
+<https://afdian.net/@lw0717>
+
+## 在线反馈地址
+
+<https://txc.qq.com/products/647515>
+
+## 模拟器交流 QQ 群
+
+292802001
+
 ## 开源说明
 
 本软件为开源软件，开源地址: <https://github.com/lw0717/Boxes>
