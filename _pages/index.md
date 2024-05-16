@@ -1,5 +1,5 @@
 ---
-title: Boxes 模拟器
+title: 电子盒子
 author: lw0717
 date: 2024-04-12
 category: Boxes
