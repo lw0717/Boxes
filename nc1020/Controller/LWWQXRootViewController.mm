@@ -94,6 +94,10 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:UIApplicationDidChangeStatusBarOrientationNotification
                                                   object:nil];
+
+    self.screenView = nil;
+    self.run = NO;
+    _wqxLoopThread = nil;
 }
 
 - (void)setScreenView:(LWWQXScreenView *)screenView {
