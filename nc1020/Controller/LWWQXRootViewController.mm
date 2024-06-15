@@ -101,15 +101,17 @@
 }
 
 - (void)setScreenView:(LWWQXScreenView *)screenView {
-    if (_screenView != nil) {
+    if (_screenView) {
         [_screenView removeFromSuperview];
     }
     _screenView = screenView;
-    [[_screenView lcdView] beginUpdate];
-    [self.safeView addSubview:_screenView];
-    [_screenView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
-        make.top.bottom.left.right.equalTo(self.safeView);
-    }];
+    if (_screenView) {
+        [[_screenView lcdView] beginUpdate];
+        [self.safeView addSubview:_screenView];
+        [_screenView lw_makeConstraints:^(LWConstraintMaker * _Nonnull make) {
+            make.top.bottom.left.right.equalTo(self.safeView);
+        }];
+    }
 }
 
 - (void)switchScreenLayout {
