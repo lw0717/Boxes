@@ -34,11 +34,7 @@
 
 - (void)setupUI {
     self.tableview = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-    if (@available(iOS 11.0, *)) {
-        self.tableview.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-    } else {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
+    self.tableview.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     self.tableview.delegate = self;
     self.tableview.dataSource = self;
     [self.view addSubview:self.tableview];
@@ -57,8 +53,6 @@
             @"演示视频",
         ], @[
             @"开源地址",
-            @"在线反馈",
-            // @"捐赠项目",
         ], @[
             @"联系我们",
         ], @[
@@ -69,10 +63,8 @@
         @"项目简介": @"https://boxes.lw0717.com",
         @"隐私策略": @"https://boxes.lw0717.com/privacy.html",
         @"演示视频": @"https://www.bilibili.com/video/BV1kt421w7Pb/",
-        @"捐赠项目": @"https://afdian.net/a/lw0717",
         @"开源地址": @"https://github.com/lw0717/Boxes",
         @"联系我们": @"boxes.app@outlook.com",
-        @"在线反馈": @"https://txc.qq.com/products/647515",
         @"版本号" : [NSString stringWithFormat:@"%@", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]],
     };
 }

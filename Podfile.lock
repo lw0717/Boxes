@@ -5,12 +5,12 @@ DEPENDENCIES:
   - MBProgressHUD
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - MBProgressHUD
 
 SPEC CHECKSUMS:
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
 
-PODFILE CHECKSUM: 1ecb45ee27615950e371ce6de91282db52913b96
+PODFILE CHECKSUM: ecacb80e9aba32f105dda236e1c58ef750cba05e
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.17.0

@@ -1092,25 +1092,16 @@ lw_attribute(lw_centerYWithinMargins, self, NSLayoutAttributeCenterYWithinMargin
 
 @implementation UIView (LWLayoutAttribute)
 - (UILayoutGuide *)lw_safeAreaLayoutGuide {
-    if (@available(iOS 11.0, *)) {
-        return self.safeAreaLayoutGuide;
-    }
-    return nil;
+    return self.safeAreaLayoutGuide;
 }
 @end
 
 @implementation UIScrollView (LWLayoutAttribute)
 - (UILayoutGuide *)lw_contentLayoutGuide {
-    if (@available(iOS 11.0, *)) {
-        return self.contentLayoutGuide;
-    }
-    return nil;
+    return self.contentLayoutGuide;
 }
 - (UILayoutGuide *)lw_frameLayoutGuide {
-    if (@available(iOS 11.0, *)) {
-        return self.frameLayoutGuide;
-    }
-    return nil;
+    return self.frameLayoutGuide;
 }
 @end
 

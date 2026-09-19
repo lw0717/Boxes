@@ -42,11 +42,7 @@
 
 - (void)setupUI {
     self.tableview = [[LWTableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-    if (@available(iOS 11.0, *)) {
-        self.tableview.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-    } else {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
+    self.tableview.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     self.tableview.delegate = self;
     self.tableview.dataSource = self;
     self.tableview.placeholderView = ({
