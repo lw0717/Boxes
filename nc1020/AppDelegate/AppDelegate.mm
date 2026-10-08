@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "LWWQXArchiveManagerViewController.h"
 
 @interface AppDelegate ()
 
@@ -15,40 +14,22 @@
 
 @implementation AppDelegate
 
+// 应用启动完成（仅处理全局初始化，不涉及UI）
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-
-    LWWQXArchiveManagerViewController *vc = [[LWWQXArchiveManagerViewController alloc] init];
-    UINavigationController *rootViewController = [[UINavigationController alloc] initWithRootViewController:vc];
-    rootViewController.navigationBar.tintColor = [UIColor blackColor];
-
-    [self.window setBackgroundColor:[UIColor whiteColor]];
-    [self.window setRootViewController:rootViewController];
-    [self.window makeKeyAndVisible];
+    // 全局配置：注册推送、初始化第三方SDK等（不创建window）
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+// 系统请求创建新场景时调用（如用户开启多窗口）
+- (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)connectingSession options:(UISceneConnectionOptions *)options {
+    // 返回 Info.plist 中配置的场景配置（匹配名称）
+    return [UISceneConfiguration configurationWithName:@"Boxes Configuration" sessionRole:connectingSession.role];
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+// 场景会话断开时调用（如用户关闭窗口）
+- (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions {
+    // 清理场景相关资源（如释放场景专属数据）
 }
 
 @end

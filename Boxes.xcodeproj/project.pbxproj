@@ -22,6 +22,7 @@
 		18611C9D1B89F65A00BB0AED /* LWWQXArchiveManager.h in Sources */ = {isa = PBXBuildFile; fileRef = 18611C9C1B89F65A00BB0AED /* LWWQXArchiveManager.h */; };
 		18611CA71B8A061100BB0AED /* LWGridKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18611CA61B8A061100BB0AED /* LWGridKeyboardView.m */; };
 		18611CAA1B8A06A100BB0AED /* LWGMUDKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18611CA91B8A06A100BB0AED /* LWGMUDKeyboardView.m */; };
+		261317C530777C99008CE31C /* SceneDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 261317C430777C94008CE31C /* SceneDelegate.mm */; };
 		26803BDF2BC9897F00656002 /* MBProgressHUD+LW.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BDD2BC9897E00656002 /* MBProgressHUD+LW.m */; };
 		26803BE22BC98D9E00656002 /* LWAutolayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BE02BC98D9E00656002 /* LWAutolayout.m */; };
 		26803BE52BC98DCD00656002 /* LWEXTScope.m in Sources */ = {isa = PBXBuildFile; fileRef = 26803BE32BC98DCD00656002 /* LWEXTScope.m */; };
@@ -69,6 +70,8 @@
 		18611CA61B8A061100BB0AED /* LWGridKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWGridKeyboardView.m; sourceTree = "<group>"; };
 		18611CA81B8A06A100BB0AED /* LWGMUDKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWGMUDKeyboardView.h; sourceTree = "<group>"; };
 		18611CA91B8A06A100BB0AED /* LWGMUDKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWGMUDKeyboardView.m; sourceTree = "<group>"; };
+		261317C330777C82008CE31C /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		261317C430777C94008CE31C /* SceneDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SceneDelegate.mm; sourceTree = "<group>"; };
 		26803BDD2BC9897E00656002 /* MBProgressHUD+LW.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+LW.m"; sourceTree = "<group>"; };
 		26803BDE2BC9897F00656002 /* MBProgressHUD+LW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+LW.h"; sourceTree = "<group>"; };
 		26803BE02BC98D9E00656002 /* LWAutolayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAutolayout.m; sourceTree = "<group>"; };
@@ -293,6 +296,8 @@
 			children = (
 				075192301B85CFBE00D38120 /* AppDelegate.h */,
 				075192311B85CFBE00D38120 /* AppDelegate.mm */,
+				261317C330777C82008CE31C /* SceneDelegate.h */,
+				261317C430777C94008CE31C /* SceneDelegate.mm */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -439,6 +444,7 @@
 				18611C8C1B89ED2B00BB0AED /* LWWQXRootViewController.mm in Sources */,
 				26803BF02BC99F5B00656002 /* UIColor+LW.m in Sources */,
 				18611CAA1B8A06A100BB0AED /* LWGMUDKeyboardView.m in Sources */,
+				261317C530777C99008CE31C /* SceneDelegate.mm in Sources */,
 				26803BFE2BCE502200656002 /* LWWQXArchive.m in Sources */,
 				18611C8D1B89ED2B00BB0AED /* LWWQXLCDView.mm in Sources */,
 				07F88A341B8C15A600B205DA /* LWWQXArchiveManager.mm in Sources */,
