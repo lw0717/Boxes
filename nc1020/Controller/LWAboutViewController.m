@@ -8,7 +8,6 @@
 
 #import "LWAboutViewController.h"
 #import "LWAutolayout.h"
-#import <SafariServices/SafariServices.h>
 
 #define SettingCellReuseIdentifier @"SettingCellReuseIdentifier"
 
@@ -95,8 +94,9 @@
         NSString *title = self.titles[indexPath.section][indexPath.row];
         NSString *value = self.values[title];
         if (value) {
-            SFSafariViewController *safariVc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:value]];
-            [self presentViewController:safariVc animated:YES completion:nil];
+            [UIApplication.sharedApplication openURL:[NSURL URLWithString:value]
+                                             options:@{}
+                                   completionHandler:nil];
         }
     }
 }
