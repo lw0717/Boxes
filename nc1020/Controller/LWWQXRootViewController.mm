@@ -84,20 +84,26 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [[NSNotificationCenter defaultCenter] addObserver:self 
-                                             selector:@selector(orientChange:)
-                                                 name:UIApplicationDidChangeStatusBarOrientationNotification
-                                               object:nil];
+    //
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIApplicationDidChangeStatusBarOrientationNotification
-                                                  object:nil];
-
     self.screenView = nil;
     self.run = NO;
     _wqxLoopThread = nil;
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+
+    // 旋转动画过程中同步更新UI
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        // 处理方向旋转
+        [self.screenView setStyle:[self getScreenStyle]];
+        [self.view layoutIfNeeded];
+    } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        // 旋转完成后收尾逻辑
+    }];
 }
 
 - (void)setScreenView:(LWWQXScreenView *)screenView {
@@ -141,7 +147,7 @@
 - (LWScreenStyle)getScreenStyle {
     UIUserInterfaceIdiom deviceIdiom = [UIDevice currentDevice].userInterfaceIdiom;
     if (deviceIdiom == UIUserInterfaceIdiomPhone) {
-        UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+        UIInterfaceOrientation orientation = self.view.window.windowScene.interfaceOrientation;
         if (orientation == UIInterfaceOrientationLandscapeLeft ||
             orientation == UIInterfaceOrientationLandscapeRight) {
             return LWScreenStyleLandscape;
